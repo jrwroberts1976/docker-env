@@ -1,0 +1,56 @@
+services:
+
+  nginx-proxy-manager:
+    image: jc21/nginx-proxy-manager:latest
+    container_name: npm
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "81:81"
+      - "443:443"
+    volumes:
+      - /home/james/docker/data/proxy-auth/npm/data:/data
+      - /home/james/docker/data/proxy-auth/npm/letsencrypt:/etc/letsencrypt
+    networks:
+      - apps
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+
+
+  authelia:
+    image: authelia/authelia:latest
+    container_name: authelia
+    restart: unless-stopped
+    ports:
+      - "9091:9091"
+    volumes:
+      - /home/james/docker/data/proxy-auth/authelia/config:/config
+    environment:
+      - TZ=Europe/London
+    networks:
+      - apps
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+
+
+  duckdns:
+    image: lscr.io/linuxserver/duckdns:latest
+    container_name: duckdns
+    restart: unless-stopped
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+      - SUBDOMAINS=jrwroberts
+      - TOKEN=${DUCKDNS_TOKEN}
+      - UPDATE_IP=ipv4
+    networks:
+      - apps
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+
+
+networks:
+  apps:
+    external: true
+    name: homelab_apps

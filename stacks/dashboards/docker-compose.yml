@@ -1,0 +1,41 @@
+services:
+
+  homepage:
+    image: ghcr.io/gethomepage/homepage:latest
+    container_name: homepage
+#    ports:
+#      - "3000:3000"
+    volumes:
+      - /home/james/docker/data/dashboards/homepage/config:/app/config
+      - /home/james/docker/data/dashboards/homepage/data:/app/data
+      - /home/james/docker/data/dashboards/homepage/logs:/app/logs
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    environment:
+      HOMEPAGE_ALLOWED_HOSTS: "home.jrwroberts.duckdns.org,192.168.2.220:3000,localhost:3000"
+      HOSTNAME: "0.0.0.0"
+      PORT: "3000"
+    restart: unless-stopped
+    networks:
+      - apps
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+
+
+  dashy:
+    image: lissy93/dashy:latest
+    container_name: dashy
+#    ports:
+#      - "4000:8080"
+    volumes:
+      - /home/james/docker/data/dashboards/dashy/conf.yml:/app/user-data/conf.yml
+    restart: unless-stopped
+    networks:
+      - apps
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+
+
+networks:
+  apps:
+    external: true
+    name: homelab_apps

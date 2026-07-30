@@ -1,0 +1,24 @@
+services:
+  crowdsec:
+    image: crowdsecurity/crowdsec:latest
+    container_name: crowdsec
+    restart: unless-stopped
+
+    ports:
+      - "8085:8080"
+
+    environment:
+      COLLECTIONS: "crowdsecurity/linux crowdsecurity/nginx"
+
+    volumes:
+      - /home/james/docker/data/security/crowdsec/config:/etc/crowdsec
+      - /home/james/docker/data/security/crowdsec/data:/var/lib/crowdsec/data
+      - /home/james/docker/data/proxy-auth/npm/data/logs:/var/log/nginx:ro
+      - /var/log/auth.log:/var/log/auth.log:ro
+    networks:
+      - homelab_apps
+
+
+networks:
+  homelab_apps:
+    external: true

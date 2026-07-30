@@ -1,0 +1,89 @@
+services:
+
+  uptime-kuma:
+    image: louislam/uptime-kuma:1.23.16
+    container_name: uptime-kuma
+#    ports:
+#      - "3001:3001"
+    volumes:
+      - /home/james/docker/data/availability/uptime-kuma/data:/app/data
+    restart: unless-stopped
+    environment:
+      - TZ=Europe/London
+      - UPTIME_KUMA_SMTP_HOST=smtp.gmail.com
+      - UPTIME_KUMA_SMTP_PORT=587
+      - UPTIME_KUMA_SMTP_SECURE=false
+      - UPTIME_KUMA_SMTP_USER=jrwroberts1976@gmail.com
+      - UPTIME_KUMA_SMTP_PASS=${KUMA_SMTP_PASSWORD}
+      - UPTIME_KUMA_SMTP_FROM=jrwroberts1976@gmail.com
+    networks:
+      - apps
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+
+
+  autokuma:
+    image: ghcr.io/bigboot/autokuma:latest
+    container_name: autokuma
+    depends_on:
+      uptime-kuma:
+        condition: service_started
+    environment:
+      AUTOKUMA__KUMA__URL: "http://uptime-kuma:3001"
+      AUTOKUMA__KUMA__USERNAME: "admin"
+      AUTOKUMA__KUMA__PASSWORD: "REDACTED"
+    volumes:
+      - /home/james/docker/data/availability/autokuma/config:/config
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    restart: unless-stopped
+    command: sh -c "sleep 30 && autokuma"
+    networks:
+      - apps
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+
+
+  smokeping:
+    image: linuxserver/smokeping
+    container_name: smokeping
+    environment:
+      - PUID=1000
+      - PGID=1000
+    volumes:
+      - /home/james/docker/data/availability/smokeping/data:/data
+      - smokeping-config:/config
+#    ports:
+#      - "85:80"
+    restart: unless-stopped
+    networks:
+      - apps
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+
+
+  librespeed:
+    image: ghcr.io/librespeed/speedtest:latest
+    container_name: librespeed
+#    ports:
+#      - "8085:8080"
+    environment:
+      MODE: standalone
+      TELEMETRY: "false"
+    volumes:
+      - /home/james/docker/data/availability/librespeed/config:/config
+    restart:
+      unless-stopped
+    networks:
+      - apps
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+
+
+networks:
+  apps:
+    external: true
+    name: homelab_apps
+
+
+volumes:
+  smokeping-config:

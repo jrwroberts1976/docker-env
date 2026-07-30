@@ -1,0 +1,16 @@
+# Docker data
+data/
+
+# Environment files
+.env
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+
+# Secrets
+secrets/
+*.key
+*.pem

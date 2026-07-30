@@ -1,0 +1,56 @@
+services:
+  birdnet-go:
+    image: ghcr.io/tphakala/birdnet-go:latest
+    container_name: birdnet-go
+    restart: unless-stopped
+
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+    mem_limit: 1g
+
+    ports:
+      - "8082:8080"
+
+    devices:
+      - /dev/snd:/dev/snd
+
+    volumes:
+      - /home/james/docker/data/birdnet-go/config:/config
+      - /home/james/docker/data/birdnet-go/data:/data
+
+    environment:
+      - TZ=Europe/London
+
+    group_add:
+      - audio
+
+    security_opt:
+      - no-new-privileges:true
+
+    networks:
+      - apps
+
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+  birdnet-exporter:
+    build: ./birdnet-exporter
+    container_name: birdnet-exporter
+    restart: unless-stopped
+
+    volumes:
+      - /home/james/docker/data/birdnet-go/data:/data:ro
+
+    ports:
+      - "9105:9105"
+
+    networks:
+      - apps
+
+networks:
+  apps:
+    external: true
+    name: homelab_apps
