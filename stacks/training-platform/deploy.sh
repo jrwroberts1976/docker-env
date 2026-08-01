@@ -6,13 +6,13 @@ echo "Updating training platform"
 
 cd ~/docker/stacks/training-platform
 
-echo "Updating repositories"
-
-git submodule update --init --recursive
-
 echo "Pulling latest changes"
 
 git pull
+
+echo "Updating repositories"
+
+git submodule update --init --recursive
 
 echo "Rebuilding container"
 
