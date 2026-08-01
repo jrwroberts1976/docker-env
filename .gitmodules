@@ -13,3 +13,6 @@
 [submodule "stacks/training-platform/repos/portfolio"]
 	path = stacks/training-platform/repos/portfolio
 	url = https://github.com/jrwroberts1976/engineering-learning-portfolio.git
+[submodule "stacks/training-platform/repos/cv"]
+	path = stacks/training-platform/repos/cv
+	url = https://github.com/jrwroberts1976/james-roberts-cv.git
