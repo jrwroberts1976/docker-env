@@ -1,212 +1,170 @@
-# Welcome to James' Engineering Learning Platform
+# James Engineering Training Platform
 
-## About Me
+## Welcome
 
-I am an experienced IT professional with over 20 years of experience working across UNIX/Linux administration, infrastructure support, technical operations, and service management.
+Welcome to my engineering learning platform.
 
-My background includes supporting high-availability environments, managing enterprise infrastructure, troubleshooting complex technical issues, and improving operational processes using automation and modern engineering practices.
+This site documents my journey through Linux administration, cloud engineering, DevOps practices, infrastructure automation, Kubernetes, monitoring, and security.
 
-Throughout my career I have worked with:
+The platform is built using modern engineering practices:
 
-* Linux and UNIX systems administration
-* Infrastructure operations
-* Disaster recovery and resilience
-* IT service management and ITIL practices
+* Documentation as Code
+* Docker containerisation
+* Git-based workflows
+* Infrastructure as Code principles
+* Continuous improvement through automation
+
+---
+
+# About Me
+
+I am an experienced infrastructure and systems professional with over 20 years of experience supporting UNIX/Linux platforms, enterprise systems, operational resilience, and technical environments.
+
+My focus is continuing to develop modern engineering skills across:
+
+* Linux administration
+* Cloud platforms
+* DevOps engineering
+* Kubernetes
+* Automation
+* Infrastructure as Code
 * Monitoring and observability
-* Cloud technologies
-* Automation and scripting
-* Containerisation and modern deployment practices
+* Security engineering
 
-This platform documents my continued journey into cloud engineering, DevOps, and automation.
+This platform demonstrates my practical learning through hands-on projects and real-world implementations.
 
 ---
 
-# My Homelab Journey
+# My Homelab
 
-My homelab is a practical engineering environment where I experiment, learn, and build solutions using the same technologies and approaches used in modern production environments.
+My homelab is used as a practical engineering environment where I design, build, test, and document solutions.
 
-The goal is not just to run services, but to understand the complete lifecycle:
-
-* Design
-* Build
-* Deploy
-* Monitor
-* Secure
-* Automate
-* Document
-
-Every project is treated as an opportunity to develop real-world engineering skills.
-
----
-
-# Current Homelab Environment
-
-My current environment includes:
+Current capabilities include:
 
 ## Container Platform
 
-Running containerised workloads using Docker and Docker Compose.
-
-Examples include:
-
-* Monitoring platforms
-* Documentation platforms
-* Security tooling
-* Network services
-* AI-powered applications
+* Docker and Docker Compose
 * Self-hosted applications
-
-Key technologies:
-
-* Docker
-* Docker Compose
-* Linux
-* Git
-* YAML configuration
-* Container networking
-
----
+* Container monitoring
+* Service management
+* Automated updates
 
 ## Kubernetes Platform
 
-Building hands-on Kubernetes experience using a Raspberry Pi-based Kubernetes cluster.
-
-Current learning areas:
-
-* Kubernetes architecture
-* Deployments
-* Services
-* Ingress
-* Storage
+* k3s Kubernetes cluster
+* Application deployments
 * Networking
-* Cluster management
-* Application deployment
+* Ingress management
+* Persistent storage
+* Cluster operations
 
-Technologies:
+## Cloud Engineering
 
-* k3s
-* Kubernetes
-* containerd
-* MetalLB
-* Traefik
-* Helm
+* AWS infrastructure projects
+* Terraform Infrastructure as Code
+* Ansible automation
+* Cloud architecture design
+
+## Monitoring and Security
+
+* Prometheus metrics
+* Grafana dashboards
+* Loki logging
+* CrowdSec security monitoring
+* Infrastructure visibility
 
 ---
 
-# Monitoring and Observability
+# Current Engineering Projects
 
-A major focus of my homelab is understanding how systems are monitored and maintained.
+## Linux Training Academy
 
-Current areas:
+A structured Linux learning pathway covering:
 
-* Metrics collection
-* Dashboards
-* Alerting
-* Log aggregation
-* Security monitoring
+* Command line fundamentals
+* Filesystems
+* Users and groups
+* Package management
+* Processes and services
+* Networking
+* Storage
+* Shell scripting
+* Security
+* Troubleshooting
 
-Technologies:
+---
+
+## Kubernetes Homelab
+
+A practical Kubernetes environment exploring:
+
+* Cluster deployment
+* Application management
+* Networking
+* Ingress
+* Storage
+* Operational practices
+
+---
+
+## Cloud Platform Engineering
+
+A cloud-focused project covering:
+
+* AWS foundations
+* Terraform automation
+* Ansible configuration management
+* Cloud architecture patterns
+
+---
+
+## Monitoring Platform
+
+Building an observability platform using:
 
 * Prometheus
 * Grafana
 * Loki
-* Node Exporter
-* CrowdSec
-
-The objective is to build an environment where problems can be detected before they impact services.
+* Node exporters
+* Alerting
 
 ---
 
-# Automation Goals
+# Learning Roadmap
 
-The next stage of my homelab development is moving towards a fully automated engineering platform.
+My goal is to continue developing towards roles involving:
 
-Planned improvements include:
+* DevOps Engineering
+* Cloud Engineering
+* Platform Engineering
+* Solution Architecture
+* Technical Leadership
 
-## Infrastructure as Code
-
-Managing infrastructure through code rather than manual configuration.
-
-Technologies:
-
-* Terraform
-* Ansible
-* GitHub repositories
-* Automated deployments
+The focus is on combining operational experience with modern automation and cloud technologies.
 
 ---
 
-## CI/CD Automation
+# Training Modules
 
-Building automated pipelines where changes are:
+Explore the available learning paths:
 
-1. Committed to Git
-2. Tested automatically
-3. Built into container images
-4. Published
-5. Deployed automatically
-
-Example workflow:
-
-```
-Developer Change
-        |
-        v
-Git Push
-        |
-        v
-GitHub Actions
-        |
-        v
-Docker Image Build
-        |
-        v
-Container Registry
-        |
-        v
-Automated Deployment
-```
-
----
-
-# Future Cloud Direction
-
-My long-term goal is to extend my homelab experience into cloud engineering.
-
-Areas of focus:
-
-* AWS infrastructure
-* Cloud networking
+* Linux Administration
+* Docker
+* Kubernetes
+* Cloud Engineering
 * Infrastructure as Code
-* Container platforms
-* Security automation
-* DevOps practices
-
-The homelab provides a safe environment to experiment with architectures before applying those skills in enterprise and cloud environments.
-
----
-
-# Training Platform
-
-This website is itself part of the learning journey.
-
-It demonstrates:
-
-* Documentation as Code
-* Container deployment
-* Git-based workflows
-* Automated publishing
-* DevOps principles
-
-The training modules contained here document my progress and provide a reference for future learning.
+* Monitoring
+* Security
+* Microsoft 365
 
 ---
 
 # Engineering Philosophy
 
-The aim of this homelab is simple:
+> Learn by building.
+> Document what you learn.
+> Automate what you repeat.
+> Improve continuously.
 
-> Build, break, learn, automate, and improve.
-
-Real engineering skills come from practical experience, experimentation, and continuous improvement.
-
+This platform is a living record of my engineering development and practical experimentation.
+# Automation Test
