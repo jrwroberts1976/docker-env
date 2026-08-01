@@ -5,8 +5,10 @@ theme:
 
 nav:
   - Home: index.md
+  - Platform Automation Overview: platform-automation-overview.md
   - Projects: projects.md
   - Architecture: architecture.md
+
   - Training:
       - Linux:
           - Overview: courses/linux/content/docs/course-index.md
@@ -15,10 +17,10 @@ nav:
           - Overview: courses/kubernetes/index.md
 
       - Cloud:
-         - Overview: courses/cloud/index.md
+          - Overview: courses/cloud/index.md
 
       - Azure:
-         - Overview: courses/azure/index.md
+          - Overview: courses/azure/index.md
 
       - Docker:
           - Overview: courses/docker/index.md
