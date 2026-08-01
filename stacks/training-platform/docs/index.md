@@ -6,8 +6,6 @@ Welcome to my engineering learning platform.
 
 This site documents my journey through Linux administration, cloud engineering, DevOps practices, infrastructure automation, Kubernetes, monitoring, and security.
 
-The platform is built using modern engineering practices:
-
 * Documentation as Code
 * Docker containerisation
 * Git-based workflows
@@ -159,14 +157,54 @@ Explore the available learning paths:
 
 ---
 
+# Training Progress
+
+Current development status of the learning platform:
+
+| Course | Status | Completion |
+|---|---|---:|
+| Linux Administration | 🟡 In Development | 45% |
+| Kubernetes Engineering | 🟡 In Development | 25% |
+| Cloud Engineering (AWS) | 🟡 In Development | 35% |
+| Azure Engineering | 🟡 Early Development | 15% |
+| Git Fundamentals | 🟡 Early Development | 10% |
+| Docker & Containers | 🟡 Planned | 10% |
+| Infrastructure as Code | 🟡 In Development | 30% |
+| Monitoring & Observability | 🟡 Planned | 10% |
+| Security Engineering | 🟡 Planned | 5% |
+| Microsoft 365 Administration | 🟡 Planned | 5% |
+
+---
+
+# Linux Administration Progress
+
+## Completion: 45%
+
+The Linux Administration course is being developed as a practical engineering pathway.
+
+Current modules:
+
+| Module | Topic | Status |
+|---|---|---|
+| 00 | Introduction to Linux | ✅ Complete |
+| 01 | Command Line Fundamentals | ✅ Complete |
+| 02 | Filesystem Management | ✅ Complete |
+| 03 | Users and Groups | ✅ Complete |
+| 04 | Processes and Services | 🔄 In Development |
+| 05 | Package Management | ✅ Complete |
+| 06 | Networking Fundamentals | ⏳ Planned |
+| 07 | Storage Management | ⏳ Planned |
+| 08 | Shell Scripting | ⏳ Planned |
+| 09 | Linux Security | ⏳ Planned |
+| 10 | Troubleshooting | ⏳ Planned |
+
+---
+
 # Engineering Philosophy
 
-> Learn by building.
-> Document what you learn.
-> Automate what you repeat.
+> Learn by building.  
+> Document what you learn.  
+> Automate what you repeat.  
 > Improve continuously.
 
 This platform is a living record of my engineering development and practical experimentation.
-# Automation Test
-<!-- CI/CD test -->
-# CI retry Sat  1 Aug 10:13:47 BST 2026
