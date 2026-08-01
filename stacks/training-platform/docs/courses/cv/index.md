@@ -4,7 +4,7 @@ My latest professional CV is maintained in a separate Git repository to keep it 
 
 ## Download
 
-[Download James Roberts CV](../../../repos/cv/James_Roberts_CV.docx)
+[Download James Roberts CV](content/James_Roberts_CV.docx)
 
 ## Repository
 
