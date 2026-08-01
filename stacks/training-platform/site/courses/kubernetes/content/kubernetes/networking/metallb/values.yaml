@@ -1,5 +1,0 @@
-controller:
-  replicas: 1
-
-speaker:
-  enabled: true

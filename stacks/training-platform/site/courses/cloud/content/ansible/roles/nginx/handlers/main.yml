@@ -1,4 +1,0 @@
----
-
-- name: Restart nginx
-  command: docker restart cloud-platform-nginx

@@ -15,3 +15,13 @@ secrets/
 *.key
 *.pem
 
+# MkDocs generated site
+stacks/training-platform/site/
+
+# Temporary repository clones
+azure-training/
+basic-linux-training/
+cloud-platform/
+engineering-learning-portfolio/
+james-roberts-cv/
+kubernetes-homelab/
