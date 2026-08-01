@@ -1,0 +1,9 @@
+- name: Reset Grafana admin password
+  become: true
+  ansible.builtin.command:
+    cmd: >
+      docker exec grafana
+      grafana-cli admin reset-admin-password {{ grafana_admin_password }}
+  no_log: true
+  tags:
+    - grafana-password

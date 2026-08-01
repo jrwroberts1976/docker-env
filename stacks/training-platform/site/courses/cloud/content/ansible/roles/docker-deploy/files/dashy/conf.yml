@@ -1,0 +1,102 @@
+appConfig:
+  theme: glass
+  language: en-GB
+  allowConfigEdit: false
+
+
+pageInfo:
+  title: Rosie's Dashboard
+  description: News, links, tools and live info
+sections:
+  - name: Weather
+    widgets:
+      - type: weather
+        options:
+          apiKey: 45db53769acf89d859129eb4ea3370aa
+          city: Ferndown,GB
+          units: metric
+  - name: Games
+    items:
+      - title: Daily Mail Games
+        icon: mdi-newspaper
+        url: https://www.dailymail.com/games/index.html
+      - title: Sky Sudoku
+        icon: mdi-puzzle
+        url: https://news.sky.com/puzzles/sudoku
+      - title: duolingo
+        icon: mdi-translate
+        url: https://www.duolingo.com
+  - name: Banking
+    items:
+      - title: First Direct Online Banking
+        icon: mdi-bank
+        url: https://www.firstdirect.com/ways-to-bank/online-banking/
+      - title: Santander Online Banking
+        icon: mdi-bank-transfer
+        url: >-
+          https://www.santander.co.uk/personal/support/ways-to-bank/online-banking/
+  
+  - name: Social
+    items:
+      - title: YouTube
+        icon: mdi-youtube
+        url: https://www.youtube.com
+      - title: Facebook
+        icon: mdi-facebook
+        url: https://www.facebook.com
+      - title: WhatsApp
+        icon: mdi-whatsapp
+        url: https://web.whatsapp.com
+      - title: Zoom
+        icon: mdi-video
+        url: https://zoom.us/join
+      - title: Instagram
+        icon: mdi-instagram
+        url: https://www.instagram.com
+  - name: Documents
+    items:
+      - title: Accounts
+        icon: mdi-finance
+        url: https://docs.google.com/spreadsheets/d/1dGuNBvhSS_ZziHFFqyqZ9aPrcrRwiahEyEVSRXZhvok/edit
+      - title: Energy Usage
+        icon: mdi-lightning-bolt
+        url: >-
+          https://docs.google.com/spreadsheets/d/1F8IGDcosT3IqNlmMC098V5by1KDO_Gsc/edit
+      - title: Public Talk Admin
+        icon: mdi-microphone
+        url: >-
+          https://docs.google.com/spreadsheets/d/1H1MdZ72Xc64ujqaEH1FVpdKLTg8SVVqR8czzlBD5kTY/edit
+      - title: Outlook Mail
+        icon: mdi-microsoft-outlook
+        url: https://outlook.live.com  
+  - name: Interests
+    items:
+      - title: JW.org
+        icon: mdi-earth
+        url: https://www.jw.org
+      - title: UK Jive
+        icon: mdi-dance-ballroom
+        url: https://www.uk-jive.co.uk/index.asp
+      - title: playlist
+        icon: mdi-playlist-music
+        url: https://app.plex.tv/desktop/#!/media/bf3fae5fc22d4dad724f389cd812b18ce1ae04d6/com.plexapp.plugins.library?source=playlists
+      - title: Rosie Latin Mix
+        icon: mdi-palm-tree
+        url: https://suno.com/playlist/67bc40e6-9d3b-4a03-8020-3955063c9f62
+      - title: Elements Online Booking
+        icon: mdi-heart-pulse
+        url: >-
+          https://elements-wellness.co.uk/online-bookings/#tmup=/p/9943198-elements-health-span-ltd/start/?next=/w9943198/p/9943198-elements-health-span-ltd/c/account
+      - title: Birds
+        icon: mdi-bird
+        url: http://birdnet.jrwroberts.duckdns.org/ui/dashboard
+          
+  - name: Shopping
+    items:
+      - title: Amazon
+        icon: mdi-cart
+        url: https://www.amazon.co.uk
+      - title: eBay
+        icon: mdi-shopping
+        url: https://www.ebay.co.uk
+pages: []

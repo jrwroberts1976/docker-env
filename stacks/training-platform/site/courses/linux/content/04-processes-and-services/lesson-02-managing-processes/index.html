@@ -1,0 +1,1574 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Lesson 02 - Managing Linux Processes - James Engineering Training Platform</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lesson-02-managing-linux-processes" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="James Engineering Training Platform" class="md-header__button md-logo" aria-label="James Engineering Training Platform" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            James Engineering Training Platform
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lesson 02 - Managing Linux Processes
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="James Engineering Training Platform" class="md-nav__button md-logo" aria-label="James Engineering Training Platform" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    James Engineering Training Platform
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Training
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Training
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Linux
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/course-index/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kubernetes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Kubernetes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cloud
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cloud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Azure
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Azure
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../azure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Docker
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Git
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monitoring
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Monitoring
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Security
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_9" id="__nav_4_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Microsoft 365
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Microsoft 365
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../microsoft365/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="lesson-02-managing-linux-processes">Lesson 02 - Managing Linux Processes</h1>
+<blockquote>
+<p><strong>Estimated time:</strong> 60–90 minutes  </p>
+<p><strong>Prerequisites:</strong>
+- Module 04 – Processes and Services
+- Lesson 01 – Understanding Linux Processes</p>
+<p><strong>Difficulty:</strong> Beginner to Intermediate</p>
+<p><strong>Hands-on exercises:</strong> Yes</p>
+</blockquote>
+<hr />
+<h1 id="overview">Overview</h1>
+<p>Linux systems run many processes at the same time.</p>
+<p>Administrators need to understand how to:</p>
+<ul>
+<li>View running processes</li>
+<li>Identify resource usage</li>
+<li>Find specific processes</li>
+<li>Run commands in the background</li>
+<li>Control and stop processes safely</li>
+</ul>
+<p>Process management is an important skill for troubleshooting performance issues and maintaining system stability.</p>
+<hr />
+<h1 id="viewing-processes">Viewing Processes</h1>
+<p>Linux provides several commands for viewing running processes.</p>
+<hr />
+<h1 id="ps-command">ps Command</h1>
+<p>The <code>ps</code> command displays information about running processes.</p>
+<p>Basic usage:</p>
+<pre><code class="language-bash">ps
+</code></pre>
+<p>Example output:</p>
+<pre><code class="language-text">PID TTY          TIME CMD
+1234 pts/0    00:00:00 bash
+5678 pts/0    00:00:01 ps
+</code></pre>
+<p>Information shown:</p>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PID</td>
+<td>Process ID</td>
+</tr>
+<tr>
+<td>TTY</td>
+<td>Terminal</td>
+</tr>
+<tr>
+<td>TIME</td>
+<td>CPU time used</td>
+</tr>
+<tr>
+<td>CMD</td>
+<td>Command</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="viewing-all-processes">Viewing All Processes</h1>
+<p>To view all running processes:</p>
+<pre><code class="language-bash">ps aux
+</code></pre>
+<p>Example:</p>
+<pre><code class="language-text">USER       PID %CPU %MEM COMMAND
+root         1  0.0  1.2 systemd
+james     1234  0.1  0.5 bash
+</code></pre>
+<p>Important columns:</p>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>USER</td>
+<td>Process owner</td>
+</tr>
+<tr>
+<td>PID</td>
+<td>Process ID</td>
+</tr>
+<tr>
+<td>%CPU</td>
+<td>CPU usage</td>
+</tr>
+<tr>
+<td>%MEM</td>
+<td>Memory usage</td>
+</tr>
+<tr>
+<td>COMMAND</td>
+<td>Running command</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="finding-processes">Finding Processes</h1>
+<h2 id="using-pgrep">Using pgrep</h2>
+<p>The <code>pgrep</code> command searches for processes by name.</p>
+<p>Example:</p>
+<pre><code class="language-bash">pgrep ssh
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-text">742
+</code></pre>
+<p>This returns the process ID.</p>
+<hr />
+<h2 id="using-ps-with-grep">Using ps with grep</h2>
+<p>Example:</p>
+<pre><code class="language-bash">ps aux | grep ssh
+</code></pre>
+<p>This searches the process list.</p>
+<p>Example output:</p>
+<pre><code class="language-text">root 742 0.0 sshd
+</code></pre>
+<hr />
+<h1 id="process-information">Process Information</h1>
+<p>To view details about a process:</p>
+<pre><code class="language-bash">ps -fp PID
+</code></pre>
+<p>Example:</p>
+<pre><code class="language-bash">ps -fp 742
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-text">UID   PID  PPID CMD
+root  742    1  sshd
+</code></pre>
+<p>Information:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PID</td>
+<td>Process ID</td>
+</tr>
+<tr>
+<td>PPID</td>
+<td>Parent Process ID</td>
+</tr>
+<tr>
+<td>CMD</td>
+<td>Command</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="parent-and-child-processes">Parent and Child Processes</h1>
+<p>Processes can create other processes.</p>
+<p>Example:</p>
+<pre><code class="language-text">systemd
+ |
+ ├── sshd
+ |    |
+ |    └── bash
+ |
+ └── cron
+</code></pre>
+<p>View process relationships:</p>
+<pre><code class="language-bash">pstree
+</code></pre>
+<p>This shows the hierarchy of processes.</p>
+<hr />
+<h1 id="background-processes">Background Processes</h1>
+<p>Commands normally run in the foreground.</p>
+<p>Example:</p>
+<pre><code class="language-bash">sleep 60
+</code></pre>
+<p>The terminal waits until the command finishes.</p>
+<p>To run a command in the background:</p>
+<pre><code class="language-bash">sleep 300 &amp;
+</code></pre>
+<p>Example output:</p>
+<pre><code class="language-text">[1] 12345
+</code></pre>
+<p>The number returned is the process ID.</p>
+<hr />
+<h1 id="viewing-background-jobs">Viewing Background Jobs</h1>
+<p>Show running background jobs:</p>
+<pre><code class="language-bash">jobs
+</code></pre>
+<p>Example:</p>
+<pre><code class="language-text">[1]+ Running sleep 300 &amp;
+</code></pre>
+<hr />
+<h1 id="bringing-jobs-to-the-foreground">Bringing Jobs to the Foreground</h1>
+<p>Move a background job back:</p>
+<pre><code class="language-bash">fg
+</code></pre>
+<p>Example:</p>
+<pre><code class="language-bash">fg %1
+</code></pre>
+<hr />
+<h1 id="sending-processes-to-the-background">Sending Processes to the Background</h1>
+<p>A running command can be moved into the background.</p>
+<p>Press:</p>
+<pre><code class="language-text">CTRL + Z
+</code></pre>
+<p>Then:</p>
+<pre><code class="language-bash">bg
+</code></pre>
+<p>Example:</p>
+<pre><code class="language-bash">sleep 300
+
+CTRL + Z
+
+bg
+</code></pre>
+<hr />
+<h1 id="process-signals">Process Signals</h1>
+<p>Linux controls processes using signals.</p>
+<p>Common signals:</p>
+<table>
+<thead>
+<tr>
+<th>Signal</th>
+<th>Number</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SIGHUP</td>
+<td>1</td>
+<td>Reload configuration</td>
+</tr>
+<tr>
+<td>SIGTERM</td>
+<td>15</td>
+<td>Graceful shutdown</td>
+</tr>
+<tr>
+<td>SIGKILL</td>
+<td>9</td>
+<td>Force termination</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="stopping-processes">Stopping Processes</h1>
+<h2 id="using-kill">Using kill</h2>
+<p>Terminate a process:</p>
+<pre><code class="language-bash">kill PID
+</code></pre>
+<p>Example:</p>
+<pre><code class="language-bash">kill 12345
+</code></pre>
+<p>This sends:</p>
+<pre><code class="language-text">SIGTERM
+</code></pre>
+<hr />
+<h2 id="force-stopping-processes">Force Stopping Processes</h2>
+<p>If a process does not stop:</p>
+<pre><code class="language-bash">kill -9 PID
+</code></pre>
+<p>Example:</p>
+<pre><code class="language-bash">kill -9 12345
+</code></pre>
+<p>SIGKILL immediately stops the process.</p>
+<p>Use carefully because the application cannot clean up.</p>
+<hr />
+<h1 id="using-pkill">Using pkill</h1>
+<p>Kill processes by name:</p>
+<pre><code class="language-bash">pkill process_name
+</code></pre>
+<p>Example:</p>
+<pre><code class="language-bash">pkill sleep
+</code></pre>
+<hr />
+<h1 id="monitoring-processes">Monitoring Processes</h1>
+<h2 id="top">top</h2>
+<p>The <code>top</code> command provides real-time process monitoring.</p>
+<p>Run:</p>
+<pre><code class="language-bash">top
+</code></pre>
+<p>Shows:</p>
+<ul>
+<li>CPU usage</li>
+<li>Memory usage</li>
+<li>Running processes</li>
+<li>System load</li>
+</ul>
+<hr />
+<h2 id="htop">htop</h2>
+<p>If installed:</p>
+<pre><code class="language-bash">htop
+</code></pre>
+<p>Provides an interactive interface.</p>
+<p>Install:</p>
+<pre><code class="language-bash">sudo apt install htop
+</code></pre>
+<hr />
+<h1 id="process-priority">Process Priority</h1>
+<p>Linux allows processes to have different priorities.</p>
+<p>Priority is controlled using:</p>
+<pre><code class="language-bash">nice
+renice
+</code></pre>
+<p>View priority:</p>
+<pre><code class="language-bash">ps -el
+</code></pre>
+<hr />
+<h1 id="starting-a-process-with-priority">Starting a Process with Priority</h1>
+<p>Example:</p>
+<pre><code class="language-bash">nice -n 10 command
+</code></pre>
+<p>Higher nice values mean lower priority.</p>
+<hr />
+<h1 id="changing-process-priority">Changing Process Priority</h1>
+<p>Example:</p>
+<pre><code class="language-bash">renice 10 -p PID
+</code></pre>
+<hr />
+<h1 id="practical-exercises">Practical Exercises</h1>
+<h2 id="task-1-view-processes">Task 1 - View Processes</h2>
+<p>Run:</p>
+<pre><code class="language-bash">ps aux
+</code></pre>
+<p>Identify:</p>
+<ul>
+<li>Your shell process</li>
+<li>System processes</li>
+<li>Running applications</li>
+</ul>
+<hr />
+<h2 id="task-2-monitor-the-system">Task 2 - Monitor the System</h2>
+<p>Run:</p>
+<pre><code class="language-bash">top
+</code></pre>
+<p>Record:</p>
+<pre><code class="language-text">Highest CPU process:
+
+Highest memory process:
+</code></pre>
+<hr />
+<h2 id="task-3-create-a-background-process">Task 3 - Create a Background Process</h2>
+<p>Run:</p>
+<pre><code class="language-bash">sleep 300 &amp;
+</code></pre>
+<p>Find it:</p>
+<pre><code class="language-bash">ps aux | grep sleep
+</code></pre>
+<p>Stop it:</p>
+<pre><code class="language-bash">kill PID
+</code></pre>
+<hr />
+<h2 id="task-4-explore-process-tree">Task 4 - Explore Process Tree</h2>
+<p>Run:</p>
+<pre><code class="language-bash">pstree
+</code></pre>
+<p>Identify:</p>
+<ul>
+<li>Parent processes</li>
+<li>Child processes</li>
+</ul>
+<hr />
+<h1 id="knowledge-check">Knowledge Check</h1>
+<ol>
+<li>
+<p>What does PID stand for?</p>
+</li>
+<li>
+<p>Which command shows all running processes?</p>
+</li>
+<li>
+<p>What command displays a process tree?</p>
+</li>
+<li>
+<p>What symbol runs a command in the background?</p>
+</li>
+<li>
+<p>What signal does <code>kill</code> send by default?</p>
+</li>
+<li>
+<p>What is the difference between SIGTERM and SIGKILL?</p>
+</li>
+<li>
+<p>Which command provides live process monitoring?</p>
+</li>
+</ol>
+<hr />
+<h1 id="summary">Summary</h1>
+<p>In this lesson you learned:</p>
+<p>✓ How to view Linux processes<br />
+✓ How to find specific processes<br />
+✓ How parent and child processes work<br />
+✓ How to run background jobs<br />
+✓ How to stop processes safely<br />
+✓ How to monitor system activity<br />
+✓ How Linux signals control processes  </p>
+<hr />
+<h1 id="next-lesson">Next Lesson</h1>
+<h2 id="lesson-03-systemd-and-service-management">Lesson 03 - Systemd and Service Management</h2>
+<p>You will learn:</p>
+<ul>
+<li>What systemd is</li>
+<li>How services are managed</li>
+<li>Starting and stopping services</li>
+<li>Enabling services at boot</li>
+<li>Checking service status</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": [], "search": "../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

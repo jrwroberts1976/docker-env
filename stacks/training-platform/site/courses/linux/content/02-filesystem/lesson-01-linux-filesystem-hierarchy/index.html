@@ -1,0 +1,1540 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Lesson 01 - Linux Filesystem Hierarchy - James Engineering Training Platform</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lesson-01-linux-filesystem-hierarchy" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="James Engineering Training Platform" class="md-header__button md-logo" aria-label="James Engineering Training Platform" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            James Engineering Training Platform
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lesson 01 - Linux Filesystem Hierarchy
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="James Engineering Training Platform" class="md-nav__button md-logo" aria-label="James Engineering Training Platform" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    James Engineering Training Platform
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Training
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Training
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Linux
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/course-index/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kubernetes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Kubernetes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cloud
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cloud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Azure
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Azure
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../azure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Docker
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Git
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monitoring
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Monitoring
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Security
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_9" id="__nav_4_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Microsoft 365
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Microsoft 365
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../microsoft365/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="lesson-01-linux-filesystem-hierarchy">Lesson 01 - Linux Filesystem Hierarchy</h1>
+<blockquote>
+<p><strong>Estimated time:</strong> 45–60 minutes</p>
+<p><strong>Module:</strong> Module 02 – Linux Filesystem Administration</p>
+<p><strong>Prerequisites:</strong>
+- Module 00 – Introduction to Linux
+- Module 01 – Command Line Fundamentals</p>
+<p><strong>Difficulty:</strong> Beginner</p>
+</blockquote>
+<hr />
+<h1 id="overview">Overview</h1>
+<p>One of the biggest differences between Linux and Windows is how files are organised.</p>
+<p>Windows separates storage into multiple drives such as <code>C:</code>, <code>D:</code>, and <code>E:</code>. Linux, however, presents everything through a single directory tree that begins at the <strong>root directory</strong> (<code>/</code>).</p>
+<p>Understanding where Linux stores configuration files, applications, logs and user data is an essential skill for any Linux administrator. Most Linux distributions follow a common layout known as the <strong>Filesystem Hierarchy Standard (FHS)</strong>, making it easier to work across different systems.</p>
+<p>In this lesson, you will explore the Linux directory structure and learn the purpose of the most important directories.</p>
+<hr />
+<h1 id="learning-objectives">Learning Objectives</h1>
+<p>By the end of this lesson you will be able to:</p>
+<ul>
+<li>Explain the Linux filesystem hierarchy.</li>
+<li>Describe the purpose of the root directory.</li>
+<li>Identify the function of common system directories.</li>
+<li>Locate configuration files, applications and logs.</li>
+<li>Navigate the filesystem confidently.</li>
+<li>Apply best practices when working with the Linux filesystem.</li>
+</ul>
+<hr />
+<h1 id="what-is-a-filesystem">What is a Filesystem?</h1>
+<p>A filesystem defines how an operating system stores and organises data.</p>
+<p>Every file, directory and device in Linux exists somewhere within a single directory tree.</p>
+<p>Unlike Windows:</p>
+<pre><code class="language-text">C:\
+D:\
+E:\
+</code></pre>
+<p>Linux starts from one location:</p>
+<pre><code class="language-text">/
+</code></pre>
+<p>This is known as the <strong>root directory</strong>.</p>
+<p>Everything on the system is connected beneath it.</p>
+<hr />
+<h1 id="the-linux-filesystem-hierarchy">The Linux Filesystem Hierarchy</h1>
+<p>The Linux directory structure resembles an upside-down tree.</p>
+<pre><code class="language-text">/
+├── bin
+├── boot
+├── dev
+├── etc
+├── home
+├── media
+├── mnt
+├── opt
+├── proc
+├── root
+├── run
+├── sbin
+├── srv
+├── sys
+├── tmp
+├── usr
+└── var
+</code></pre>
+<p>Every directory has a specific purpose.</p>
+<p>This consistency allows administrators to work confidently across different Linux distributions.</p>
+<hr />
+<h1 id="filesystem-hierarchy-standard-fhs">Filesystem Hierarchy Standard (FHS)</h1>
+<p>Most Linux distributions follow the <strong>Filesystem Hierarchy Standard (FHS)</strong>.</p>
+<p>The standard defines where different types of files should be stored.</p>
+<p>For example:</p>
+<table>
+<thead>
+<tr>
+<th>Type of Data</th>
+<th>Typical Location</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>User files</td>
+<td><code>/home</code></td>
+</tr>
+<tr>
+<td>Configuration files</td>
+<td><code>/etc</code></td>
+</tr>
+<tr>
+<td>System logs</td>
+<td><code>/var/log</code></td>
+</tr>
+<tr>
+<td>Installed applications</td>
+<td><code>/usr</code></td>
+</tr>
+<tr>
+<td>Temporary files</td>
+<td><code>/tmp</code></td>
+</tr>
+<tr>
+<td>Device files</td>
+<td><code>/dev</code></td>
+</tr>
+</tbody>
+</table>
+<p>Following this standard makes Linux systems easier to understand, maintain and troubleshoot.</p>
+<hr />
+<h1 id="exploring-the-root-directory">Exploring the Root Directory</h1>
+<p>To display the contents of the root directory, run:</p>
+<pre><code class="language-bash">ls /
+</code></pre>
+<p>Example output:</p>
+<pre><code class="language-text">bin
+boot
+dev
+etc
+home
+media
+mnt
+opt
+proc
+root
+run
+sbin
+srv
+sys
+tmp
+usr
+var
+</code></pre>
+<hr />
+<h1 id="important-linux-directories">Important Linux Directories</h1>
+<h2 id="home"><code>/home</code></h2>
+<p>The <code>/home</code> directory stores personal files for normal users.</p>
+<p>Example:</p>
+<pre><code class="language-text">/home/james
+/home/alice
+/home/training
+</code></pre>
+<p>Each user has their own home directory.</p>
+<p>To display your home directory:</p>
+<pre><code class="language-bash">echo $HOME
+</code></pre>
+<p>or</p>
+<pre><code class="language-bash">cd
+pwd
+</code></pre>
+<hr />
+<h2 id="root"><code>/root</code></h2>
+<p>This is the home directory of the <strong>root</strong> user.</p>
+<p>Do not confuse:</p>
+<pre><code class="language-text">/
+</code></pre>
+<p>with</p>
+<pre><code class="language-text">/root
+</code></pre>
+<p>The first is the root of the filesystem.</p>
+<p>The second is root's personal home directory.</p>
+<hr />
+<h2 id="etc"><code>/etc</code></h2>
+<p>This directory contains system configuration files.</p>
+<p>Examples include:</p>
+<pre><code class="language-text">/etc/hostname
+/etc/passwd
+/etc/group
+/etc/ssh/
+/etc/systemd/
+</code></pre>
+<p>View the directory:</p>
+<pre><code class="language-bash">ls /etc
+</code></pre>
+<p>Administrators frequently work in <code>/etc</code>.</p>
+<hr />
+<h2 id="var"><code>/var</code></h2>
+<p>Variable data is stored here.</p>
+<p>Examples include:</p>
+<ul>
+<li>System logs</li>
+<li>Databases</li>
+<li>Print queues</li>
+<li>Mail queues</li>
+<li>Web server content</li>
+</ul>
+<p>To view system logs:</p>
+<pre><code class="language-bash">ls /var/log
+</code></pre>
+<p>Many troubleshooting tasks begin in <code>/var/log</code>.</p>
+<hr />
+<h2 id="usr"><code>/usr</code></h2>
+<p>This directory contains installed software and shared resources.</p>
+<p>Common locations include:</p>
+<pre><code class="language-text">/usr/bin
+/usr/lib
+/usr/share
+</code></pre>
+<p>Most applications installed using the package manager are stored beneath <code>/usr</code>.</p>
+<hr />
+<h2 id="bin"><code>/bin</code></h2>
+<p>Contains essential user commands required for the operating system.</p>
+<p>Examples:</p>
+<pre><code class="language-text">ls
+cp
+mv
+cat
+bash
+</code></pre>
+<p>These commands are available even during system recovery.</p>
+<hr />
+<h2 id="sbin"><code>/sbin</code></h2>
+<p>Contains essential system administration commands.</p>
+<p>Examples:</p>
+<pre><code class="language-text">fsck
+reboot
+shutdown
+ip
+</code></pre>
+<p>Many commands require administrative privileges.</p>
+<hr />
+<h2 id="tmp"><code>/tmp</code></h2>
+<p>Temporary files are stored here.</p>
+<p>Applications use this location to hold temporary data while running.</p>
+<p>Many Linux systems automatically clean this directory during boot.</p>
+<hr />
+<h2 id="boot"><code>/boot</code></h2>
+<p>Contains files required to start Linux.</p>
+<p>Examples include:</p>
+<ul>
+<li>Linux kernel</li>
+<li>Initial RAM filesystem (initramfs)</li>
+<li>Boot loader configuration</li>
+</ul>
+<hr />
+<h2 id="dev"><code>/dev</code></h2>
+<p>Linux treats hardware devices as files.</p>
+<p>Examples:</p>
+<pre><code class="language-text">/dev/sda
+/dev/null
+/dev/tty
+</code></pre>
+<p>Administrators rarely modify these directly, but they are important when managing disks and hardware.</p>
+<hr />
+<h2 id="proc"><code>/proc</code></h2>
+<p>The <code>/proc</code> directory is a virtual filesystem.</p>
+<p>It provides information about the running kernel and system processes.</p>
+<p>Example:</p>
+<pre><code class="language-bash">cat /proc/cpuinfo
+</code></pre>
+<p>View memory information:</p>
+<pre><code class="language-bash">cat /proc/meminfo
+</code></pre>
+<p>No actual files are stored here—they are generated by the kernel.</p>
+<hr />
+<h2 id="sys"><code>/sys</code></h2>
+<p>Another virtual filesystem.</p>
+<p>Provides information about hardware devices and the Linux kernel.</p>
+<p>It is commonly used by advanced administration tools.</p>
+<hr />
+<h2 id="opt"><code>/opt</code></h2>
+<p>Used for optional or third-party software.</p>
+<p>For example:</p>
+<pre><code class="language-text">/opt/google
+/opt/custom-application
+</code></pre>
+<p>Many commercial applications install here.</p>
+<hr />
+<h1 id="exploring-the-filesystem">Exploring the Filesystem</h1>
+<p>Useful commands include:</p>
+<p>Display your current location:</p>
+<pre><code class="language-bash">pwd
+</code></pre>
+<p>Move to the root directory:</p>
+<pre><code class="language-bash">cd /
+</code></pre>
+<p>List directory contents:</p>
+<pre><code class="language-bash">ls
+</code></pre>
+<p>Detailed listing:</p>
+<pre><code class="language-bash">ls -l
+</code></pre>
+<p>Classify file types:</p>
+<pre><code class="language-bash">ls -F
+</code></pre>
+<p>If installed, display the directory tree:</p>
+<pre><code class="language-bash">tree /
+</code></pre>
+<hr />
+<h1 id="best-practices">Best Practices</h1>
+<p>✔ Store personal files inside your home directory.</p>
+<p>✔ Avoid modifying files in <code>/etc</code> unless required.</p>
+<p>✔ Learn where log files are stored.</p>
+<p>✔ Never delete files from system directories without understanding their purpose.</p>
+<p>✔ Use <code>sudo</code> carefully when working outside your home directory.</p>
+<hr />
+<h1 id="practical-exercise">Practical Exercise</h1>
+<h2 id="task-1-explore-the-root-directory">Task 1 – Explore the Root Directory</h2>
+<p>Run:</p>
+<pre><code class="language-bash">ls /
+</code></pre>
+<p>Record five directories you recognise.</p>
+<hr />
+<h2 id="task-2-identify-your-home-directory">Task 2 – Identify Your Home Directory</h2>
+<p>Run:</p>
+<pre><code class="language-bash">echo $HOME
+</code></pre>
+<p>Then:</p>
+<pre><code class="language-bash">pwd
+</code></pre>
+<p>Do they match?</p>
+<hr />
+<h2 id="task-3-explore-system-configuration">Task 3 – Explore System Configuration</h2>
+<p>Navigate to:</p>
+<pre><code class="language-bash">cd /etc
+</code></pre>
+<p>List the contents:</p>
+<pre><code class="language-bash">ls
+</code></pre>
+<p>Can you identify:</p>
+<ul>
+<li><code>passwd</code></li>
+<li><code>hostname</code></li>
+<li><code>ssh</code></li>
+</ul>
+<hr />
+<h2 id="task-4-view-system-logs">Task 4 – View System Logs</h2>
+<p>Navigate to:</p>
+<pre><code class="language-bash">cd /var/log
+</code></pre>
+<p>List the contents:</p>
+<pre><code class="language-bash">ls
+</code></pre>
+<p>How many log files can you identify?</p>
+<hr />
+<h2 id="task-5-explore-installed-programs">Task 5 – Explore Installed Programs</h2>
+<p>Navigate to:</p>
+<pre><code class="language-bash">cd /usr/bin
+</code></pre>
+<p>Count the number of files:</p>
+<pre><code class="language-bash">ls | wc -l
+</code></pre>
+<p>Notice how many applications are available on a standard Linux installation.</p>
+<hr />
+<h1 id="knowledge-check">Knowledge Check</h1>
+<ol>
+<li>
+<p>What is the top-level directory in Linux called?</p>
+</li>
+<li>
+<p>Which directory stores user home folders?</p>
+</li>
+<li>
+<p>Where are most system configuration files stored?</p>
+</li>
+<li>
+<p>Which directory contains system log files?</p>
+</li>
+<li>
+<p>What is the purpose of <code>/tmp</code>?</p>
+</li>
+<li>
+<p>Why is <code>/proc</code> described as a virtual filesystem?</p>
+</li>
+<li>
+<p>Which directory is commonly used for optional third-party software?</p>
+</li>
+</ol>
+<hr />
+<h1 id="summary">Summary</h1>
+<p>In this lesson you learned:</p>
+<ul>
+<li>Linux uses a single directory tree beginning at the root directory (<code>/</code>).</li>
+<li>Most Linux distributions follow the Filesystem Hierarchy Standard (FHS).</li>
+<li>Configuration files are stored in <code>/etc</code>.</li>
+<li>User data is stored in <code>/home</code>.</li>
+<li>System logs are stored in <code>/var/log</code>.</li>
+<li>Applications are commonly installed beneath <code>/usr</code>.</li>
+<li>Temporary files are stored in <code>/tmp</code>.</li>
+<li>Understanding the filesystem hierarchy is essential for effective Linux administration and troubleshooting.</li>
+</ul>
+<hr />
+<h2 id="next-lesson">Next Lesson</h2>
+<p>In <strong>Lesson 02 – File Permissions and Ownership</strong>, you will learn how Linux controls access to files and directories using users, groups and permissions.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": [], "search": "../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

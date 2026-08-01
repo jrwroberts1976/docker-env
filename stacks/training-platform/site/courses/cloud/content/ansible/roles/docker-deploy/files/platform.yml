@@ -1,0 +1,22 @@
+services:
+
+  nginx:
+    image: nginx:latest
+    container_name: cloud-platform-nginx
+    restart: unless-stopped
+
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+      - /var/www/certbot:/var/www/certbot
+      - /etc/letsencrypt:/etc/letsencrypt
+    networks:
+      - cloud-platform
+
+
+networks:
+
+  cloud-platform:
+    external: true

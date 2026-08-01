@@ -1,0 +1,16 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: false
+
+  roles:
+    - aws-security
+
+
+- hosts: aws_dev
+  become: true
+
+  roles:
+    - common
+    - docker
+    - docker-deploy

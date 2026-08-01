@@ -1,0 +1,17 @@
+services:
+
+  nginx:
+    image: nginx:latest
+    restart: unless-stopped
+
+    ports:
+      - "80:80"
+
+    networks:
+      - cloud-platform
+
+
+networks:
+
+  cloud-platform:
+    external: true

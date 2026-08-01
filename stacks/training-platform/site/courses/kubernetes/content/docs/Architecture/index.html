@@ -1,0 +1,1768 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Kubernetes Homelab Architecture - James Engineering Training Platform</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#kubernetes-homelab-architecture" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="James Engineering Training Platform" class="md-header__button md-logo" aria-label="James Engineering Training Platform" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            James Engineering Training Platform
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Kubernetes Homelab Architecture
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="James Engineering Training Platform" class="md-nav__button md-logo" aria-label="James Engineering Training Platform" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    James Engineering Training Platform
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Training
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Training
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Linux
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../linux/content/docs/course-index/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kubernetes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Kubernetes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cloud
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cloud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Azure
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Azure
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../azure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Docker
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Git
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monitoring
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Monitoring
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Security
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_9" id="__nav_4_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Microsoft 365
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Microsoft 365
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../microsoft365/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="kubernetes-homelab-architecture">Kubernetes Homelab Architecture</h1>
+<h2 id="overview">Overview</h2>
+<p>This document describes the architecture of the Kubernetes homelab platform.</p>
+<p>The objective of this project is to build a production-style Kubernetes environment using Raspberry Pi hardware while demonstrating skills in:</p>
+<ul>
+<li>Kubernetes administration</li>
+<li>Linux infrastructure</li>
+<li>Container orchestration</li>
+<li>Infrastructure automation</li>
+<li>Platform engineering</li>
+<li>GitOps practices</li>
+<li>Observability</li>
+</ul>
+<p>The platform is managed through Git and uses automated deployment scripts to provide a repeatable build process.</p>
+<hr />
+<h1 id="high-level-architecture">High-Level Architecture</h1>
+<p>Current platform architecture:</p>
+<pre><code class="language-text">                         Home Network
+
+                              |
+                              |
+                         192.168.2.0/24
+
+                              |
+                              |
+
+                      k3s-node-01
+                    Raspberry Pi ARM64
+
+                    192.168.2.195
+
+                              |
+
+                  Kubernetes Control Plane
+
+                              |
+
+        +---------------------+---------------------+
+
+        |                     |                     |
+
+     CoreDNS              Traefik            Metrics Server
+
+        |                     |                     |
+
+        |                     |                     |
+
+ Internal DNS          Application Ingress     Resource Metrics
+
+
+                              |
+
+                    Local Storage Provider
+
+                              |
+
+                  Kubernetes Persistent Volumes
+
+</code></pre>
+<hr />
+<h1 id="infrastructure-layer">Infrastructure Layer</h1>
+<h2 id="hardware">Hardware</h2>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Platform</td>
+<td>Raspberry Pi</td>
+</tr>
+<tr>
+<td>Architecture</td>
+<td>ARM64</td>
+</tr>
+<tr>
+<td>Storage</td>
+<td>NVMe SSD</td>
+</tr>
+<tr>
+<td>Network</td>
+<td>Home LAN</td>
+</tr>
+<tr>
+<td>Node Count</td>
+<td>Single node</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="host-operating-system">Host Operating System</h2>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Operating System</td>
+<td>Debian GNU/Linux 12 Bookworm</td>
+</tr>
+<tr>
+<td>Kernel</td>
+<td>6.12.93+rpt-rpi-v8</td>
+</tr>
+<tr>
+<td>Runtime</td>
+<td>containerd</td>
+</tr>
+<tr>
+<td>IP Address</td>
+<td>192.168.2.195</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="kubernetes-platform-layer">Kubernetes Platform Layer</h1>
+<h2 id="kubernetes-distribution">Kubernetes Distribution</h2>
+<p>The cluster uses:</p>
+<pre><code class="language-text">k3s
+</code></pre>
+<p>k3s was selected because it provides:</p>
+<ul>
+<li>lightweight Kubernetes distribution</li>
+<li>ARM64 support</li>
+<li>simplified operations</li>
+<li>production-compatible Kubernetes APIs</li>
+</ul>
+<p>Version:</p>
+<pre><code class="language-text">v1.36.2+k3s1
+</code></pre>
+<hr />
+<h1 id="cluster-topology">Cluster Topology</h1>
+<p>Current topology:</p>
+<pre><code class="language-text">+--------------------------------+
+|          k3s-node-01           |
+|                                |
+|  Kubernetes Control Plane      |
+|                                |
+|  kube-apiserver                |
+|  scheduler                     |
+|  controller-manager            |
+|  containerd                    |
+|                                |
++--------------------------------+
+</code></pre>
+<hr />
+<h1 id="kubernetes-core-components">Kubernetes Core Components</h1>
+<p>The initial k3s installation provides:</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>kube-apiserver</td>
+<td>Kubernetes API endpoint</td>
+</tr>
+<tr>
+<td>scheduler</td>
+<td>Pod placement</td>
+</tr>
+<tr>
+<td>controller manager</td>
+<td>Cluster state management</td>
+</tr>
+<tr>
+<td>CoreDNS</td>
+<td>Service discovery</td>
+</tr>
+<tr>
+<td>Traefik</td>
+<td>Ingress routing</td>
+</tr>
+<tr>
+<td>Metrics Server</td>
+<td>Resource monitoring</td>
+</tr>
+<tr>
+<td>Local Path Provisioner</td>
+<td>Persistent storage</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="networking-architecture">Networking Architecture</h1>
+<h2 id="current-networking">Current Networking</h2>
+<p>Current network flow:</p>
+<pre><code class="language-text">User Device
+
+     |
+
+Home Network
+
+     |
+
+Traefik Ingress Controller
+
+     |
+
+Kubernetes Service
+
+     |
+
+Application Pod
+
+</code></pre>
+<hr />
+<h2 id="future-networking-improvements">Future Networking Improvements</h2>
+<p>Planned:</p>
+<h3 id="metallb">MetalLB</h3>
+<p>Purpose:</p>
+<ul>
+<li>provide LoadBalancer services</li>
+<li>allocate LAN IP addresses</li>
+<li>replicate cloud-style networking</li>
+</ul>
+<p>Target architecture:</p>
+<pre><code class="language-text">Home Network
+
+      |
+
+MetalLB
+
+      |
+
+LoadBalancer Service
+
+      |
+
+Traefik
+
+      |
+
+Application
+</code></pre>
+<hr />
+<h1 id="storage-architecture">Storage Architecture</h1>
+<h2 id="current-storage">Current Storage</h2>
+<p>The cluster uses:</p>
+<pre><code class="language-text">Local Path Provisioner
+</code></pre>
+<p>Storage flow:</p>
+<pre><code class="language-text">Application Pod
+
+       |
+
+PersistentVolumeClaim
+
+       |
+
+PersistentVolume
+
+       |
+
+NVMe Storage
+
+</code></pre>
+<hr />
+<h2 id="future-storage-improvements">Future Storage Improvements</h2>
+<p>Potential additions:</p>
+<ul>
+<li>NFS storage</li>
+<li>distributed storage</li>
+<li>backup automation</li>
+<li>snapshot management</li>
+</ul>
+<hr />
+<h1 id="kubernetes-namespace-design">Kubernetes Namespace Design</h1>
+<p>The cluster uses namespace separation to isolate workloads.</p>
+<p>Current structure:</p>
+<pre><code class="language-text">kubernetes/
+└── namespaces/
+    |
+    ├── monitoring
+    ├── logging
+    ├── argocd
+    └── applications
+</code></pre>
+<hr />
+<h2 id="namespace-purpose">Namespace Purpose</h2>
+<table>
+<thead>
+<tr>
+<th>Namespace</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>monitoring</td>
+<td>Metrics and dashboards</td>
+</tr>
+<tr>
+<td>logging</td>
+<td>Centralised logging</td>
+</tr>
+<tr>
+<td>argocd</td>
+<td>GitOps deployment management</td>
+</tr>
+<tr>
+<td>applications</td>
+<td>User workloads</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="deployment-automation">Deployment Automation</h1>
+<p>Infrastructure deployment is managed through scripts.</p>
+<p>Repository structure:</p>
+<pre><code class="language-text">scripts/
+
+├── common.sh
+
+├── 01-install-packages.sh
+
+├── 02-install-k3s.sh
+
+├── 03-install-helm.sh
+
+└── 04-create-namespaces.sh
+
+</code></pre>
+<hr />
+<h1 id="automation-workflow">Automation Workflow</h1>
+<pre><code class="language-text">Fresh Operating System
+
+        |
+
+Install Required Packages
+
+        |
+
+Validate Host
+
+        |
+
+Configure Kernel
+
+        |
+
+Install k3s
+
+        |
+
+Configure kubectl
+
+        |
+
+Install Helm
+
+        |
+
+Create Namespaces
+
+        |
+
+Deploy Platform Services
+
+</code></pre>
+<hr />
+<h1 id="helm-platform-management">Helm Platform Management</h1>
+<p>Helm is used as the Kubernetes application package manager.</p>
+<p>Installed:</p>
+<pre><code class="language-text">Helm 3
+</code></pre>
+<p>Purpose:</p>
+<ul>
+<li>application lifecycle management</li>
+<li>repeatable deployments</li>
+<li>version controlled releases</li>
+</ul>
+<p>Planned Helm deployments:</p>
+<table>
+<thead>
+<tr>
+<th>Application</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Prometheus</td>
+<td>Metrics collection</td>
+</tr>
+<tr>
+<td>Grafana</td>
+<td>Dashboards</td>
+</tr>
+<tr>
+<td>Loki</td>
+<td>Log aggregation</td>
+</tr>
+<tr>
+<td>ArgoCD</td>
+<td>GitOps</td>
+</tr>
+<tr>
+<td>cert-manager</td>
+<td>Certificate management</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="observability-architecture-planned">Observability Architecture (Planned)</h1>
+<p>Future monitoring stack:</p>
+<pre><code class="language-text">
+Kubernetes Nodes
+
+        |
+
+Prometheus
+
+        |
+
+Metrics Database
+
+        |
+
+Grafana Dashboards
+
+</code></pre>
+<p>Capabilities:</p>
+<ul>
+<li>node monitoring</li>
+<li>pod monitoring</li>
+<li>resource tracking</li>
+<li>alerting</li>
+</ul>
+<hr />
+<h1 id="logging-architecture-planned">Logging Architecture (Planned)</h1>
+<p>Future logging stack:</p>
+<pre><code class="language-text">
+Containers
+
+    |
+
+Promtail
+
+    |
+
+Loki
+
+    |
+
+Grafana
+
+</code></pre>
+<p>Capabilities:</p>
+<ul>
+<li>centralised logs</li>
+<li>troubleshooting</li>
+<li>application visibility</li>
+</ul>
+<hr />
+<h1 id="gitops-architecture-planned">GitOps Architecture (Planned)</h1>
+<p>Future deployment workflow:</p>
+<pre><code class="language-text">
+Developer
+
+   |
+
+GitHub Repository
+
+   |
+
+ArgoCD
+
+   |
+
+Kubernetes Cluster
+
+   |
+
+Applications
+
+</code></pre>
+<p>Benefits:</p>
+<ul>
+<li>Git as source of truth</li>
+<li>automated deployment</li>
+<li>audit history</li>
+<li>repeatable releases</li>
+</ul>
+<hr />
+<h1 id="security-architecture">Security Architecture</h1>
+<p>Planned security improvements:</p>
+<h2 id="access-control">Access Control</h2>
+<ul>
+<li>Kubernetes RBAC</li>
+<li>service accounts</li>
+<li>least privilege access</li>
+</ul>
+<h2 id="network-security">Network Security</h2>
+<ul>
+<li>network policies</li>
+<li>namespace isolation</li>
+</ul>
+<h2 id="secrets-management">Secrets Management</h2>
+<ul>
+<li>Kubernetes secrets</li>
+<li>external secret management</li>
+</ul>
+<h2 id="image-security">Image Security</h2>
+<ul>
+<li>container scanning</li>
+<li>vulnerability management</li>
+</ul>
+<hr />
+<h1 id="current-cluster-state">Current Cluster State</h1>
+<p>Current implementation:</p>
+<p>✅ Raspberry Pi Kubernetes node
+✅ k3s control plane
+✅ Kubernetes API operational
+✅ Traefik ingress installed
+✅ Metrics Server installed
+✅ Persistent storage available
+✅ Helm installed
+✅ Namespace structure created
+✅ Deployment automation stored in Git</p>
+<hr />
+<h1 id="future-roadmap">Future Roadmap</h1>
+<h2 id="phase-1-foundation">Phase 1 - Foundation</h2>
+<p>Completed:</p>
+<ul>
+<li>Linux preparation</li>
+<li>k3s deployment</li>
+<li>kubectl configuration</li>
+<li>Helm installation</li>
+</ul>
+<hr />
+<h2 id="phase-2-platform-services">Phase 2 - Platform Services</h2>
+<p>Planned:</p>
+<ul>
+<li>MetalLB</li>
+<li>Prometheus</li>
+<li>Grafana</li>
+<li>Loki</li>
+</ul>
+<hr />
+<h2 id="phase-3-gitops">Phase 3 - GitOps</h2>
+<p>Planned:</p>
+<ul>
+<li>ArgoCD</li>
+<li>application deployments</li>
+<li>automated synchronisation</li>
+</ul>
+<hr />
+<h2 id="phase-4-production-practices">Phase 4 - Production Practices</h2>
+<p>Planned:</p>
+<ul>
+<li>backups</li>
+<li>disaster recovery testing</li>
+<li>security hardening</li>
+<li>upgrade procedures</li>
+</ul>
+<hr />
+<h1 id="project-goal">Project Goal</h1>
+<p>The final objective is to demonstrate a complete cloud-native platform lifecycle:</p>
+<pre><code class="language-text">Infrastructure
+
+      |
+
+Kubernetes Platform
+
+      |
+
+Observability
+
+      |
+
+GitOps Deployment
+
+      |
+
+Application Delivery
+
+</code></pre>
+<p>This project represents practical experience building and operating a Kubernetes environment using modern DevOps and platform engineering principles.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": [], "search": "../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

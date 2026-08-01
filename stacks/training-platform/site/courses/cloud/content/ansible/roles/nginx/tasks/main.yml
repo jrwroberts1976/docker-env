@@ -1,0 +1,20 @@
+---
+
+- name: Create nginx configuration directory
+  file:
+    path: /opt/cloud-platform/nginx
+    state: directory
+    owner: root
+    group: root
+    mode: '0755'
+
+
+- name: Deploy nginx reverse proxy configuration
+  template:
+    src: default.conf.j2
+    dest: /opt/cloud-platform/nginx/default.conf
+    owner: root
+    group: root
+    mode: '0644'
+  notify:
+    - Restart nginx

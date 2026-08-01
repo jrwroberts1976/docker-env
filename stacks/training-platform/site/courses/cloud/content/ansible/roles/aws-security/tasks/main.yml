@@ -1,0 +1,39 @@
+---
+- name: Configure cloud platform security group
+  amazon.aws.ec2_security_group:
+    name: cloud-platform-dev-ec2
+    description: Cloud platform security group
+    region: eu-west-2
+    state: present
+
+    rules:
+
+      - proto: tcp
+        ports:
+          - 22
+        cidr_ip: 90.249.215.255/32
+        rule_desc: SSH access
+
+      - proto: tcp
+        ports:
+          - 80
+        cidr_ip: 0.0.0.0/0
+        rule_desc: HTTP access
+
+      - proto: tcp
+        ports:
+          - 443
+        cidr_ip: 0.0.0.0/0
+        rule_desc: HTTPS access
+
+      - proto: tcp
+        ports:
+          - 3000
+        cidr_ip: 0.0.0.0/0
+        rule_desc: Grafana access
+
+      - proto: tcp
+        ports:
+          - 9090
+        cidr_ip: 0.0.0.0/0
+        rule_desc: Prometheus access

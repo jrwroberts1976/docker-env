@@ -1,0 +1,42 @@
+---
+- name: Install pip
+  ansible.builtin.package:
+    name: python3-pip
+    state: present
+
+
+- name: Install AWS Python libraries
+  ansible.builtin.pip:
+    name:
+      - boto3
+      - botocore
+
+
+- name: Install python pip
+  ansible.builtin.dnf:
+    name: python3-pip
+    state: present
+
+
+- name: Install AWS Python libraries
+  ansible.builtin.pip:
+    name:
+      - boto3
+      - botocore
+
+- name: Update all packages
+  become: true
+  dnf:
+    name: "*"
+    state: latest
+
+- name: Install useful tools
+  become: true
+  dnf:
+    name:
+      - vim
+      - git
+      - wget
+      - unzip
+    state: present
+

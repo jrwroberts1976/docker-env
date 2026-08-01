@@ -1,0 +1,21 @@
+---
+- name: Configure Cloud Platform
+  hosts: cloud-platform-dev
+  become: true
+
+  roles:
+    - role: docker
+      tags:
+        - docker
+
+    - role: docker-deploy
+      tags:
+        - docker-deploy
+
+    - role: nginx
+      tags:
+        - nginx
+
+    - role: certbot
+      tags:
+        - certbot
