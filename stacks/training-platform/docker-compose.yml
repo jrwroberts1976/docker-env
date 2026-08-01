@@ -1,0 +1,25 @@
+services:
+
+  training-platform:
+    container_name: training-platform
+
+    build:
+      context: .
+
+    restart: unless-stopped
+
+    ports:
+      - "8090:8000"
+
+    volumes:
+      - ./docs:/docs/docs
+      - ./training-content:/docs/training-content
+      - ./mkdocs.yml:/docs/mkdocs.yml
+
+    networks:
+      - homelab_apps
+
+
+networks:
+  homelab_apps:
+    external: true

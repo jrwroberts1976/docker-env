@@ -1,7 +1,7 @@
 services:
 
   crowdsec-exporter:
-    container_name: crowdsec-exporter:latest
+    container_name: crowdsec-exporter
     build: 
       context: /home/james/docker/data/monitoring/crowdsec-exporter
     restart: unless-stopped

@@ -1,0 +1,24 @@
+site_name: James Engineering Training Platform
+
+theme:
+  name: material
+
+nav:
+  - Home: index.md
+
+  - Training:
+      - Linux:
+          - Course Overview: courses/linux/README.md
+
+  - Docker Training:
+      - Overview: docker/index.md
+
+  - Kubernetes Training:
+      - Overview: kubernetes/index.md
+
+plugins:
+  - search
+
+#watch:
+#  - docs
+#  - training-content
