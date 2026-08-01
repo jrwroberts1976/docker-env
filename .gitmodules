@@ -1,0 +1,9 @@
+[submodule "stacks/training-platform/repos/cloud"]
+	path = stacks/training-platform/repos/cloud
+	url = https://github.com/jrwroberts1976/cloud-platform.git
+[submodule "stacks/training-platform/repos/azure"]
+	path = stacks/training-platform/repos/azure
+	url = https://github.com/jrwroberts1976/azure-training.git
+[submodule "stacks/training-platform/training-content"]
+	path = stacks/training-platform/training-content
+	url = https://github.com/jrwroberts1976/basic-linux-training.git

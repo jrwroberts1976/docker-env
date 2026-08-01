@@ -1,24 +1,32 @@
-site_name: James Engineering Training Platform
-
-theme:
-  name: material
-
 nav:
   - Home: index.md
 
   - Training:
+
       - Linux:
-          - Course Overview: courses/linux/README.md
+          - Overview: courses/linux/README.md
 
-  - Docker Training:
-      - Overview: docker/index.md
+      - Git:
+          - Overview: courses/git/index.md
 
-  - Kubernetes Training:
-      - Overview: kubernetes/index.md
+      - Docker:
+          - Overview: courses/docker/index.md
 
-plugins:
-  - search
+      - Kubernetes:
+          - Overview: courses/kubernetes/index.md
 
-#watch:
-#  - docs
-#  - training-content
+      - Cloud:
+          - AWS: courses/aws/index.md
+
+      - Infrastructure as Code:
+          - Terraform: courses/terraform/index.md
+          - Ansible: courses/ansible/index.md
+
+      - Monitoring:
+          - Overview: courses/monitoring/index.md
+
+      - Security:
+          - Overview: courses/security/index.md
+
+      - Microsoft 365:
+          - Overview: courses/microsoft365/index.md
