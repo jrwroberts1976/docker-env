@@ -6,6 +6,8 @@ theme:
 nav:
   - Home: index.md
   - Platform Automation Overview: platform-automation-overview.md
+  - Professional Profile:
+    - CV: cv/index.md
   - Projects: projects.md
   - Architecture: architecture.md
 
