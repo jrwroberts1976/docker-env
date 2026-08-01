@@ -9,16 +9,16 @@ nav:
   - Architecture: architecture.md
   - Training:
       - Linux:
-          - Overview: courses/linux/content/course-index.md
+          - Overview: courses/linux/content/docs/course-index.md
 
       - Kubernetes:
-          - Overview: courses/kubernetes/content/index.md
+          - Overview: courses/kubernetes/index.md
 
       - Cloud:
-          - Overview: courses/cloud/content/index.md
+         - Overview: courses/cloud/index.md
 
       - Azure:
-          - Overview: courses/azure/content/index.md
+         - Overview: courses/azure/index.md
 
       - Docker:
           - Overview: courses/docker/index.md
