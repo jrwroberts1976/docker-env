@@ -7,3 +7,9 @@
 [submodule "stacks/training-platform/training-content"]
 	path = stacks/training-platform/training-content
 	url = https://github.com/jrwroberts1976/basic-linux-training.git
+[submodule "stacks/training-platform/repos/kubernetes"]
+	path = stacks/training-platform/repos/kubernetes
+	url = https://github.com/jrwroberts1976/kubernetes-homelab.git
+[submodule "stacks/training-platform/repos/portfolio"]
+	path = stacks/training-platform/repos/portfolio
+	url = https://github.com/jrwroberts1976/engineering-learning-portfolio.git
