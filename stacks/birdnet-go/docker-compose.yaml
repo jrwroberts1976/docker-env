@@ -36,20 +36,6 @@ services:
 
     labels:
       - "com.centurylinklabs.watchtower.enable=true"
-  birdnet-exporter:
-    build: ./birdnet-exporter
-    container_name: birdnet-exporter
-    restart: unless-stopped
-
-    volumes:
-      - /home/james/docker/data/birdnet-go/data:/data:ro
-
-    ports:
-      - "9105:9105"
-
-    networks:
-      - apps
-
 networks:
   apps:
     external: true
