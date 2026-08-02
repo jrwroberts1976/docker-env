@@ -61,6 +61,7 @@ This lab brings together the skills learned throughout the course and includes a
 
 ```bash
 ./check-my-work.sh
+```
 ---
 
 # My Homelab
