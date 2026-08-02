@@ -91,7 +91,7 @@ def update_metrics():
         activity_by_hour.labels(hour).set(count)
 
 
-    # Daily activity
+    # Daily activity (last 30 days)
     cur.execute("""
         SELECT
             date(detected_at,'unixepoch'),
@@ -107,7 +107,7 @@ def update_metrics():
         activity_by_day.labels(date).set(count)
 
 
-    # Species statistics
+    # Species stats
     cur.execute("""
         SELECT
             l.scientific_name,
@@ -115,8 +115,7 @@ def update_metrics():
             AVG(d.confidence),
             MAX(d.detected_at)
         FROM detections d
-        JOIN labels l
-            ON d.label_id = l.id
+        JOIN labels l ON d.label_id=l.id
         WHERE d.unlikely = 0
         GROUP BY l.scientific_name
     """)
@@ -124,13 +123,14 @@ def update_metrics():
 
     for species, count, confidence, last_seen in cur.fetchall():
 
-        if species == "Engine":
+        # Ignore obvious noise
+        if species in ("Engine",):
             continue
 
         species_count.labels(species).set(count)
 
         species_confidence.labels(species).set(
-            round(confidence, 3)
+            round(confidence,3)
         )
 
         species_last_seen.labels(species).set(
@@ -144,7 +144,7 @@ def update_metrics():
 
 if __name__ == "__main__":
 
-    start_http_server(9105, addr="0.0.0.0")
+    start_http_server(9105)
 
     while True:
         update_metrics()
