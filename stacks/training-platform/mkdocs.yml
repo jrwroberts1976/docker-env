@@ -23,8 +23,50 @@ nav:
 
   - Training:
       - Overview: training/index.md
+
       - Linux:
-          - Overview: courses/linux/content/docs/course-index.md
+          - Course Overview: courses/linux/content/docs/course-index.md
+
+          - Module 00 - Introduction:
+              - Overview: courses/linux/content/00-introduction/README.md
+              - Linux Overview: courses/linux/content/00-introduction/linux-overview.md
+
+          - Module 01 - Command Line:
+              - Overview: courses/linux/content/01-command-line/README.md
+              - Linux Shell: courses/linux/content/01-command-line/lesson-01-linux-shell.md
+              - Working with Files: courses/linux/content/01-command-line/lesson-02-working-with-files.md
+              - Viewing Files and Help: courses/linux/content/01-command-line/lesson-03-viewing-files-and-getting-help.md
+              - Command Line Lab: courses/linux/content/01-command-line/lesson-04-command-line-lab.md
+
+          - Module 02 - Filesystem:
+              - Overview: courses/linux/content/02-filesystem/README.md
+              - Linux Filesystem Hierarchy: courses/linux/content/02-filesystem/lesson-01-linux-filesystem-hierarchy.md
+              - File Permissions and Ownership: courses/linux/content/02-filesystem/lesson-02-file-permissions-and-ownership.md
+              - Finding Files and Links: courses/linux/content/02-filesystem/lesson-03-finding-files-and-links.md
+              - Filesystem Lab: courses/linux/content/02-filesystem/lesson-04-filesystem-lab.md
+
+          - Module 03 - Users and Groups:
+              - Overview: courses/linux/content/03-users-and-groups/README.md
+              - Understanding Users and Groups: courses/linux/content/03-users-and-groups/lesson-01-understanding-users-and-groups.md
+              - Managing Users and Groups: courses/linux/content/03-users-and-groups/lesson-02-managing-users-and-groups.md
+              - Passwords and sudo: courses/linux/content/03-users-and-groups/lesson-03-passwords-and-sudo.md
+              - Users and Groups Lab: courses/linux/content/03-users-and-groups/lesson-04-users-and-groups-lab.md
+
+          - Module 04 - Processes and Services:
+              - Overview: courses/linux/content/04-processes-and-services/README.md
+              - Understanding Processes: courses/linux/content/04-processes-and-services/lesson-01-understanding-processes.md
+              - Managing Processes: courses/linux/content/04-processes-and-services/lesson-02-managing-processes.md
+              - Systemd and Service Management: courses/linux/content/04-processes-and-services/lesson-03-systemd-and-service-management.md
+              - Logs and journalctl: courses/linux/content/04-processes-and-services/lesson-04-logs-and-journalctl.md
+              - Processes and Services Lab: courses/linux/content/04-processes-and-services/lesson-05-processes-and-services-lab.md
+
+          - Module 05 - Package Management:
+              - Overview: courses/linux/content/05-package-management/README.md
+              - Package Managers: courses/linux/content/05-package-management/lesson-01-package-managers.md
+              - Installing Software: courses/linux/content/05-package-management/lesson-02-installing-software.md
+              - Updating Systems: courses/linux/content/05-package-management/lesson-03-updating-systems.md
+              - Software Repositories: courses/linux/content/05-package-management/lesson-04-software-repositories.md
+              - Package Management Lab: courses/linux/content/05-package-management/lesson-05-package-management-lab.md
 
       - Kubernetes:
           - Overview: courses/kubernetes/index.md
