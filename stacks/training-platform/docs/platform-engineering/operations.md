@@ -4,7 +4,7 @@
 
 Operating a technology platform requires more than deploying services. A successful platform must be monitored, maintained, secured, and continuously improved throughout its lifecycle.
 
-The James Engineering Training Platform follows operational practices commonly used within enterprise technology environments, applying principles from infrastructure management, service operations, and DevOps.
+The James Engineering Training Platform follows operational practices commonly used within enterprise technology environments, combining infrastructure management, service management, automation, and DevOps principles.
 
 ## Service Management Approach
 
@@ -26,11 +26,35 @@ Key operational principles include:
 
 * Configuration stored as code
 * Version-controlled documentation
-* Repeatable deployment processes
-* Automated validation
+* Automated deployment processes
+* Repeatable recovery procedures
 * Clear ownership of changes
 
-By maintaining configuration and content within source control, the platform can be rebuilt consistently when required.
+The platform configuration is maintained within Git, allowing changes to be tracked, reviewed, and recreated consistently.
+
+## Deployment Operations
+
+Platform deployments are automated through a CI/CD workflow.
+
+The deployment process:
+
+```text
+Git Change
+    |
+    v
+GitHub Actions
+    |
+    v
+Self-hosted Runner
+    |
+    v
+Docker Deployment
+    |
+    v
+Training Platform Service
+```
+
+This approach reduces manual intervention and provides a consistent deployment method.
 
 ## Monitoring and Observability
 
@@ -55,7 +79,7 @@ These capabilities support proactive identification of issues before they impact
 
 ## Logging and Troubleshooting
 
-Effective troubleshooting requires access to reliable information.
+Effective troubleshooting requires access to reliable operational information.
 
 Operational practices include:
 
@@ -66,6 +90,15 @@ Operational practices include:
 
 Logs provide insight into service behaviour and support faster problem resolution.
 
+Troubleshooting follows a structured approach:
+
+1. Identify the issue
+2. Gather evidence from logs and monitoring
+3. Analyse the impact
+4. Apply corrective action
+5. Validate the resolution
+6. Document lessons learned
+
 ## Security Operations
 
 Security is considered throughout the platform lifecycle.
@@ -75,7 +108,7 @@ Operational security practices include:
 * Keeping software dependencies updated
 * Applying security patches
 * Controlling access to systems
-* Avoiding storage of sensitive information in repositories
+* Avoiding sensitive information in repositories
 * Reviewing platform configuration regularly
 
 Security is treated as an ongoing operational responsibility rather than a one-time activity.

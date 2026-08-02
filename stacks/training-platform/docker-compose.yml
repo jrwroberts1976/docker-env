@@ -1,6 +1,8 @@
 services:
 
   training-platform:
+    image: training-platform:latest
+
     container_name: training-platform
 
     build:

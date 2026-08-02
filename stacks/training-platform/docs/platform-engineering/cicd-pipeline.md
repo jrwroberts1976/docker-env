@@ -2,22 +2,28 @@
 
 ## Overview
 
-The platform follows a continuous integration and continuous delivery approach to ensure documentation changes can be delivered safely and consistently.
+The platform follows a continuous integration and continuous delivery approach to ensure documentation changes can be delivered safely, consistently, and repeatably.
 
-The pipeline provides an automated process from content changes through to publication.
+The pipeline automates the process from content changes through validation and deployment, reducing manual effort and improving confidence in changes.
 
 ## Pipeline Workflow
 
 The typical workflow is:
 
-```
+```text
 Developer Change
         |
         v
 Git Repository
         |
         v
-Validation and Build
+GitHub Actions Pipeline
+        |
+        v
+Docker Build
+        |
+        v
+MkDocs Validation
         |
         v
 Deployment
@@ -30,59 +36,74 @@ Published Documentation
 
 When changes are committed:
 
-* Repository changes are tracked
-* Documentation structure is validated
-* MkDocs build processes are executed
-* Errors are identified before publication
+* Repository changes are tracked through Git
+* The deployment pipeline is triggered automatically
+* The training platform Docker image is built
+* MkDocs validation is performed
+* Configuration and documentation issues are identified before release
 
-This prevents broken links, invalid configuration, or formatting issues reaching users.
+The validation process uses:
+
+```bash
+mkdocs build --strict
+```
+
+This ensures:
+
+* Documentation builds successfully
+* Navigation configuration is valid
+* Build errors are identified early
+* Broken changes do not reach the published platform
+
+## Containerised Documentation Builds
+
+The documentation platform uses Docker to provide a consistent build environment.
+
+MkDocs and its dependencies are installed within the training platform container rather than relying on software installed directly on the host system.
+
+This provides:
+
+* Repeatable builds
+* Consistent environments across systems
+* Reduced dependency conflicts
+* Easier platform migration
+* Alignment with modern DevOps practices
+
+The same container image used for validation is used as part of the deployment process, ensuring the tested environment matches the running platform.
+
+## Dependency Management
+
+Platform dependencies are managed through `requirements.txt`.
+
+Dependencies are version controlled to ensure future builds use known working versions.
+
+Example:
+
+```text
+mkdocs==<version>
+mkdocs-material==<version>
+```
+
+Pinning dependencies prevents unexpected package updates from introducing changes that could affect the documentation platform.
 
 ## Continuous Delivery
 
 Once changes pass validation:
 
-* The documentation site can be automatically published
-* Updates become available without manual intervention
+* Deployment is performed automatically
+* Updates are published without manual intervention
 * The delivery process remains repeatable and auditable
 
-# Operations and Monitoring
+The deployment workflow runs through GitHub Actions using a self-hosted runner within the homelab environment.
 
-## Overview
+## Platform Engineering Principles
 
-Operational management is an important part of platform engineering.
+This pipeline demonstrates key platform engineering practices:
 
-A platform is not complete when it is deployed; it must be monitored, maintained, and improved.
+* Automation over manual processes
+* Infrastructure and configuration managed as code
+* Automated quality checks
+* Repeatable deployments
+* Continuous improvement
 
-## Operational Practices
-
-The platform follows operational principles including:
-
-* Health monitoring
-* Backup and recovery planning
-* Security updates
-* Configuration management
-* Performance monitoring
-
-## Monitoring Approach
-
-Monitoring provides visibility into:
-
-* Service availability
-* Resource usage
-* Application health
-* Deployment issues
-
-This enables proactive identification of problems rather than relying only on user reports.
-
-## Continuous Improvement
-
-Operational feedback is used to improve:
-
-* Platform reliability
-* User experience
-* Training content
-* Automation processes
-
-The platform evolves through the same improvement cycle used by enterprise technology teams:
-
-Observe → Improve → Automate → Measure
+The objective is to provide a reliable internal platform that enables engineers to create, validate, and deliver technical content efficiently.
