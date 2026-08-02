@@ -30,7 +30,37 @@ My focus is continuing to develop modern engineering skills across:
 * Security engineering
 
 This platform demonstrates my practical learning through hands-on projects and real-world implementations.
+# James Engineering Training Platform
 
+Welcome to my engineering learning platform.
+
+---
+
+## 🎉 Linux Training Completed
+
+The **Basic Linux Training** course has now been completed.
+
+The course covers:
+
+- Linux fundamentals
+- Command line administration
+- Filesystems and storage
+- Users and permissions
+- Processes and services
+- Package management
+- Networking
+- Shell scripting
+- Security fundamentals
+- Troubleshooting
+
+The course concludes with a practical:
+
+**Final Linux Administrator Lab**
+
+This lab brings together the skills learned throughout the course and includes an automated:
+
+```bash
+./check-my-work.sh
 ---
 
 # My Homelab

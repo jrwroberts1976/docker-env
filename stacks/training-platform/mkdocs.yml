@@ -76,6 +76,41 @@ nav:
               - Network Troubleshooting: courses/linux/content/06-networking/lesson-03-network-troubleshooting.md
               - Networking Administration Lab: courses/linux/content/06-networking/lesson-04-networking-lab.md
 
+          - Module 07 - Storage:
+              - Overview: courses/linux/content/07-storage/README.md
+              - Storage Fundamentals: courses/linux/content/07-storage/lesson-01-storage-fundamentals.md
+              - Partitions and Filesystems: courses/linux/content/07-storage/lesson-02-partitions-and-filesystems.md
+              - Mount Points: courses/linux/content/07-storage/lesson-03-mount-points.md
+              - Disk Usage and Monitoring: courses/linux/content/07-storage/lesson-04-disk-usage-and-monitoring.md
+              - Storage Lab: courses/linux/content/07-storage/lesson-05-storage-lab.md
+
+          - Module 08 - Shell Scripting:
+              - Overview: courses/linux/content/08-shell-scripting/README.md
+              - Shell Scripting Fundamentals: courses/linux/content/08-shell-scripting/lesson-01-shell-scripting-fundamentals.md
+              - Variables and Input: courses/linux/content/08-shell-scripting/lesson-02-variables-and-input.md
+              - Conditions and Loops: courses/linux/content/08-shell-scripting/lesson-03-conditions-and-loops.md
+              - Functions and Error Handling: courses/linux/content/08-shell-scripting/lesson-04-functions-and-error-handling.md
+              - Automation Lab: courses/linux/content/08-shell-scripting/lesson-05-automation-lab.md
+
+          - Module 09 - Security:
+              - Overview: courses/linux/content/09-security/README.md
+              - Linux Security Fundamentals: courses/linux/content/09-security/lesson-01-linux-security-fundamentals.md
+              - File Permissions and Ownership: courses/linux/content/09-security/lesson-02-file-permissions-and-ownership.md
+              - Users, Passwords and Authentication: courses/linux/content/09-security/lesson-03-users-passwords-and-authentication.md
+              - Firewalls and Network Security: courses/linux/content/09-security/lesson-04-firewalls-and-network-security.md
+              - Security Hardening Lab: courses/linux/content/09-security/lesson-05-security-hardening-lab.md
+
+          - Module 10 - Troubleshooting:
+              - Overview: courses/linux/content/10-troubleshooting/README.md
+              - Linux Troubleshooting Fundamentals: courses/linux/content/10-troubleshooting/lesson-01-linux-troubleshooting-fundamentals.md
+              - Systemd and Service Troubleshooting: courses/linux/content/10-troubleshooting/lesson-02-systemd-and-service-troubleshooting.md
+              - Network Troubleshooting: courses/linux/content/10-troubleshooting/lesson-03-network-troubleshooting.md
+              - Performance Troubleshooting: courses/linux/content/10-troubleshooting/lesson-04-performance-troubleshooting.md
+              - Troubleshooting Lab: courses/linux/content/10-troubleshooting/lesson-05-troubleshooting-lab.md
+
+          - Final Linux Administrator Lab:
+              - Overview: courses/linux/content/labs/final-linux-administrator-lab/README.md
+
       - Kubernetes:
           - Overview: courses/kubernetes/index.md
 
