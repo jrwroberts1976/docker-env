@@ -118,7 +118,7 @@ nav:
           - Overview: courses/cloud/index.md
 
       - Azure:
-          - Overview: courses/azure/index.md
+          - Course Overview: repos/azure/content/docs/course-index.md
 
       - Docker:
           - Overview: courses/docker/index.md
