@@ -30,6 +30,16 @@ jobs:
         run: |
           git submodule update --init --recursive
 
+      - name: Build Training Platform image
+        working-directory: stacks/training-platform
+        run: |
+          docker build -t training-platform:test .
+
+      - name: Validate MkDocs build
+        working-directory: stacks/training-platform
+        run: |
+          docker run --rm training-platform:test mkdocs build --strict
+
       - name: Deploy Training Platform
         working-directory: stacks/training-platform
         run: |
