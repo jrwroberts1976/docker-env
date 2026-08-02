@@ -30,11 +30,7 @@ My focus is continuing to develop modern engineering skills across:
 * Security engineering
 
 This platform demonstrates my practical learning through hands-on projects and real-world implementations.
-# James Engineering Training Platform
 
-Welcome to my engineering learning platform.
-
----
 
 ## 🎉 Linux Training Completed
 
