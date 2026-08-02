@@ -75,7 +75,7 @@ Current capabilities include:
 
 # Current Engineering Projects
 
-## Linux Training Academy
+## Linux Training
 
 A structured Linux learning pathway covering:
 
@@ -105,7 +105,7 @@ A practical Kubernetes environment exploring:
 
 ---
 
-## Cloud Platform Engineering
+## Cloud Platform Engineering Lab
 
 A cloud-focused project covering:
 
@@ -163,7 +163,7 @@ Current development status of the learning platform:
 
 | Course | Status | Completion |
 |---|---|---:|
-| Linux Administration | 🟡 In Development | 45% |
+| Linux Administration | 🟢 Active Development | 65% |
 | Kubernetes Engineering | 🟡 In Development | 25% |
 | Cloud Engineering (AWS) | 🟡 In Development | 35% |
 | Azure Engineering | 🟡 Early Development | 15% |
@@ -178,9 +178,9 @@ Current development status of the learning platform:
 
 # Linux Administration Progress
 
-## Completion: 45%
+## Completion: 65%
 
-The Linux Administration course is being developed as a practical engineering pathway.
+The Linux Administration course is being developed as a practical engineering pathway covering the core skills required for Linux system administration and infrastructure support.
 
 Current modules:
 
@@ -190,9 +190,9 @@ Current modules:
 | 01 | Command Line Fundamentals | ✅ Complete |
 | 02 | Filesystem Management | ✅ Complete |
 | 03 | Users and Groups | ✅ Complete |
-| 04 | Processes and Services | 🔄 In Development |
+| 04 | Processes and Services | ✅ Complete |
 | 05 | Package Management | ✅ Complete |
-| 06 | Networking Fundamentals | ⏳ Planned |
+| 06 | Networking Fundamentals | ✅ Complete |
 | 07 | Storage Management | ⏳ Planned |
 | 08 | Shell Scripting | ⏳ Planned |
 | 09 | Linux Security | ⏳ Planned |
@@ -207,4 +207,4 @@ Current modules:
 > Automate what you repeat.  
 > Improve continuously.
 
-This platform is a living record of my engineering development and practical experimentation.
+This platform is a living record of my engineering development and practical experimentation
