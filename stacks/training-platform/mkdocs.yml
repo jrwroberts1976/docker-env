@@ -68,6 +68,13 @@ nav:
               - Software Repositories: courses/linux/content/05-package-management/lesson-04-software-repositories.md
               - Package Management Lab: courses/linux/content/05-package-management/lesson-05-package-management-lab.md
 
+          - Module 06 - Networking:
+              - Overview: courses/linux/content/06-networking/README.md
+              - Networking Fundamentals: courses/linux/content/06-networking/lesson-01-networking-fundamentals.md
+              - IP Addressing and Subnetting: courses/linux/content/06-networking/lesson-02-ip-addressing.md
+              - Network Troubleshooting: courses/linux/content/06-networking/lesson-03-network-troubleshooting.md
+              - Networking Administration Lab: courses/linux/content/06-networking/lesson-04-networking-lab.md
+
       - Kubernetes:
           - Overview: courses/kubernetes/index.md
 
