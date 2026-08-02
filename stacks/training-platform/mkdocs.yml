@@ -118,7 +118,14 @@ nav:
           - Overview: courses/cloud/index.md
 
       - Azure:
-          - Course Overview: repos/azure/content/docs/course-index.md
+          - Overview: courses/azure/content/README.md
+          - Training Plan: courses/azure/content/docs/training-plan.md
+          - Certification Path: courses/azure/content/docs/certification-path.md
+          - Prerequisites: courses/azure/content/docs/prerequisites.md
+          - Labs: courses/azure/content/labs/README.md
+          - Projects: courses/azure/content/projects/README.md
+          - Diagrams: courses/azure/content/diagrams/README.md
+          - Scripts: courses/azure/content/scripts/README.md
 
       - Docker:
           - Overview: courses/docker/index.md
