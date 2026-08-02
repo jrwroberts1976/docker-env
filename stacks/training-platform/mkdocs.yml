@@ -20,6 +20,7 @@ nav:
       - Documentation Architecture: platform-engineering/documentation-architecture.md
       - CI/CD Pipeline: platform-engineering/cicd-pipeline.md
       - Operations and Service Management: platform-engineering/operations.md
+      - Cloud Platform Engineering Lab: platform-engineering/cloud-platform-engineering-lab.md
 
   - Training:
       - Overview: training/index.md
