@@ -103,8 +103,8 @@ services:
       - /var/log:/var/log:ro
       - /var/lib/docker/containers:/var/lib/docker/containers:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /home/james/docker/data/proxy-auth/npm/data/logs:/npm-logs:ro
       - /home/james/docker/data/monitoring/promtail/config.yml:/etc/promtail/config.yml
-
     command: -config.file=/etc/promtail/config.yml
 
     networks:

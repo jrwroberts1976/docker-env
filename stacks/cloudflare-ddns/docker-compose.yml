@@ -1,12 +1,11 @@
 services:
-
   cloudflare-ddns:
     image: oznu/cloudflare-ddns:latest
     container_name: cloudflare-ddns
     restart: unless-stopped
 
     environment:
-      - CLOUDFLARE_API_TOKEN=${CLOUDFLARE_API_TOKEN}
-      - ZONE=jrwroberts.co.uk
-      - SUBDOMAIN=me
-      - PROXIED=true
+      API_KEY: ${CLOUDFLARE_API_TOKEN}
+      ZONE: jrwroberts.co.uk
+      SUBDOMAIN: me
+      PROXIED: "true"
