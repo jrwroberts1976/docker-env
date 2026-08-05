@@ -11,6 +11,7 @@ on:
     types:
       - content-updated
 
+
 jobs:
 
   deploy:
@@ -27,6 +28,7 @@ jobs:
           submodules: recursive
           fetch-depth: 0
 
+
       - name: Update submodules to latest
         run: |
           git submodule sync --recursive
@@ -34,20 +36,29 @@ jobs:
           git submodule foreach git checkout main
           git submodule update --remote --recursive
 
+
+      - name: Enable maintenance mode
+        run: |
+          ~/docker/scripts/maintenance-enable.sh
+
+
       - name: Generate documentation navigation
         working-directory: stacks/training-platform
         run: |
           python3 scripts/generate-github-enterprise-nav.py
+
 
       - name: Build Training Platform image
         working-directory: stacks/training-platform
         run: |
           docker build -t training-platform:test .
 
+
       - name: Validate MkDocs build
         working-directory: stacks/training-platform
         run: |
           docker run --rm training-platform:test mkdocs build --strict
+
 
       - name: Deploy Training Platform
         working-directory: stacks/training-platform
@@ -55,6 +66,13 @@ jobs:
           chmod +x deploy.sh
           ./deploy.sh
 
+
       - name: Check container status
         run: |
           docker ps --filter name=training-platform
+
+
+      - name: Disable maintenance mode
+        if: always()
+        run: |
+          ~/docker/scripts/maintenance-disable.sh
