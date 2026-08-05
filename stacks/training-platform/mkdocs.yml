@@ -242,6 +242,63 @@ nav:
           - "Module 11 - Final Project":
               - Overview: courses/terraform/modules/11-final-project/README.md
               - "Lesson 61 - Build a Reusable Multi-Cloud Platform With Terraform": courses/terraform/modules/11-final-project/61-build-a-reusable-multi-cloud-platform-with-terraform.md
+      - "Docker Engineering":
+          - Course Overview: courses/docker/README.md
+          - "01-container-fundamentals":
+              - Overview: courses/docker/modules/01-container-fundamentals/README.md
+              - "What Are Containers": courses/docker/modules/01-container-fundamentals/01-what-are-containers.md
+              - "Containers Versus Virtual Machines": courses/docker/modules/01-container-fundamentals/02-containers-versus-virtual-machines.md
+              - "Docker Architecture": courses/docker/modules/01-container-fundamentals/03-docker-architecture.md
+          - "02-installation-and-configuration":
+              - Overview: courses/docker/modules/02-installation-and-configuration/README.md
+              - "Installing Docker": courses/docker/modules/02-installation-and-configuration/04-installing-docker.md
+              - "Docker Configuration": courses/docker/modules/02-installation-and-configuration/05-docker-configuration.md
+              - "Managing the Docker Service": courses/docker/modules/02-installation-and-configuration/06-managing-the-docker-service.md
+          - "03-images":
+              - Overview: courses/docker/modules/03-images/README.md
+              - "Understanding Images": courses/docker/modules/03-images/07-understanding-images.md
+              - "Working With Registries": courses/docker/modules/03-images/08-working-with-registries.md
+              - "Building Images With Dockerfiles": courses/docker/modules/03-images/09-building-images-with-dockerfiles.md
+              - "Image Optimisation": courses/docker/modules/03-images/10-image-optimisation.md
+          - "04-containers":
+              - Overview: courses/docker/modules/04-containers/README.md
+              - "Running Containers": courses/docker/modules/04-containers/11-running-containers.md
+              - "Container Lifecycle": courses/docker/modules/04-containers/12-container-lifecycle.md
+              - "Environment Variables and Configuration": courses/docker/modules/04-containers/13-environment-variables-and-configuration.md
+              - "Container Logging": courses/docker/modules/04-containers/14-container-logging.md
+          - "05-networking":
+              - Overview: courses/docker/modules/05-networking/README.md
+              - "Docker Networking Fundamentals": courses/docker/modules/05-networking/15-docker-networking-fundamentals.md
+              - "Bridge and Host Networks": courses/docker/modules/05-networking/16-bridge-and-host-networks.md
+              - "Container DNS and Service Discovery": courses/docker/modules/05-networking/17-container-dns-and-service-discovery.md
+              - "Troubleshooting Docker Networks": courses/docker/modules/05-networking/18-troubleshooting-docker-networks.md
+          - "06-storage":
+              - Overview: courses/docker/modules/06-storage/README.md
+              - "Docker Volumes": courses/docker/modules/06-storage/19-docker-volumes.md
+              - "Bind Mounts": courses/docker/modules/06-storage/20-bind-mounts.md
+              - "Persistent Application Data": courses/docker/modules/06-storage/21-persistent-application-data.md
+              - "Backup and Recovery": courses/docker/modules/06-storage/22-backup-and-recovery.md
+          - "07-docker-compose":
+              - Overview: courses/docker/modules/07-docker-compose/README.md
+              - "Compose Fundamentals": courses/docker/modules/07-docker-compose/23-compose-fundamentals.md
+              - "Multi-Container Applications": courses/docker/modules/07-docker-compose/24-multi-container-applications.md
+              - "Networks and Volumes in Compose": courses/docker/modules/07-docker-compose/25-networks-and-volumes-in-compose.md
+              - "Compose Environments": courses/docker/modules/07-docker-compose/26-compose-environments.md
+          - "08-security":
+              - Overview: courses/docker/modules/08-security/README.md
+              - "Container Security Fundamentals": courses/docker/modules/08-security/27-container-security-fundamentals.md
+              - "Least Privilege Containers": courses/docker/modules/08-security/28-least-privilege-containers.md
+              - "Secrets and Sensitive Data": courses/docker/modules/08-security/29-secrets-and-sensitive-data.md
+              - "Image Scanning": courses/docker/modules/08-security/30-image-scanning.md
+          - "09-monitoring-and-operations":
+              - Overview: courses/docker/modules/09-monitoring-and-operations/README.md
+              - "Container Monitoring": courses/docker/modules/09-monitoring-and-operations/31-container-monitoring.md
+              - "Health Checks": courses/docker/modules/09-monitoring-and-operations/32-health-checks.md
+              - "Resource Controls": courses/docker/modules/09-monitoring-and-operations/33-resource-controls.md
+              - "Upgrades and Recovery": courses/docker/modules/09-monitoring-and-operations/34-upgrades-and-recovery.md
+          - "10-final-project":
+              - Overview: courses/docker/modules/10-final-project/README.md
+              - "Production-Style Container Platform Project": courses/docker/modules/10-final-project/35-production-style-container-platform-project.md
       # END AUTOMATED COURSES
 
       - Linux:
@@ -416,7 +473,7 @@ nav:
           - Scripts: courses/azure/content/scripts/README.md
 
       - Docker:
-          - Overview: courses/docker/index.md
+          - Overview: courses/docker/README.md
       - Git:
           - Overview: courses/git/README.md
 
