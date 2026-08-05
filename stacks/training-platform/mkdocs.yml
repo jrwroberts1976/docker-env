@@ -202,7 +202,6 @@ nav:
 
           - Module 03 - Lab Environment:
               - Overview: courses/github-enterprise/modules/03-lab-environment/README.md
-              - Deploying GitHub Enterprise VM: courses/github-enterprise/modules/03-lab-environment/05-deploying-the-github-enterprise-vm.md
               - Installing GitHub Enterprise Server Lab Environment: courses/github-enterprise/modules/03-lab-environment/08-installing-github-enterprise-server-lab-environment.md
 
           - Module 04 - Installation:
