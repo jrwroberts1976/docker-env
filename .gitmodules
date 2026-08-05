@@ -19,3 +19,6 @@
 [submodule "stacks/training-platform/docs/courses/git"]
 	path = stacks/training-platform/docs/courses/git
 	url = https://github.com/jrwroberts1976/git-training
+[submodule "stacks/training-platform/docs/courses/github-enterprise"]
+	path = stacks/training-platform/docs/courses/github-enterprise
+	url = https://github.com/jrwroberts1976/github-enterprise-training
