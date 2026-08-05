@@ -1,10 +1,10 @@
 # Training Course Statistics
 
-| Course | Modules | Lessons |
-|---|---:|---:|
-| Ansible Automation | 11 | 49 |
-| Network Engineering | 10 | 37 |
-| Terraform and Infrastructure as Code | 11 | 61 |
-| **Total** | **32** | **147** |
+| Course | Modules | Lessons | Labs | Projects |
+|---|---:|---:|---:|---:|
+| Ansible Automation | 11 | 49 | 1 | 1 |
+| Network Engineering | 10 | 37 | 1 | 1 |
+| Terraform and Infrastructure as Code | 11 | 61 | 1 | 1 |
+| **Total** | **32** | **147** | **3** | **3** |
 
-This page is generated automatically by the training platform manager.
+Generated automatically by Training Platform Manager v0.4.
