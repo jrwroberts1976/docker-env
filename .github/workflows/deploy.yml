@@ -42,25 +42,75 @@ jobs:
           ~/docker/scripts/maintenance-enable.sh
 
 
-      - name: Generate documentation navigation
+      - name: Build Training Platform image
         working-directory: stacks/training-platform
         run: |
-          python3 scripts/generate-github-enterprise-nav.py
+          docker build -t training-platform:test .
 
 
-      - name: Commit generated navigation updates
+      - name: Validate MkDocs build
+        working-directory: stacks/training-platform
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          docker run --rm training-platform:test mkdocs build --strict
 
-          git add stacks/training-platform/mkdocs.yml
 
-          if git diff --cached --quiet; then
-            echo "No navigation changes detected"
-          else
-            git commit -m "Update MkDocs navigation automatically [skip ci]"
-            git push origin main
-          fi
+      - name: Deploy Training Platform
+        working-directory: stacks/training-platform
+        run: |
+          chmod +x deploy.sh
+          ./deploy.sh
+
+
+      - name: Check container status
+        run: |
+          docker ps --filter name=training-platform
+
+
+      - name: Disable maintenance mode
+        if: always()
+        run: |
+          ~/docker/scripts/maintenance-disable.shname: Deploy Training Platform
+
+on:
+  push:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+  repository_dispatch:
+    types:
+      - content-updated
+
+
+jobs:
+
+  deploy:
+
+    name: Deploy to Homelab
+
+    runs-on: self-hosted
+
+    steps:
+
+      - name: Checkout repository
+        uses: actions/checkout@v5
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+
+      - name: Update submodules to latest
+        run: |
+          git submodule sync --recursive
+          git submodule update --init --recursive
+          git submodule foreach git checkout main
+          git submodule update --remote --recursive
+
+
+      - name: Enable maintenance mode
+        run: |
+          ~/docker/scripts/maintenance-enable.sh
 
 
       - name: Build Training Platform image
