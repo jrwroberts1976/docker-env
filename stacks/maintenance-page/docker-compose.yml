@@ -1,0 +1,18 @@
+services:
+  maintenance-page:
+    image: nginx:alpine
+    container_name: maintenance-page
+    restart: unless-stopped
+
+    ports:
+      - "8088:80"
+
+    volumes:
+      - ./html:/usr/share/nginx/html:ro
+
+    networks:
+      - homelab_apps
+
+networks:
+  homelab_apps:
+    external: true
