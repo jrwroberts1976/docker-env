@@ -1,33 +1,64 @@
 #!/bin/bash
 
-set -e
+set -Eeuo pipefail
 
-echo "Updating training platform"
+DOCKER_ROOT="$HOME/docker"
+PLATFORM_DIR="$DOCKER_ROOT/stacks/training-platform"
+MANAGER_DIR="$PLATFORM_DIR/training-platform-manager"
+IMAGE_NAME="training-platform:test"
 
-cd ~/docker/stacks/training-platform
+cleanup() {
+    echo "Disabling maintenance mode"
 
-echo "Pulling latest platform changes"
+    if [ -x "$DOCKER_ROOT/scripts/maintenance-disable.sh" ]; then
+        "$DOCKER_ROOT/scripts/maintenance-disable.sh" || true
+    fi
+}
 
-git pull
+trap cleanup EXIT
 
-echo "Updating training repositories"
+echo "Starting training platform deployment"
 
-git submodule update --init --recursive
+cd "$DOCKER_ROOT"
 
-echo "Pulling latest submodule changes"
+echo "Pulling latest docker-env changes"
+git pull --ff-only origin main
 
-git submodule foreach git pull origin main
+echo "Updating training platform manager"
 
-echo "Updating submodule references"
+if [ ! -d "$MANAGER_DIR/.git" ]; then
+    echo "Training platform manager is missing"
+    exit 1
+fi
 
-git add training-content
+git -C "$MANAGER_DIR" fetch --prune origin
+git -C "$MANAGER_DIR" checkout main
+git -C "$MANAGER_DIR" reset --hard origin/main
 
-git commit -m "Update training content" || true
+echo "Synchronising, validating and indexing training courses"
 
-echo "Rebuilding container"
+cd "$MANAGER_DIR"
 
-docker compose down
+python3 training_manager.py build
 
-docker compose up -d --build
+echo "Enabling maintenance mode"
 
-echo "Deployment complete"
+if [ -x "$DOCKER_ROOT/scripts/maintenance-enable.sh" ]; then
+    "$DOCKER_ROOT/scripts/maintenance-enable.sh"
+fi
+
+cd "$PLATFORM_DIR"
+
+echo "Building validation image"
+docker build -t "$IMAGE_NAME" .
+
+echo "Validating MkDocs documentation"
+docker run --rm "$IMAGE_NAME" mkdocs build --strict
+
+echo "Deploying training platform"
+docker compose up -d --build --remove-orphans
+
+echo "Checking container status"
+docker compose ps
+
+echo "Deployment completed successfully"

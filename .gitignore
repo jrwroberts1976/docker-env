@@ -25,3 +25,14 @@ cloud-platform/
 engineering-learning-portfolio/
 james-roberts-cv/
 kubernetes-homelab/
+stacks/training-platform/training-platform-manager/
+/stacks/training-platform/training-platform-manager/
+
+# Runtime-managed training repositories
+/stacks/training-platform/docs/courses/ansible/
+
+# Runtime training manager checkout
+/stacks/training-platform/training-platform-manager/
+
+# Local MkDocs backups
+/stacks/training-platform/mkdocs.yml.before-*

@@ -24,6 +24,81 @@ nav:
 
   - Training:
       - Overview: training/index.md
+      # BEGIN AUTOMATED COURSES
+      - "Ansible Automation":
+          - Course Overview: courses/ansible/README.md
+          - "Module 01 - Ansible Fundamentals":
+              - Overview: courses/ansible/modules/01-ansible-fundamentals/README.md
+              - "Lesson 01 - What Is Ansible": courses/ansible/modules/01-ansible-fundamentals/01-what-is-ansible.md
+              - "Lesson 02 - Control Nodes and Managed Nodes": courses/ansible/modules/01-ansible-fundamentals/02-control-nodes-and-managed-nodes.md
+              - "Lesson 03 - Inventory Fundamentals": courses/ansible/modules/01-ansible-fundamentals/03-inventory-fundamentals.md
+              - "Lesson 04 - Ansible Configuration": courses/ansible/modules/01-ansible-fundamentals/04-ansible-configuration.md
+          - "Module 02 - Ad Hoc Commands":
+              - Overview: courses/ansible/modules/02-ad-hoc-commands/README.md
+              - "Lesson 05 - Using Ad Hoc Commands": courses/ansible/modules/02-ad-hoc-commands/05-using-ad-hoc-commands.md
+              - "Lesson 06 - Common Ansible Modules": courses/ansible/modules/02-ad-hoc-commands/06-common-ansible-modules.md
+              - "Lesson 07 - Privilege Escalation": courses/ansible/modules/02-ad-hoc-commands/07-privilege-escalation.md
+              - "Lesson 08 - Command and Shell Modules": courses/ansible/modules/02-ad-hoc-commands/08-command-and-shell-modules.md
+          - "Module 03 - Playbooks":
+              - Overview: courses/ansible/modules/03-playbooks/README.md
+              - "Lesson 09 - Playbook Structure": courses/ansible/modules/03-playbooks/09-playbook-structure.md
+              - "Lesson 10 - Tasks and Plays": courses/ansible/modules/03-playbooks/10-tasks-and-plays.md
+              - "Lesson 11 - Variables": courses/ansible/modules/03-playbooks/11-variables.md
+              - "Lesson 12 - Handlers": courses/ansible/modules/03-playbooks/12-handlers.md
+              - "Lesson 13 - Conditionals": courses/ansible/modules/03-playbooks/13-conditionals.md
+              - "Lesson 14 - Loops": courses/ansible/modules/03-playbooks/14-loops.md
+          - "Module 04 - Inventory And Variables":
+              - Overview: courses/ansible/modules/04-inventory-and-variables/README.md
+              - "Lesson 15 - Static Inventory": courses/ansible/modules/04-inventory-and-variables/15-static-inventory.md
+              - "Lesson 16 - Dynamic Inventory": courses/ansible/modules/04-inventory-and-variables/16-dynamic-inventory.md
+              - "Lesson 17 - Group Variables": courses/ansible/modules/04-inventory-and-variables/17-group-variables.md
+              - "Lesson 18 - Host Variables": courses/ansible/modules/04-inventory-and-variables/18-host-variables.md
+              - "Lesson 19 - Variable Precedence": courses/ansible/modules/04-inventory-and-variables/19-variable-precedence.md
+          - "Module 05 - Roles":
+              - Overview: courses/ansible/modules/05-roles/README.md
+              - "Lesson 20 - Role Structure": courses/ansible/modules/05-roles/20-role-structure.md
+              - "Lesson 21 - Creating Reusable Roles": courses/ansible/modules/05-roles/21-creating-reusable-roles.md
+              - "Lesson 22 - Role Variables and Defaults": courses/ansible/modules/05-roles/22-role-variables-and-defaults.md
+              - "Lesson 23 - Role Dependencies": courses/ansible/modules/05-roles/23-role-dependencies.md
+              - "Lesson 24 - Ansible Galaxy": courses/ansible/modules/05-roles/24-ansible-galaxy.md
+          - "Module 06 - Templates And Files":
+              - Overview: courses/ansible/modules/06-templates-and-files/README.md
+              - "Lesson 25 - Jinja2 Templates": courses/ansible/modules/06-templates-and-files/25-jinja2-templates.md
+              - "Lesson 26 - Managing Files and Directories": courses/ansible/modules/06-templates-and-files/26-managing-files-and-directories.md
+              - "Lesson 27 - Deploying Configuration Files": courses/ansible/modules/06-templates-and-files/27-deploying-configuration-files.md
+              - "Lesson 28 - Template Validation": courses/ansible/modules/06-templates-and-files/28-template-validation.md
+          - "Module 07 - Secrets And Security":
+              - Overview: courses/ansible/modules/07-secrets-and-security/README.md
+              - "Lesson 29 - Ansible Vault": courses/ansible/modules/07-secrets-and-security/29-ansible-vault.md
+              - "Lesson 30 - Managing Credentials": courses/ansible/modules/07-secrets-and-security/30-managing-credentials.md
+              - "Lesson 31 - Least Privilege Automation": courses/ansible/modules/07-secrets-and-security/31-least-privilege-automation.md
+              - "Lesson 32 - Secure Automation Practices": courses/ansible/modules/07-secrets-and-security/32-secure-automation-practices.md
+          - "Module 08 - Linux Automation":
+              - Overview: courses/ansible/modules/08-linux-automation/README.md
+              - "Lesson 33 - User and Group Management": courses/ansible/modules/08-linux-automation/33-user-and-group-management.md
+              - "Lesson 34 - Package Management": courses/ansible/modules/08-linux-automation/34-package-management.md
+              - "Lesson 35 - Service Management": courses/ansible/modules/08-linux-automation/35-service-management.md
+              - "Lesson 36 - Linux Patching": courses/ansible/modules/08-linux-automation/36-linux-patching.md
+              - "Lesson 37 - Firewall Automation": courses/ansible/modules/08-linux-automation/37-firewall-automation.md
+              - "Lesson 38 - Scheduled Tasks": courses/ansible/modules/08-linux-automation/38-scheduled-tasks.md
+          - "Module 09 - Testing And Cicd":
+              - Overview: courses/ansible/modules/09-testing-and-cicd/README.md
+              - "Lesson 39 - Ansible Lint": courses/ansible/modules/09-testing-and-cicd/39-ansible-lint.md
+              - "Lesson 40 - Syntax and Check Mode": courses/ansible/modules/09-testing-and-cicd/40-syntax-and-check-mode.md
+              - "Lesson 41 - Molecule Fundamentals": courses/ansible/modules/09-testing-and-cicd/41-molecule-fundamentals.md
+              - "Lesson 42 - Testing Roles": courses/ansible/modules/09-testing-and-cicd/42-testing-roles.md
+              - "Lesson 43 - Ansible in CI CD Pipelines": courses/ansible/modules/09-testing-and-cicd/43-ansible-in-ci-cd-pipelines.md
+          - "Module 10 - Troubleshooting And Operations":
+              - Overview: courses/ansible/modules/10-troubleshooting-and-operations/README.md
+              - "Lesson 44 - Troubleshooting Playbooks": courses/ansible/modules/10-troubleshooting-and-operations/44-troubleshooting-playbooks.md
+              - "Lesson 45 - Debugging Variables": courses/ansible/modules/10-troubleshooting-and-operations/45-debugging-variables.md
+              - "Lesson 46 - Handling Failures": courses/ansible/modules/10-troubleshooting-and-operations/46-handling-failures.md
+              - "Lesson 47 - Idempotency": courses/ansible/modules/10-troubleshooting-and-operations/47-idempotency.md
+              - "Lesson 48 - Operational Runbooks": courses/ansible/modules/10-troubleshooting-and-operations/48-operational-runbooks.md
+          - "Module 11 - Final Project":
+              - Overview: courses/ansible/modules/11-final-project/README.md
+              - "Lesson 49 - Automating a Linux Platform With Ansible": courses/ansible/modules/11-final-project/49-automating-a-linux-platform-with-ansible.md
+      # END AUTOMATED COURSES
 
       - Linux:
           - Course Overview: courses/linux/content/docs/course-index.md
