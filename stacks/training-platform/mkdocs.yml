@@ -198,15 +198,11 @@ nav:
 
           - Module 02 - Planning Deployment:
               - Overview: courses/github-enterprise/modules/02-planning-deployment/README.md
-              - Planning the Azure Deployment: courses/github-enterprise/modules/02-planning-deployment/03-planning-the-azure-deployment.md
-              - Planning GitHub Enterprise Server Azure Deployment: courses/github-enterprise/modules/02-planning-deployment/07-planning-github-enterprise-server-azure-deployment.md
               - Planning Local GitHub Enterprise Server Deployment: courses/github-enterprise/modules/02-planning-deployment/07-planning-local-github-enterprise-server-deployment.md
 
           - Module 03 - Lab Environment:
               - Overview: courses/github-enterprise/modules/03-lab-environment/README.md
-              - Creating Azure Infrastructure: courses/github-enterprise/modules/03-lab-environment/04-creating-the-azure-infrastructure.md
               - Deploying GitHub Enterprise VM: courses/github-enterprise/modules/03-lab-environment/05-deploying-the-github-enterprise-vm.md
-              - Deploying Azure Infrastructure with Terraform: courses/github-enterprise/modules/03-lab-environment/08-deploying-azure-infrastructure-with-terraform.md
               - Installing GitHub Enterprise Server Lab Environment: courses/github-enterprise/modules/03-lab-environment/08-installing-github-enterprise-server-lab-environment.md
 
           - Module 04 - Installation:
@@ -227,7 +223,7 @@ nav:
               - Creating Your First Repository: courses/github-enterprise/modules/07-repository-administration/09-creating-your-first-repository.md
               - Connecting Git Clients and Enterprise Repository: courses/github-enterprise/modules/07-repository-administration/10-connecting-git-clients-and-enterprise-repository.md
 
-          - Module 08 - Security and Governance:
+          - Module 07 - Security and Governance:
               - Overview: courses/github-enterprise/modules/08-security-governance/README.md
 
           - Module 09 - GitHub Actions CI/CD:
