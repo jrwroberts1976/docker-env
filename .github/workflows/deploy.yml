@@ -34,6 +34,11 @@ jobs:
           git submodule foreach git checkout main
           git submodule update --remote --recursive
 
+      - name: Generate documentation navigation
+        working-directory: stacks/training-platform
+        run: |
+          python3 scripts/generate-github-enterprise-nav.py
+
       - name: Build Training Platform image
         working-directory: stacks/training-platform
         run: |
