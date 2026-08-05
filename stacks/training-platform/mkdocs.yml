@@ -157,6 +157,91 @@ nav:
           - "10 Final Project":
               - Overview: courses/networking/modules/10-final-project/README.md
               - "Lesson 37 - Design and Build a Small Enterprise Network": courses/networking/modules/10-final-project/37-design-and-build-a-small-enterprise-network.md
+      - "Terraform and Infrastructure as Code":
+          - Course Overview: courses/terraform/README.md
+          - "Module 01 - Infrastructure As Code Fundamentals":
+              - Overview: courses/terraform/modules/01-infrastructure-as-code-fundamentals/README.md
+              - "Lesson 01 - What Is Infrastructure as Code": courses/terraform/modules/01-infrastructure-as-code-fundamentals/01-what-is-infrastructure-as-code.md
+              - "Lesson 02 - Declarative Versus Imperative Automation": courses/terraform/modules/01-infrastructure-as-code-fundamentals/02-declarative-versus-imperative-automation.md
+              - "Lesson 03 - Mutable Versus Immutable Infrastructure": courses/terraform/modules/01-infrastructure-as-code-fundamentals/03-mutable-versus-immutable-infrastructure.md
+              - "Lesson 04 - Why Terraform": courses/terraform/modules/01-infrastructure-as-code-fundamentals/04-why-terraform.md
+              - "Lesson 05 - Terraform Architecture": courses/terraform/modules/01-infrastructure-as-code-fundamentals/05-terraform-architecture.md
+          - "Module 02 - Installation And Cli":
+              - Overview: courses/terraform/modules/02-installation-and-cli/README.md
+              - "Lesson 06 - Installing Terraform": courses/terraform/modules/02-installation-and-cli/06-installing-terraform.md
+              - "Lesson 07 - Terraform CLI Fundamentals": courses/terraform/modules/02-installation-and-cli/07-terraform-cli-fundamentals.md
+              - "Lesson 08 - Providers": courses/terraform/modules/02-installation-and-cli/08-providers.md
+              - "Lesson 09 - Working Directory Structure": courses/terraform/modules/02-installation-and-cli/09-working-directory-structure.md
+              - "Lesson 10 - Editor and Tooling Setup": courses/terraform/modules/02-installation-and-cli/10-editor-and-tooling-setup.md
+          - "Module 03 - Hcl Fundamentals":
+              - Overview: courses/terraform/modules/03-hcl-fundamentals/README.md
+              - "Lesson 11 - Terraform Resources": courses/terraform/modules/03-hcl-fundamentals/11-terraform-resources.md
+              - "Lesson 12 - Input Variables": courses/terraform/modules/03-hcl-fundamentals/12-input-variables.md
+              - "Lesson 13 - Outputs": courses/terraform/modules/03-hcl-fundamentals/13-outputs.md
+              - "Lesson 14 - Local Values": courses/terraform/modules/03-hcl-fundamentals/14-local-values.md
+              - "Lesson 15 - Expressions": courses/terraform/modules/03-hcl-fundamentals/15-expressions.md
+              - "Lesson 16 - Functions": courses/terraform/modules/03-hcl-fundamentals/16-functions.md
+              - "Lesson 17 - Conditionals and Loops": courses/terraform/modules/03-hcl-fundamentals/17-conditionals-and-loops.md
+          - "Module 04 - Terraform Workflow":
+              - Overview: courses/terraform/modules/04-terraform-workflow/README.md
+              - "Lesson 18 - Terraform Init": courses/terraform/modules/04-terraform-workflow/18-terraform-init.md
+              - "Lesson 19 - Terraform Validate": courses/terraform/modules/04-terraform-workflow/19-terraform-validate.md
+              - "Lesson 20 - Terraform Plan": courses/terraform/modules/04-terraform-workflow/20-terraform-plan.md
+              - "Lesson 21 - Terraform Apply": courses/terraform/modules/04-terraform-workflow/21-terraform-apply.md
+              - "Lesson 22 - Terraform Destroy": courses/terraform/modules/04-terraform-workflow/22-terraform-destroy.md
+              - "Lesson 23 - Formatting and Documentation": courses/terraform/modules/04-terraform-workflow/23-formatting-and-documentation.md
+          - "Module 05 - State Management":
+              - Overview: courses/terraform/modules/05-state-management/README.md
+              - "Lesson 24 - Understanding Terraform State": courses/terraform/modules/05-state-management/24-understanding-terraform-state.md
+              - "Lesson 25 - Remote State": courses/terraform/modules/05-state-management/25-remote-state.md
+              - "Lesson 26 - State Locking": courses/terraform/modules/05-state-management/26-state-locking.md
+              - "Lesson 27 - State Security": courses/terraform/modules/05-state-management/27-state-security.md
+              - "Lesson 28 - Importing Existing Resources": courses/terraform/modules/05-state-management/28-importing-existing-resources.md
+              - "Lesson 29 - Moving and Removing Resources From State": courses/terraform/modules/05-state-management/29-moving-and-removing-resources-from-state.md
+          - "Module 06 - Modules":
+              - Overview: courses/terraform/modules/06-modules/README.md
+              - "Lesson 30 - Terraform Module Design": courses/terraform/modules/06-modules/30-terraform-module-design.md
+              - "Lesson 31 - Module Inputs and Outputs": courses/terraform/modules/06-modules/31-module-inputs-and-outputs.md
+              - "Lesson 32 - Reusable Networking Modules": courses/terraform/modules/06-modules/32-reusable-networking-modules.md
+              - "Lesson 33 - Module Versioning": courses/terraform/modules/06-modules/33-module-versioning.md
+              - "Lesson 34 - Module Composition": courses/terraform/modules/06-modules/34-module-composition.md
+              - "Lesson 35 - Terraform Registry": courses/terraform/modules/06-modules/35-terraform-registry.md
+          - "Module 07 - Aws With Terraform":
+              - Overview: courses/terraform/modules/07-aws-with-terraform/README.md
+              - "Lesson 36 - AWS Provider Configuration": courses/terraform/modules/07-aws-with-terraform/36-aws-provider-configuration.md
+              - "Lesson 37 - AWS Networking": courses/terraform/modules/07-aws-with-terraform/37-aws-networking.md
+              - "Lesson 38 - AWS Compute": courses/terraform/modules/07-aws-with-terraform/38-aws-compute.md
+              - "Lesson 39 - AWS Storage": courses/terraform/modules/07-aws-with-terraform/39-aws-storage.md
+              - "Lesson 40 - AWS IAM": courses/terraform/modules/07-aws-with-terraform/40-aws-iam.md
+              - "Lesson 41 - AWS Security Groups": courses/terraform/modules/07-aws-with-terraform/41-aws-security-groups.md
+          - "Module 08 - Azure With Terraform":
+              - Overview: courses/terraform/modules/08-azure-with-terraform/README.md
+              - "Lesson 42 - Azure Provider Configuration": courses/terraform/modules/08-azure-with-terraform/42-azure-provider-configuration.md
+              - "Lesson 43 - Azure Resource Groups": courses/terraform/modules/08-azure-with-terraform/43-azure-resource-groups.md
+              - "Lesson 44 - Azure Virtual Networks": courses/terraform/modules/08-azure-with-terraform/44-azure-virtual-networks.md
+              - "Lesson 45 - Azure Storage Accounts": courses/terraform/modules/08-azure-with-terraform/45-azure-storage-accounts.md
+              - "Lesson 46 - Azure Key Vault": courses/terraform/modules/08-azure-with-terraform/46-azure-key-vault.md
+              - "Lesson 47 - Azure Virtual Machines": courses/terraform/modules/08-azure-with-terraform/47-azure-virtual-machines.md
+          - "Module 09 - Testing And Quality":
+              - Overview: courses/terraform/modules/09-testing-and-quality/README.md
+              - "Lesson 48 - Terraform Validation": courses/terraform/modules/09-testing-and-quality/48-terraform-validation.md
+              - "Lesson 49 - Static Analysis": courses/terraform/modules/09-testing-and-quality/49-static-analysis.md
+              - "Lesson 50 - Testing Terraform Configurations": courses/terraform/modules/09-testing-and-quality/50-testing-terraform-configurations.md
+              - "Lesson 51 - Security Scanning": courses/terraform/modules/09-testing-and-quality/51-security-scanning.md
+              - "Lesson 52 - Documentation Standards": courses/terraform/modules/09-testing-and-quality/52-documentation-standards.md
+              - "Lesson 53 - Code Review Practices": courses/terraform/modules/09-testing-and-quality/53-code-review-practices.md
+          - "Module 10 - Cicd And Governance":
+              - Overview: courses/terraform/modules/10-cicd-and-governance/README.md
+              - "Lesson 54 - Terraform in GitHub Actions": courses/terraform/modules/10-cicd-and-governance/54-terraform-in-github-actions.md
+              - "Lesson 55 - Plan and Apply Workflows": courses/terraform/modules/10-cicd-and-governance/55-plan-and-apply-workflows.md
+              - "Lesson 56 - Pull Request Validation": courses/terraform/modules/10-cicd-and-governance/56-pull-request-validation.md
+              - "Lesson 57 - Environment Approvals": courses/terraform/modules/10-cicd-and-governance/57-environment-approvals.md
+              - "Lesson 58 - Drift Detection": courses/terraform/modules/10-cicd-and-governance/58-drift-detection.md
+              - "Lesson 59 - Policy as Code": courses/terraform/modules/10-cicd-and-governance/59-policy-as-code.md
+              - "Lesson 60 - Multi-Environment Design": courses/terraform/modules/10-cicd-and-governance/60-multi-environment-design.md
+          - "Module 11 - Final Project":
+              - Overview: courses/terraform/modules/11-final-project/README.md
+              - "Lesson 61 - Build a Reusable Multi-Cloud Platform With Terraform": courses/terraform/modules/11-final-project/61-build-a-reusable-multi-cloud-platform-with-terraform.md
       # END AUTOMATED COURSES
 
       - Linux:
