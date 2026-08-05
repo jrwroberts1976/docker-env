@@ -16,3 +16,6 @@
 [submodule "stacks/training-platform/repos/cv"]
 	path = stacks/training-platform/repos/cv
 	url = https://github.com/jrwroberts1976/james-roberts-cv.git
+[submodule "stacks/training-platform/docs/courses/git"]
+	path = stacks/training-platform/docs/courses/git
+	url = https://github.com/jrwroberts1976/git-training
