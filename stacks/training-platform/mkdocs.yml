@@ -196,7 +196,6 @@ nav:
               - What is GitHub Enterprise?: courses/github-enterprise/modules/01-introduction/lessons/lesson-01-what-is-github-enterprise.md
               - GitHub Enterprise Server Architecture: courses/github-enterprise/modules/01-introduction/lessons/lesson-02-github-enterprise-server-architecture.md
               - Core GitHub Enterprise Concepts: courses/github-enterprise/modules/01-introduction/lessons/lesson-03-github-enterprise-concepts.md
-              - GitHub Enterprise Server Deployment Models: courses/github-enterprise/modules/01-introduction/lessons/lesson-04-github-enterprise-server-deployment-models.md
               - GitHub Enterprise Security Fundamentals: courses/github-enterprise/modules/01-introduction/lessons/lesson-05-github-enterprise-security-fundamentals.md
               - GitHub Enterprise Administration Overview: courses/github-enterprise/modules/01-introduction/lessons/lesson-06-github-enterprise-administration-overview.md
 
