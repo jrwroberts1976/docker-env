@@ -214,6 +214,7 @@ nav:
 
             - Module 04 - Installation:
               - Overview: courses/github-enterprise/modules/04-installation/README.md
+              - GitHub Enterprise Server Deployment Models: courses/github-enterprise/modules/01-introduction/lessons/lesson-04-github-enterprise-deployment-models.md
 
             - Module 05 - Configuration:
               - Overview: courses/github-enterprise/modules/05-configuration/README.md
