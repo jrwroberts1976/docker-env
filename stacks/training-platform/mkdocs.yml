@@ -200,11 +200,15 @@ nav:
               - GitHub Enterprise Server Deployment Models: courses/github-enterprise/modules/01-introduction/lessons/lesson-04-github-enterprise-deployment-models.md
               - GitHub Enterprise Security Fundamentals: courses/github-enterprise/modules/01-introduction/lessons/lesson-05-github-enterprise-security-fundamentals.md
               - GitHub Enterprise Administration Overview: courses/github-enterprise/modules/01-introduction/lessons/lesson-06-github-enterprise-administration-overview.md
-
             - Module 02 - Planning Deployment:
               - Overview: courses/github-enterprise/modules/02-planning-deployment/README.md
+              - Planning a Local GitHub Enterprise Server Deployment: courses/github-enterprise/modules/02-planning-deployment/07-planning-local-github-enterprise-server-deployment.md
+              - Hardware and Resource Requirements: courses/github-enterprise/modules/02-planning-deployment/08-hardware-and-resource-requirements.md
+              - Network and DNS Planning: courses/github-enterprise/modules/02-planning-deployment/09-network-and-dns-planning.md
+              - Storage and Backup Planning: courses/github-enterprise/modules/02-planning-deployment/10-storage-and-backup-planning.md
+              - Licensing and Prerequisites: courses/github-enterprise/modules/02-planning-deployment/11-licensing-and-prerequisites.md
+              - Deployment Planning Checklist: courses/github-enterprise/modules/02-planning-deployment/12-planning-checklist.md
 
-            - Module 03 - Lab Environment:
               - Overview: courses/github-enterprise/modules/03-lab-environment/README.md
 
             - Module 04 - Installation:
@@ -213,9 +217,8 @@ nav:
             - Module 05 - Configuration:
               - Overview: courses/github-enterprise/modules/05-configuration/README.md
 
-            - Module 06 - Identity Management:
-              - Overview: courses/github-enterprise/modules/06-identity-management/README.md
-              - Organisations and Users: courses/github-enterprise/modules/06-identity-management/08-organisations-and-users.md
+            - Module 06 - Enterprise Management:
+              - Overview:   
 
             - Module 07 - Repository Administration:
               - Overview: courses/github-enterprise/modules/07-repository-administration/README.md
@@ -229,6 +232,6 @@ nav:
               - Overview: courses/github-enterprise/modules/09-github-actions-cicd/README.md
               - Building CI/CD Pipelines with GitHub Actions: courses/github-enterprise/modules/09-github-actions-cicd/11-building-cicd-pipelines-with-github-actions.md
 
-            - Module 10 - Operations:
+            - Module 10 - Operati   ons:
               - Overview: courses/github-enterprise/modules/10-operations/README.md
               - Managing GitHub Enterprise Server Operations: courses/github-enterprise/modules/10-operations/12-managing-github-enterprise-server-operations.md   
