@@ -213,8 +213,9 @@ nav:
             - Module 05 - Configuration:
               - Overview: courses/github-enterprise/modules/05-configuration/README.md
 
-            - Module 06 - Enterprise Management:
-              - Overview: courses/github-enterprise/modules/06-enterprise-management/README.md
+            - Module 06 - Identity Management:
+              - Overview: courses/github-enterprise/modules/06-identity-management/README.md
+              - Organisations and Users: courses/github-enterprise/modules/06-identity-management/08-organisations-and-users.md
 
             - Module 07 - Repository Administration:
               - Overview: courses/github-enterprise/modules/07-repository-administration/README.md
