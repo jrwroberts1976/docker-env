@@ -98,6 +98,65 @@ nav:
           - "Module 11 - Final Project":
               - Overview: courses/ansible/modules/11-final-project/README.md
               - "Lesson 49 - Automating a Linux Platform With Ansible": courses/ansible/modules/11-final-project/49-automating-a-linux-platform-with-ansible.md
+      - "Network Engineering":
+          - Course Overview: courses/networking/README.md
+          - "01 Networking Fundamentals":
+              - Overview: courses/networking/modules/01-networking-fundamentals/README.md
+              - "Lesson 01 - OSI Model": courses/networking/modules/01-networking-fundamentals/01-osi-model.md
+              - "Lesson 02 - TCP IP Model": courses/networking/modules/01-networking-fundamentals/02-tcp-ip-model.md
+              - "Lesson 03 - Ethernet": courses/networking/modules/01-networking-fundamentals/03-ethernet.md
+              - "Lesson 04 - IPv4 and IPv6": courses/networking/modules/01-networking-fundamentals/04-ipv4-and-ipv6.md
+          - "02 Ip Addressing":
+              - Overview: courses/networking/modules/02-ip-addressing/README.md
+              - "Lesson 05 - Subnetting": courses/networking/modules/02-ip-addressing/05-subnetting.md
+              - "Lesson 06 - CIDR": courses/networking/modules/02-ip-addressing/06-cidr.md
+              - "Lesson 07 - Routing Basics": courses/networking/modules/02-ip-addressing/07-routing-basics.md
+              - "Lesson 08 - NAT": courses/networking/modules/02-ip-addressing/08-nat.md
+          - "03 Switching And Vlans":
+              - Overview: courses/networking/modules/03-switching-and-vlans/README.md
+              - "Lesson 09 - Switching": courses/networking/modules/03-switching-and-vlans/09-switching.md
+              - "Lesson 10 - VLANs": courses/networking/modules/03-switching-and-vlans/10-vlans.md
+              - "Lesson 11 - Trunking": courses/networking/modules/03-switching-and-vlans/11-trunking.md
+              - "Lesson 12 - Spanning Tree": courses/networking/modules/03-switching-and-vlans/12-spanning-tree.md
+          - "04 Routing":
+              - Overview: courses/networking/modules/04-routing/README.md
+              - "Lesson 13 - Static Routing": courses/networking/modules/04-routing/13-static-routing.md
+              - "Lesson 14 - Dynamic Routing": courses/networking/modules/04-routing/14-dynamic-routing.md
+              - "Lesson 15 - Default Routes": courses/networking/modules/04-routing/15-default-routes.md
+              - "Lesson 16 - Troubleshooting": courses/networking/modules/04-routing/16-troubleshooting.md
+          - "05 Dns And Dhcp":
+              - Overview: courses/networking/modules/05-dns-and-dhcp/README.md
+              - "Lesson 17 - DNS": courses/networking/modules/05-dns-and-dhcp/17-dns.md
+              - "Lesson 18 - DHCP": courses/networking/modules/05-dns-and-dhcp/18-dhcp.md
+              - "Lesson 19 - Name Resolution": courses/networking/modules/05-dns-and-dhcp/19-name-resolution.md
+              - "Lesson 20 - DNS Troubleshooting": courses/networking/modules/05-dns-and-dhcp/20-dns-troubleshooting.md
+          - "06 Firewalls And Security":
+              - Overview: courses/networking/modules/06-firewalls-and-security/README.md
+              - "Lesson 21 - Firewalls": courses/networking/modules/06-firewalls-and-security/21-firewalls.md
+              - "Lesson 22 - ACLs": courses/networking/modules/06-firewalls-and-security/22-acls.md
+              - "Lesson 23 - VPN Fundamentals": courses/networking/modules/06-firewalls-and-security/23-vpn-fundamentals.md
+              - "Lesson 24 - Security Best Practices": courses/networking/modules/06-firewalls-and-security/24-security-best-practices.md
+          - "07 Linux Networking":
+              - Overview: courses/networking/modules/07-linux-networking/README.md
+              - "Lesson 25 - ip Command": courses/networking/modules/07-linux-networking/25-ip-command.md
+              - "Lesson 26 - NetworkManager": courses/networking/modules/07-linux-networking/26-networkmanager.md
+              - "Lesson 27 - Routing Tables": courses/networking/modules/07-linux-networking/27-routing-tables.md
+              - "Lesson 28 - Packet Capture": courses/networking/modules/07-linux-networking/28-packet-capture.md
+          - "08 Monitoring":
+              - Overview: courses/networking/modules/08-monitoring/README.md
+              - "Lesson 29 - SNMP": courses/networking/modules/08-monitoring/29-snmp.md
+              - "Lesson 30 - NetFlow": courses/networking/modules/08-monitoring/30-netflow.md
+              - "Lesson 31 - Network Monitoring": courses/networking/modules/08-monitoring/31-network-monitoring.md
+              - "Lesson 32 - Performance Baselines": courses/networking/modules/08-monitoring/32-performance-baselines.md
+          - "09 Troubleshooting":
+              - Overview: courses/networking/modules/09-troubleshooting/README.md
+              - "Lesson 33 - Layered Troubleshooting": courses/networking/modules/09-troubleshooting/33-layered-troubleshooting.md
+              - "Lesson 34 - Common Failures": courses/networking/modules/09-troubleshooting/34-common-failures.md
+              - "Lesson 35 - Diagnostic Tools": courses/networking/modules/09-troubleshooting/35-diagnostic-tools.md
+              - "Lesson 36 - Incident Response": courses/networking/modules/09-troubleshooting/36-incident-response.md
+          - "10 Final Project":
+              - Overview: courses/networking/modules/10-final-project/README.md
+              - "Lesson 37 - Design and Build a Small Enterprise Network": courses/networking/modules/10-final-project/37-design-and-build-a-small-enterprise-network.md
       # END AUTOMATED COURSES
 
       - Linux:
@@ -185,7 +244,8 @@ nav:
 
           - Final Linux Administrator Lab:
               - Overview: courses/linux/content/labs/final-linux-administrator-lab/README.md
-            - Network Engineering:
+            
+      - Network Engineering:
           - Course Overview: courses/networking/README.md
 
           - Module 01 - Networking Fundamentals:
