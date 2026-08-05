@@ -129,35 +129,59 @@ nav:
 
       - Docker:
           - Overview: courses/docker/index.md
-
-
       - Git:
-          - Overview: courses/git/index.md
+          - Overview: courses/git/README.md
 
-          - Module 01 - Git Fundamentals:
-              - Introduction to Git: courses/git/content/01-git-fundamentals.md
+          - Getting Started:
+              - Prerequisites: courses/git/docs/prerequisites.md
+              - Training Plan: courses/git/docs/training-plan.md
+              - Progress Tracking: courses/git/docs/progress.md
+              - Resources: courses/git/docs/resources.md
 
-          - Module 02 - Git Repositories and Remote Workflows:
-              - Working With Remote Repositories: courses/git/content/02-git-remote-repositories.md
+          - Module 01 - Introduction:
+              - Overview: courses/git/modules/01-introduction/README.md
+              - Commands: courses/git/modules/01-introduction/commands.md
+              - Exercises: courses/git/modules/01-introduction/exercises.md
+              - Lab: courses/git/modules/01-introduction/lab.md
+              - Knowledge Check: courses/git/modules/01-introduction/knowledge-check.md
 
-          - Module 03 - Branching and Collaboration:
-              - Git Branching and Collaboration Workflows: courses/git/content/03-git-branching-and-collaboration.md
+          - Module 02 - Git Basics:
+              - Overview: courses/git/modules/02-git-basics/README.md
 
-          - Module 04 - Git Security:
-              - Git Security and Enterprise Best Practices: courses/git/content/04-git-security-and-enterprise-best-practices.md
+          - Module 03 - Branching:
+              - Overview: courses/git/modules/03-branching/README.md
 
-          - Module 05 - Enterprise Git Platform Deployment:
-              - Planning a Local GitHub Enterprise Server Deployment: courses/git/content/05-planning-local-github-enterprise-server-deployment.md
-              - Installing GitHub Enterprise Server Lab Environment: courses/git/content/06-installing-github-enterprise-server-lab-environment.md
-              - Configuring GitHub Enterprise Server: courses/git/content/07-configuring-github-enterprise-server.md
+          - Module 04 - Merging and Conflicts:
+              - Overview: courses/git/modules/04-merging-conflicts/README.md
 
-          - Module 06 - Git Engineering Workflows:
-              - Connecting Git Clients: courses/git/content/08-connecting-git-clients-and-enterprise-repository.md
-              - Building CI/CD Pipelines: courses/git/content/09-building-cicd-pipelines-with-github-actions.md
-              - Managing Git Platform Operations: courses/git/content/10-managing-github-enterprise-server-operations.md
+          - Module 05 - Remote Repositories:
+              - Overview: courses/git/modules/05-remote-repositories/README.md
 
-          - Final Project:
-              - Complete Git Enterprise Workflow Project: courses/git/content/11-git-enterprise-complete-engineering-workflow-project.md
+          - Module 06 - GitHub Collaboration:
+              - Overview: courses/git/modules/06-github-collaboration/README.md
+
+          - Module 07 - GitHub Features:
+              - Overview: courses/git/modules/07-github-features/README.md
+
+          - Module 08 - Tags and Releases:
+              - Overview: courses/git/modules/08-tags-releases/README.md
+
+          - Module 09 - Git Workflows:
+              - Overview: courses/git/modules/09-git-workflows/README.md
+
+          - Module 10 - Advanced Git:
+              - Overview: courses/git/modules/10-advanced-git/README.md
+
+          - Module 11 - Git DevOps:
+              - Overview: courses/git/modules/11-git-devops/README.md
+
+          - Module 12 - Git Best Practices:
+              - Overview: courses/git/modules/12-best-practices/README.md
+
+          - Git Cheat Sheet:
+              - Cheat Sheet: courses/git/docs/git-cheat-sheet.md
+
+    
       - Monitoring:
           - Overview: courses/monitoring/index.md
 
