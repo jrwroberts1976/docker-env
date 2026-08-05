@@ -190,3 +190,38 @@ nav:
 
       - Microsoft 365:
           - Overview: courses/microsoft365/index.md
+      - GitHub Enterprise:
+          - Overview: courses/github-enterprise/README.md
+
+          - Module 01 - Introduction:
+              - Overview: courses/github-enterprise/modules/01-introduction/README.md
+
+          - Module 02 - Planning Deployment:
+              - Overview: courses/github-enterprise/modules/02-planning-deployment/README.md
+
+          - Module 03 - Lab Environment:
+              - Overview: courses/github-enterprise/modules/03-lab-environment/README.md
+
+          - Module 04 - Installation:
+              - Overview: courses/github-enterprise/modules/04-installation/README.md
+
+          - Module 05 - Configuration:
+              - Overview: courses/github-enterprise/modules/05-configuration/README.md
+
+          - Module 06 - Identity Management:
+              - Overview: courses/github-enterprise/modules/06-identity-management/README.md
+
+          - Module 07 - Repository Administration:
+              - Overview: courses/github-enterprise/modules/07-repository-administration/README.md
+
+          - Module 08 - Security and Governance:
+              - Overview: courses/github-enterprise/modules/08-security-governance/README.md
+
+          - Module 09 - GitHub Actions CI/CD:
+              - Overview: courses/github-enterprise/modules/09-github-actions-cicd/README.md
+
+          - Module 10 - Operations:
+              - Overview: courses/github-enterprise/modules/10-operations/README.md
+
+          - Module 11 - Final Project:
+              - Overview: courses/github-enterprise/modules/11-final-project/README.md
