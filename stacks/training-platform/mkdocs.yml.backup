@@ -1,0 +1,243 @@
+site_name: James Engineering Training Platform
+
+theme:
+  name: material
+
+nav:
+  - Home: index.md
+
+  - Professional Profile:
+      - CV: courses/cv/index.md
+
+  - Projects:
+      - Overview: projects.md
+
+  - Architecture:
+      - Overview: architecture.md
+
+  - Platform Engineering:
+      - Overview: platform-engineering/index.md
+      - Documentation Architecture: platform-engineering/documentation-architecture.md
+      - CI/CD Pipeline: platform-engineering/cicd-pipeline.md
+      - Operations and Service Management: platform-engineering/operations.md
+      - Cloud Platform Engineering Lab: platform-engineering/cloud-platform-engineering-lab.md
+
+  - Training:
+      - Overview: training/index.md
+
+      - Linux:
+          - Course Overview: courses/linux/content/docs/course-index.md
+
+          - Module 00 - Introduction:
+              - Overview: courses/linux/content/00-introduction/README.md
+              - Linux Overview: courses/linux/content/00-introduction/linux-overview.md
+
+          - Module 01 - Command Line:
+              - Overview: courses/linux/content/01-command-line/README.md
+              - Linux Shell: courses/linux/content/01-command-line/lesson-01-linux-shell.md
+              - Working with Files: courses/linux/content/01-command-line/lesson-02-working-with-files.md
+              - Viewing Files and Help: courses/linux/content/01-command-line/lesson-03-viewing-files-and-getting-help.md
+              - Command Line Lab: courses/linux/content/01-command-line/lesson-04-command-line-lab.md
+
+          - Module 02 - Filesystem:
+              - Overview: courses/linux/content/02-filesystem/README.md
+              - Linux Filesystem Hierarchy: courses/linux/content/02-filesystem/lesson-01-linux-filesystem-hierarchy.md
+              - File Permissions and Ownership: courses/linux/content/02-filesystem/lesson-02-file-permissions-and-ownership.md
+              - Finding Files and Links: courses/linux/content/02-filesystem/lesson-03-finding-files-and-links.md
+              - Filesystem Lab: courses/linux/content/02-filesystem/lesson-04-filesystem-lab.md
+
+          - Module 03 - Users and Groups:
+              - Overview: courses/linux/content/03-users-and-groups/README.md
+              - Understanding Users and Groups: courses/linux/content/03-users-and-groups/lesson-01-understanding-users-and-groups.md
+              - Managing Users and Groups: courses/linux/content/03-users-and-groups/lesson-02-managing-users-and-groups.md
+              - Passwords and sudo: courses/linux/content/03-users-and-groups/lesson-03-passwords-and-sudo.md
+              - Users and Groups Lab: courses/linux/content/03-users-and-groups/lesson-04-users-and-groups-lab.md
+
+          - Module 04 - Processes and Services:
+              - Overview: courses/linux/content/04-processes-and-services/README.md
+              - Understanding Processes: courses/linux/content/04-processes-and-services/lesson-01-understanding-processes.md
+              - Managing Processes: courses/linux/content/04-processes-and-services/lesson-02-managing-processes.md
+              - Systemd and Service Management: courses/linux/content/04-processes-and-services/lesson-03-systemd-and-service-management.md
+              - Logs and journalctl: courses/linux/content/04-processes-and-services/lesson-04-logs-and-journalctl.md
+              - Processes and Services Lab: courses/linux/content/04-processes-and-services/lesson-05-processes-and-services-lab.md
+
+          - Module 05 - Package Management:
+              - Overview: courses/linux/content/05-package-management/README.md
+              - Package Managers: courses/linux/content/05-package-management/lesson-01-package-managers.md
+              - Installing Software: courses/linux/content/05-package-management/lesson-02-installing-software.md
+              - Updating Systems: courses/linux/content/05-package-management/lesson-03-updating-systems.md
+              - Software Repositories: courses/linux/content/05-package-management/lesson-04-software-repositories.md
+              - Package Management Lab: courses/linux/content/05-package-management/lesson-05-package-management-lab.md
+
+          - Module 06 - Networking:
+              - Overview: courses/linux/content/06-networking/README.md
+              - Networking Fundamentals: courses/linux/content/06-networking/lesson-01-networking-fundamentals.md
+              - IP Addressing and Subnetting: courses/linux/content/06-networking/lesson-02-ip-addressing.md
+              - Network Troubleshooting: courses/linux/content/06-networking/lesson-03-network-troubleshooting.md
+              - Networking Administration Lab: courses/linux/content/06-networking/lesson-04-networking-lab.md
+
+          - Module 07 - Storage:
+              - Overview: courses/linux/content/07-storage/README.md
+              - Storage Fundamentals: courses/linux/content/07-storage/lesson-01-storage-fundamentals.md
+              - Partitions and Filesystems: courses/linux/content/07-storage/lesson-02-partitions-and-filesystems.md
+              - Mount Points: courses/linux/content/07-storage/lesson-03-mount-points.md
+              - Disk Usage and Monitoring: courses/linux/content/07-storage/lesson-04-disk-usage-and-monitoring.md
+              - Storage Lab: courses/linux/content/07-storage/lesson-05-storage-lab.md
+
+          - Module 08 - Shell Scripting:
+              - Overview: courses/linux/content/08-shell-scripting/README.md
+              - Shell Scripting Fundamentals: courses/linux/content/08-shell-scripting/lesson-01-shell-scripting-fundamentals.md
+              - Variables and Input: courses/linux/content/08-shell-scripting/lesson-02-variables-and-input.md
+              - Conditions and Loops: courses/linux/content/08-shell-scripting/lesson-03-conditions-and-loops.md
+              - Functions and Error Handling: courses/linux/content/08-shell-scripting/lesson-04-functions-and-error-handling.md
+              - Automation Lab: courses/linux/content/08-shell-scripting/lesson-05-automation-lab.md
+
+          - Module 09 - Security:
+              - Overview: courses/linux/content/09-security/README.md
+              - Linux Security Fundamentals: courses/linux/content/09-security/lesson-01-linux-security-fundamentals.md
+              - File Permissions and Ownership: courses/linux/content/09-security/lesson-02-file-permissions-and-ownership.md
+              - Users, Passwords and Authentication: courses/linux/content/09-security/lesson-03-users-passwords-and-authentication.md
+              - Firewalls and Network Security: courses/linux/content/09-security/lesson-04-firewalls-and-network-security.md
+              - Security Hardening Lab: courses/linux/content/09-security/lesson-05-security-hardening-lab.md
+
+          - Module 10 - Troubleshooting:
+              - Overview: courses/linux/content/10-troubleshooting/README.md
+              - Linux Troubleshooting Fundamentals: courses/linux/content/10-troubleshooting/lesson-01-linux-troubleshooting-fundamentals.md
+              - Systemd and Service Troubleshooting: courses/linux/content/10-troubleshooting/lesson-02-systemd-and-service-troubleshooting.md
+              - Network Troubleshooting: courses/linux/content/10-troubleshooting/lesson-03-network-troubleshooting.md
+              - Performance Troubleshooting: courses/linux/content/10-troubleshooting/lesson-04-performance-troubleshooting.md
+              - Troubleshooting Lab: courses/linux/content/10-troubleshooting/lesson-05-troubleshooting-lab.md
+
+          - Final Linux Administrator Lab:
+              - Overview: courses/linux/content/labs/final-linux-administrator-lab/README.md
+
+      - Kubernetes:
+          - Overview: courses/kubernetes/index.md
+
+      - Cloud:
+          - Overview: courses/cloud/index.md
+
+      - Azure:
+          - Overview: courses/azure/content/README.md
+          - Training Plan: courses/azure/content/docs/training-plan.md
+          - Certification Path: courses/azure/content/docs/certification-path.md
+          - Prerequisites: courses/azure/content/docs/prerequisites.md
+          - Labs: courses/azure/content/labs/README.md
+          - Projects: courses/azure/content/projects/README.md
+          - Diagrams: courses/azure/content/diagrams/README.md
+          - Scripts: courses/azure/content/scripts/README.md
+
+      - Docker:
+          - Overview: courses/docker/index.md
+      - Git:
+          - Overview: courses/git/README.md
+
+          - Getting Started:
+              - Prerequisites: courses/git/docs/prerequisites.md
+              - Training Plan: courses/git/docs/training-plan.md
+              - Progress Tracking: courses/git/docs/progress.md
+              - Resources: courses/git/docs/resources.md
+
+          - Module 01 - Introduction:
+              - Overview: courses/git/modules/01-introduction/README.md
+              - Commands: courses/git/modules/01-introduction/commands.md
+              - Exercises: courses/git/modules/01-introduction/exercises.md
+              - Lab: courses/git/modules/01-introduction/lab.md
+              - Knowledge Check: courses/git/modules/01-introduction/knowledge-check.md
+
+          - Module 02 - Git Basics:
+              - Overview: courses/git/modules/02-git-basics/README.md
+
+          - Module 03 - Branching:
+              - Overview: courses/git/modules/03-branching/README.md
+
+          - Module 04 - Merging and Conflicts:
+              - Overview: courses/git/modules/04-merging-conflicts/README.md
+
+          - Module 05 - Remote Repositories:
+              - Overview: courses/git/modules/05-remote-repositories/README.md
+
+          - Module 06 - GitHub Collaboration:
+              - Overview: courses/git/modules/06-github-collaboration/README.md
+
+          - Module 07 - GitHub Features:
+              - Overview: courses/git/modules/07-github-features/README.md
+
+          - Module 08 - Tags and Releases:
+              - Overview: courses/git/modules/08-tags-releases/README.md
+
+          - Module 09 - Git Workflows:
+              - Overview: courses/git/modules/09-git-workflows/README.md
+
+          - Module 10 - Advanced Git:
+              - Overview: courses/git/modules/10-advanced-git/README.md
+
+          - Module 11 - Git DevOps:
+              - Overview: courses/git/modules/11-git-devops/README.md
+
+          - Module 12 - Git Best Practices:
+              - Overview: courses/git/modules/12-best-practices/README.md
+
+          - Git Cheat Sheet:
+              - Cheat Sheet: courses/git/docs/git-cheat-sheet.md
+
+    
+      - Monitoring:
+          - Overview: courses/monitoring/index.md
+
+      - Security:
+          - Overview: courses/security/index.md
+
+      - Microsoft 365:
+          - Overview: courses/microsoft365/index.md
+      - GitHub Enterprise Server:
+            - Module 01 - Introduction to GitHub Enterprise:
+              - Overview: courses/github-enterprise/modules/01-introduction/README.md
+              - What is GitHub Enterprise?: courses/github-enterprise/modules/01-introduction/lessons/lesson-01-what-is-github-enterprise.md
+              - GitHub Enterprise Server Architecture: courses/github-enterprise/modules/01-introduction/lessons/lesson-02-github-enterprise-server-architecture.md
+              - Core GitHub Enterprise Concepts: courses/github-enterprise/modules/01-introduction/lessons/lesson-03-github-enterprise-concepts.md
+              - GitHub Enterprise Security Fundamentals: courses/github-enterprise/modules/01-introduction/lessons/lesson-05-github-enterprise-security-fundamentals.md
+              - GitHub Enterprise Administration Overview: courses/github-enterprise/modules/01-introduction/lessons/lesson-06-github-enterprise-administration-overview.md
+
+            - Module 02 - Planning Deployment:
+              - Overview: courses/github-enterprise/modules/02-planning-deployment/README.md
+              - Planning a Local GitHub Enterprise Server Deployment: courses/github-enterprise/modules/02-planning-deployment/07-planning-local-github-enterprise-server-deployment.md
+              - Hardware and Resource Requirements: courses/github-enterprise/modules/02-planning-deployment/08-hardware-and-resource-requirements.md
+              - Network and DNS Planning: courses/github-enterprise/modules/02-planning-deployment/09-network-and-dns-planning.md
+              - Storage and Backup Planning: courses/github-enterprise/modules/02-planning-deployment/10-storage-and-backup-planning.md
+              - Licensing and Prerequisites: courses/github-enterprise/modules/02-planning-deployment/11-licensing-and-prerequisites.md
+              - Deployment Planning Checklist: courses/github-enterprise/modules/02-planning-deployment/12-planning-checklist.md
+
+            - Module 03 - Lab Environment:
+              - Overview: courses/github-enterprise/modules/03-lab-environment/README.md
+
+            - Module 04 - Installation:
+              - Overview: courses/github-enterprise/modules/04-installation/README.md
+              - GitHub Enterprise Server Deployment Models: courses/github-enterprise/modules/01-introduction/lessons/lesson-04-github-enterprise-deployment-models.md
+
+            - Module 05 - Configuration:
+              - Overview: courses/github-enterprise/modules/05-configuration/README.md
+
+            - Module 06 - Identity Management:
+              - Overview: courses/github-enterprise/modules/06-identity-management/README.md
+              - Organisations and Users: courses/github-enterprise/modules/06-identity-management/08-organisations-and-users.md
+
+            - Module 07 - Repository Administration:
+              - Overview: courses/github-enterprise/modules/07-repository-administration/README.md
+              - Creating Your First Repository: courses/github-enterprise/modules/07-repository-administration/09-creating-your-first-repository.md
+              - Connecting Git Clients and Enterprise Repository: courses/github-enterprise/modules/07-repository-administration/10-connecting-git-clients-and-enterprise-repository.md
+
+            - Module 08 - Security and Governance:
+              - Overview: courses/github-enterprise/modules/08-security-governance/README.md
+
+            - Module 09 - GitHub Actions CI/CD:
+              - Overview: courses/github-enterprise/modules/09-github-actions-cicd/README.md
+              - Building CI/CD Pipelines with GitHub Actions: courses/github-enterprise/modules/09-github-actions-cicd/11-building-cicd-pipelines-with-github-actions.md
+
+            - Module 10 - Operations:
+              - Overview: courses/github-enterprise/modules/10-operations/README.md
+              - Managing GitHub Enterprise Server Operations: courses/github-enterprise/modules/10-operations/12-managing-github-enterprise-server-operations.md
+
+            - Module 11 - Final Project:
+              - Overview: courses/github-enterprise/modules/11-final-project/README.md
+              - GitHub Enterprise Complete Engineering Workflow Project: courses/github-enterprise/modules/11-final-project/13-git-enterprise-complete-engineering-workflow-project.md
