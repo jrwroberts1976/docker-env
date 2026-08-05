@@ -190,58 +190,59 @@ nav:
 
       - Microsoft 365:
           - Overview: courses/microsoft365/index.md
+
       - GitHub Enterprise Server:
-          - 01 Introduction:
+          - Module 01 - Introduction:
               - Overview: courses/github-enterprise/modules/01-introduction/README.md
-              - 01 What Is Github Enterprise: courses/github-enterprise/modules/01-introduction/lessons/lesson-01-what-is-github-enterprise.md
-              - 02 Github Enterprise Server Architecture: courses/github-enterprise/modules/01-introduction/lessons/lesson-02-github-enterprise-server-architecture.md
-              - 03 Github Enterprise Concepts: courses/github-enterprise/modules/01-introduction/lessons/lesson-03-github-enterprise-concepts.md
-              - 04 Github Enterprise Deployment Models: courses/github-enterprise/modules/01-introduction/lessons/lesson-04-github-enterprise-deployment-models.md
-              - 05 Github Enterprise Security Fundamentals: courses/github-enterprise/modules/01-introduction/lessons/lesson-05-github-enterprise-security-fundamentals.md
-              - 06 Github Enterprise Administration Overview: courses/github-enterprise/modules/01-introduction/lessons/lesson-06-github-enterprise-administration-overview.md
-          - 02 Planning Deployment:
+              - Lesson 01 - What Is GitHub Enterprise: courses/github-enterprise/modules/01-introduction/lesson-01-what-is-github-enterprise.md
+              - Lesson 02 - GitHub Enterprise Server Architecture: courses/github-enterprise/modules/01-introduction/lesson-02-github-enterprise-server-architecture.md
+              - Lesson 03 - GitHub Enterprise Concepts: courses/github-enterprise/modules/01-introduction/lesson-03-github-enterprise-concepts.md
+              - Lesson 04 - GitHub Enterprise Deployment Models: courses/github-enterprise/modules/01-introduction/lesson-04-github-enterprise-deployment-models.md
+              - Lesson 05 - GitHub Enterprise Security Fundamentals: courses/github-enterprise/modules/01-introduction/lesson-05-github-enterprise-security-fundamentals.md
+              - Lesson 06 - GitHub Enterprise Administration Overview: courses/github-enterprise/modules/01-introduction/lesson-06-github-enterprise-administration-overview.md
+          - Module 02 - Planning Deployment:
               - Overview: courses/github-enterprise/modules/02-planning-deployment/README.md
-              - 07 Planning Local Github Enterprise Server Deployment: courses/github-enterprise/modules/02-planning-deployment/07-planning-local-github-enterprise-server-deployment.md
-              - 08 Hardware And Resource Requirements: courses/github-enterprise/modules/02-planning-deployment/08-hardware-and-resource-requirements.md
-              - 09 Network And Dns Planning: courses/github-enterprise/modules/02-planning-deployment/09-network-and-dns-planning.md
-              - 10 Storage And Backup Planning: courses/github-enterprise/modules/02-planning-deployment/10-storage-and-backup-planning.md
-              - 11 Licensing And Prerequisites: courses/github-enterprise/modules/02-planning-deployment/11-licensing-and-prerequisites.md
-              - 12 Planning Checklist: courses/github-enterprise/modules/02-planning-deployment/12-planning-checklist.md
-          - 03 Lab Environment:
+              - Lesson 07 - Planning Local GitHub Enterprise Server Deployment: courses/github-enterprise/modules/02-planning-deployment/07-planning-local-github-enterprise-server-deployment.md
+              - Lesson 08 - Hardware And Resource Requirements: courses/github-enterprise/modules/02-planning-deployment/08-hardware-and-resource-requirements.md
+              - Lesson 09 - Network And DNS Planning: courses/github-enterprise/modules/02-planning-deployment/09-network-and-dns-planning.md
+              - Lesson 10 - Storage And Backup Planning: courses/github-enterprise/modules/02-planning-deployment/10-storage-and-backup-planning.md
+              - Lesson 11 - Licensing And Prerequisites: courses/github-enterprise/modules/02-planning-deployment/11-licensing-and-prerequisites.md
+              - Lesson 12 - Planning Checklist: courses/github-enterprise/modules/02-planning-deployment/12-planning-checklist.md
+          - Module 03 - Lab Environment:
               - Overview: courses/github-enterprise/modules/03-lab-environment/README.md
-              - 08 Installing Github Enterprise Server Lab Environment: courses/github-enterprise/modules/03-lab-environment/08-installing-github-enterprise-server-lab-environment.md
-          - 04 Installation:
+              - Lesson 13 - Installing GitHub Enterprise Server Lab Environment: courses/github-enterprise/modules/03-lab-environment/08-installing-github-enterprise-server-lab-environment.md
+          - Module 04 - Installation:
               - Overview: courses/github-enterprise/modules/04-installation/README.md
-              - 06 Installing Github Enterprise Server: courses/github-enterprise/modules/04-installation/06-installing-github-enterprise-server.md
-          - 05 Configuration:
+              - Lesson 14 - Installing GitHub Enterprise Server: courses/github-enterprise/modules/04-installation/06-installing-github-enterprise-server.md
+          - Module 05 - Configuration:
               - Overview: courses/github-enterprise/modules/05-configuration/README.md
-              - 07 Initial Configuration: courses/github-enterprise/modules/05-configuration/07-initial-configuration.md
-              - 09 Configuring Github Enterprise Server And First Organisation: courses/github-enterprise/modules/05-configuration/09-configuring-github-enterprise-server-and-first-organisation.md
-          - 06 Identity Management:
+              - Lesson 15 - Initial Configuration: courses/github-enterprise/modules/05-configuration/07-initial-configuration.md
+              - Lesson 16 - Configuring GitHub Enterprise Server And First Organisation: courses/github-enterprise/modules/05-configuration/09-configuring-github-enterprise-server-and-first-organisation.md
+          - Module 06 - Identity Management:
               - Overview: courses/github-enterprise/modules/06-identity-management/README.md
-              - 08 Organisations And Users: courses/github-enterprise/modules/06-identity-management/08-organisations-and-users.md
-          - 07 Repository Administration:
+              - Lesson 17 - Organisations And Users: courses/github-enterprise/modules/06-identity-management/08-organisations-and-users.md
+          - Module 07 - Repository Administration:
               - Overview: courses/github-enterprise/modules/07-repository-administration/README.md
-              - 09 Creating Your First Repository: courses/github-enterprise/modules/07-repository-administration/09-creating-your-first-repository.md
-              - 10 Connecting Git Clients And Enterprise Repository: courses/github-enterprise/modules/07-repository-administration/10-connecting-git-clients-and-enterprise-repository.md
-              - 11 Repository Settings And Configuration: courses/github-enterprise/modules/07-repository-administration/11-repository-settings-and-configuration.md
-              - 12 Branch Protection And Repository Policies: courses/github-enterprise/modules/07-repository-administration/12-branch-protection-and-repository-policies.md
-              - 13 Repository Backup Migration And Lifecycle Management: courses/github-enterprise/modules/07-repository-administration/13-repository-backup-migration-and-lifecycle-management.md
-          - 08 Security Governance:
+              - Lesson 18 - Creating Your First Repository: courses/github-enterprise/modules/07-repository-administration/09-creating-your-first-repository.md
+              - Lesson 19 - Connecting Git Clients And Enterprise Repository: courses/github-enterprise/modules/07-repository-administration/10-connecting-git-clients-and-enterprise-repository.md
+              - Lesson 20 - Repository Settings And Configuration: courses/github-enterprise/modules/07-repository-administration/11-repository-settings-and-configuration.md
+              - Lesson 21 - Branch Protection And Repository Policies: courses/github-enterprise/modules/07-repository-administration/12-branch-protection-and-repository-policies.md
+              - Lesson 22 - Repository Backup Migration And Lifecycle Management: courses/github-enterprise/modules/07-repository-administration/13-repository-backup-migration-and-lifecycle-management.md
+          - Module 08 - Security Governance:
               - Overview: courses/github-enterprise/modules/08-security-governance/README.md
-              - 01 Github Enterprise Security Model: courses/github-enterprise/modules/08-security-governance/01-github-enterprise-security-model.md
-              - 02 Identity And Access Management: courses/github-enterprise/modules/08-security-governance/02-identity-and-access-management.md
-              - 03 Authentication Providers And Sso: courses/github-enterprise/modules/08-security-governance/03-authentication-providers-and-sso.md
-              - 04 Repository Security Controls: courses/github-enterprise/modules/08-security-governance/04-repository-security-controls.md
-              - 05 Secret Scanning And Code Security: courses/github-enterprise/modules/08-security-governance/05-secret-scanning-and-code-security.md
-              - 06 Audit Logging And Security Monitoring: courses/github-enterprise/modules/08-security-governance/06-audit-logging-and-security-monitoring.md
-              - 07 Security Policies And Governance Framework: courses/github-enterprise/modules/08-security-governance/07-security-policies-and-governance-framework.md
-          - 09 Github Actions Cicd:
+              - Lesson 23 - GitHub Enterprise Security Model: courses/github-enterprise/modules/08-security-governance/01-github-enterprise-security-model.md
+              - Lesson 24 - Identity And Access Management: courses/github-enterprise/modules/08-security-governance/02-identity-and-access-management.md
+              - Lesson 25 - Authentication Providers And SSO: courses/github-enterprise/modules/08-security-governance/03-authentication-providers-and-sso.md
+              - Lesson 26 - Repository Security Controls: courses/github-enterprise/modules/08-security-governance/04-repository-security-controls.md
+              - Lesson 27 - Secret Scanning And Code Security: courses/github-enterprise/modules/08-security-governance/05-secret-scanning-and-code-security.md
+              - Lesson 28 - Audit Logging And Security Monitoring: courses/github-enterprise/modules/08-security-governance/06-audit-logging-and-security-monitoring.md
+              - Lesson 29 - Security Policies And Governance Framework: courses/github-enterprise/modules/08-security-governance/07-security-policies-and-governance-framework.md
+          - Module 09 - GitHub Actions CI/CD:
               - Overview: courses/github-enterprise/modules/09-github-actions-cicd/README.md
-              - 11 Building Cicd Pipelines With Github Actions: courses/github-enterprise/modules/09-github-actions-cicd/11-building-cicd-pipelines-with-github-actions.md
-          - 10 Operations:
+              - Lesson 30 - Building CI/CD Pipelines With GitHub Actions: courses/github-enterprise/modules/09-github-actions-cicd/11-building-cicd-pipelines-with-github-actions.md
+          - Module 10 - Operations:
               - Overview: courses/github-enterprise/modules/10-operations/README.md
-              - 12 Managing Github Enterprise Server Operations: courses/github-enterprise/modules/10-operations/12-managing-github-enterprise-server-operations.md
-          - 11 Final Project:
+              - Lesson 31 - Managing GitHub Enterprise Server Operations: courses/github-enterprise/modules/10-operations/12-managing-github-enterprise-server-operations.md
+          - Module 11 - Final Project:
               - Overview: courses/github-enterprise/modules/11-final-project/README.md
-              - 13 Git Enterprise Complete Engineering Workflow Project: courses/github-enterprise/modules/11-final-project/13-git-enterprise-complete-engineering-workflow-project.md
+              - Lesson 32 - GitHub Enterprise Complete Engineering Workflow Project: courses/github-enterprise/modules/11-final-project/13-git-enterprise-complete-engineering-workflow-project.md
