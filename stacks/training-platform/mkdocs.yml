@@ -130,9 +130,34 @@ nav:
       - Docker:
           - Overview: courses/docker/index.md
 
+
       - Git:
           - Overview: courses/git/index.md
 
+          - Module 01 - Git Fundamentals:
+              - Introduction to Git: courses/git/content/01-git-fundamentals.md
+
+          - Module 02 - Git Repositories and Remote Workflows:
+              - Working With Remote Repositories: courses/git/content/02-git-remote-repositories.md
+
+          - Module 03 - Branching and Collaboration:
+              - Git Branching and Collaboration Workflows: courses/git/content/03-git-branching-and-collaboration.md
+
+          - Module 04 - Git Security:
+              - Git Security and Enterprise Best Practices: courses/git/content/04-git-security-and-enterprise-best-practices.md
+
+          - Module 05 - Enterprise Git Platform Deployment:
+              - Planning a Local GitHub Enterprise Server Deployment: courses/git/content/05-planning-local-github-enterprise-server-deployment.md
+              - Installing GitHub Enterprise Server Lab Environment: courses/git/content/06-installing-github-enterprise-server-lab-environment.md
+              - Configuring GitHub Enterprise Server: courses/git/content/07-configuring-github-enterprise-server.md
+
+          - Module 06 - Git Engineering Workflows:
+              - Connecting Git Clients: courses/git/content/08-connecting-git-clients-and-enterprise-repository.md
+              - Building CI/CD Pipelines: courses/git/content/09-building-cicd-pipelines-with-github-actions.md
+              - Managing Git Platform Operations: courses/git/content/10-managing-github-enterprise-server-operations.md
+
+          - Final Project:
+              - Complete Git Enterprise Workflow Project: courses/git/content/11-git-enterprise-complete-engineering-workflow-project.md
       - Monitoring:
           - Overview: courses/monitoring/index.md
 
