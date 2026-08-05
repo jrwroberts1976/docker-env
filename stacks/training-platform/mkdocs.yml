@@ -198,30 +198,46 @@ nav:
 
           - Module 02 - Planning Deployment:
               - Overview: courses/github-enterprise/modules/02-planning-deployment/README.md
+              - Planning the Azure Deployment: courses/github-enterprise/modules/02-planning-deployment/03-planning-the-azure-deployment.md
+              - Planning GitHub Enterprise Server Azure Deployment: courses/github-enterprise/modules/02-planning-deployment/07-planning-github-enterprise-server-azure-deployment.md
+              - Planning Local GitHub Enterprise Server Deployment: courses/github-enterprise/modules/02-planning-deployment/07-planning-local-github-enterprise-server-deployment.md
 
           - Module 03 - Lab Environment:
               - Overview: courses/github-enterprise/modules/03-lab-environment/README.md
+              - Creating Azure Infrastructure: courses/github-enterprise/modules/03-lab-environment/04-creating-the-azure-infrastructure.md
+              - Deploying GitHub Enterprise VM: courses/github-enterprise/modules/03-lab-environment/05-deploying-the-github-enterprise-vm.md
+              - Deploying Azure Infrastructure with Terraform: courses/github-enterprise/modules/03-lab-environment/08-deploying-azure-infrastructure-with-terraform.md
+              - Installing GitHub Enterprise Server Lab Environment: courses/github-enterprise/modules/03-lab-environment/08-installing-github-enterprise-server-lab-environment.md
 
           - Module 04 - Installation:
               - Overview: courses/github-enterprise/modules/04-installation/README.md
+              - Installing GitHub Enterprise Server: courses/github-enterprise/modules/04-installation/06-installing-github-enterprise-server.md
 
           - Module 05 - Configuration:
               - Overview: courses/github-enterprise/modules/05-configuration/README.md
+              - Initial Configuration: courses/github-enterprise/modules/05-configuration/07-initial-configuration.md
+              - Configuring GitHub Enterprise Server and First Organisation: courses/github-enterprise/modules/05-configuration/09-configuring-github-enterprise-server-and-first-organisation.md
 
           - Module 06 - Identity Management:
               - Overview: courses/github-enterprise/modules/06-identity-management/README.md
+              - Organisations and Users: courses/github-enterprise/modules/06-identity-management/08-organisations-and-users.md
 
           - Module 07 - Repository Administration:
               - Overview: courses/github-enterprise/modules/07-repository-administration/README.md
+              - Creating Your First Repository: courses/github-enterprise/modules/07-repository-administration/09-creating-your-first-repository.md
+              - Connecting Git Clients and Enterprise Repository: courses/github-enterprise/modules/07-repository-administration/10-connecting-git-clients-and-enterprise-repository.md
 
           - Module 08 - Security and Governance:
               - Overview: courses/github-enterprise/modules/08-security-governance/README.md
 
           - Module 09 - GitHub Actions CI/CD:
               - Overview: courses/github-enterprise/modules/09-github-actions-cicd/README.md
+              - Building CI/CD Pipelines with GitHub Actions: courses/github-enterprise/modules/09-github-actions-cicd/11-building-cicd-pipelines-with-github-actions.md
 
           - Module 10 - Operations:
               - Overview: courses/github-enterprise/modules/10-operations/README.md
+              - Managing GitHub Enterprise Server Operations: courses/github-enterprise/modules/10-operations/12-managing-github-enterprise-server-operations.md
 
           - Module 11 - Final Project:
               - Overview: courses/github-enterprise/modules/11-final-project/README.md
+              - Git Enterprise Complete Engineering Workflow Project: courses/github-enterprise/modules/11-final-project/13-git-enterprise-complete-engineering-workflow-project.md
