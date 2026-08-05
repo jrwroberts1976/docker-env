@@ -1,4 +1,4 @@
-name: Build MkDocs Documentation
+name: Deploy Training Platform
 
 on:
   push:
@@ -11,44 +11,21 @@ on:
 
 jobs:
 
-  build:
-
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v5
-        with:
-          submodules: recursive
-
-      - name: Setup Python
-        uses: actions/setup-python@v6
-        with:
-          python-version: "3.x"
-
-      - name: Install MkDocs Material
-        run: |
-          pip install mkdocs-material
-
-      - name: Build documentation
-        run: |
-          mkdocs build --strict
-
-
   deploy:
 
-    needs: build
-
     runs-on: ubuntu-latest
 
     steps:
+
       - name: Deploy training platform
 
         uses: appleboy/ssh-action@v1
 
         with:
           host: ${{ secrets.TRAINING_PLATFORM_HOST }}
+
           username: james
+
           key: ${{ secrets.TRAINING_PLATFORM_DEPLOY_KEY }}
 
           script: |
