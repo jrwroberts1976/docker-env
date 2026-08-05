@@ -28,7 +28,8 @@ jobs:
 
       - name: Update submodules
         run: |
-          git submodule update --init --recursive
+         git submodule update --init --recursive
+         git submodule update --remote --recursive
 
       - name: Build Training Platform image
         working-directory: stacks/training-platform
