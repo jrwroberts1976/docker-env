@@ -48,6 +48,21 @@ jobs:
           python3 scripts/generate-github-enterprise-nav.py
 
 
+      - name: Commit generated navigation updates
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add stacks/training-platform/mkdocs.yml
+
+          if git diff --cached --quiet; then
+            echo "No navigation changes detected"
+          else
+            git commit -m "Update MkDocs navigation automatically [skip ci]"
+            git push origin main
+          fi
+
+
       - name: Build Training Platform image
         working-directory: stacks/training-platform
         run: |
