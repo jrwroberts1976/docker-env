@@ -37,3 +37,15 @@ stacks/training-platform/training-platform-manager/
 # Local MkDocs backups
 /stacks/training-platform/mkdocs.yml.before-*
 /stacks/training-platform/docs/courses/terraform/
+
+# Local operational backups
+/backups/
+
+# Local documentation/work files
+/docs/
+
+# Deployed engineering portfolio
+/stacks/engineering-portfolio/
+
+# Training platform backup checkout
+/stacks/training-platform/training-platform-manager-v0.4-backup/
