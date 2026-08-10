@@ -30,8 +30,8 @@ services:
         condition: service_started
     environment:
       AUTOKUMA__KUMA__URL: "http://uptime-kuma:3001"
-      AUTOKUMA__KUMA__USERNAME: "admin"
-      AUTOKUMA__KUMA__PASSWORD: "REDACTED"
+      AUTOKUMA__KUMA__USERNAME: "${AUTOKUMA_KUMA_USERNAME}"
+      AUTOKUMA__KUMA__PASSWORD: "${AUTOKUMA_KUMA_PASSWORD}"
     volumes:
       - /home/james/docker/data/availability/autokuma/config:/config
       - /var/run/docker.sock:/var/run/docker.sock:ro

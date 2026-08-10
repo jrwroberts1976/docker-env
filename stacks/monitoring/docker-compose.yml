@@ -2,7 +2,7 @@ services:
 
   crowdsec-exporter:
     container_name: crowdsec-exporter
-    build: 
+    build:
       context: /home/james/docker/data/monitoring/crowdsec-exporter
     restart: unless-stopped
 
@@ -19,23 +19,15 @@ services:
 
 
   grafana:
+    image: grafana/grafana-oss:latest
+    container_name: grafana
+    restart: unless-stopped
+
     depends_on:
       prometheus:
         condition: service_started
       loki:
         condition: service_started
-
-    image: grafana/grafana-oss:latest
-    container_name: grafana
-    restart: unless-stopped
-
-    volumes:
-      - /home/james/docker/data/monitoring/grafana/data:/var/lib/grafana
-      - /home/james/docker/data/monitoring/grafana/dashboards:/etc/grafana/dashboards
-      - /home/james/docker/data/monitoring/grafana/provisioning:/etc/grafana/provisioning
-
-    networks:
-      - apps
 
     environment:
       - GF_SMTP_ENABLED=true
@@ -44,6 +36,17 @@ services:
       - GF_SMTP_PASSWORD=${GRAFANA_SMTP_PASSWORD}
       - GF_SMTP_FROM_ADDRESS=jrwroberts1976@gmail.com
       - GF_SMTP_SKIP_VERIFY=false
+      - GF_SERVER_DOMAIN=grafana.jrwroberts.co.uk
+      - GF_SERVER_ROOT_URL=https://grafana.jrwroberts.co.uk/
+
+    volumes:
+      - /home/james/docker/data/monitoring/grafana/data:/var/lib/grafana
+      - /home/james/docker/data/monitoring/grafana/dashboards:/etc/grafana/dashboards
+      - /home/james/docker/data/monitoring/grafana/provisioning:/etc/grafana/provisioning
+    ports:
+      - "127.0.0.1:3000:3000"
+    networks:
+      - apps
 
     labels:
       - "com.centurylinklabs.watchtower.enable=true"
@@ -54,24 +57,25 @@ services:
     container_name: prometheus
     user: "1000:1000"
     restart: unless-stopped
+
     ports:
       - "9090:9090"
-
-    volumes:
-      - /home/james/docker/data/monitoring/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
-      - /home/james/docker/data/monitoring/prometheus/data:/prometheus
 
     command:
       - --config.file=/etc/prometheus/prometheus.yml
       - --storage.tsdb.path=/prometheus
       - --web.enable-lifecycle
 
+    volumes:
+      - /home/james/docker/data/monitoring/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - /home/james/docker/data/monitoring/prometheus/linux-hosts.yml:/etc/prometheus/linux-hosts.yml:ro
+      - /home/james/docker/data/monitoring/prometheus/data:/prometheus
+
     networks:
       - apps
 
     labels:
       - "com.centurylinklabs.watchtower.enable=true"
-
 
   loki:
     image: grafana/loki:2.9.6
@@ -81,7 +85,8 @@ services:
     ports:
       - "3100:3100"
 
-    command: -config.file=/etc/loki/local-config.yaml
+    command:
+      - -config.file=/etc/loki/local-config.yaml
 
     volumes:
       - /home/james/docker/data/monitoring/loki/data:/loki
@@ -99,13 +104,16 @@ services:
     container_name: promtail
     restart: unless-stopped
 
+    command:
+      - -config.file=/etc/promtail/config.yml
+
     volumes:
       - /var/log:/var/log:ro
       - /var/lib/docker/containers:/var/lib/docker/containers:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /home/james/docker/data/proxy-auth/npm/data/logs:/npm-logs:ro
       - /home/james/docker/data/monitoring/promtail/config.yml:/etc/promtail/config.yml
-    command: -config.file=/etc/promtail/config.yml
+      - /home/james/docker/data/monitoring/promtail/data:/var/lib/promtail
 
     networks:
       - apps
@@ -119,29 +127,17 @@ services:
     container_name: node-exporter
     restart: unless-stopped
 
-    networks:
-      - apps
-
-
-  cadvisor:
-    image: gcr.io/cadvisor/cadvisor:latest
-    container_name: cadvisor
-    restart: unless-stopped
-
-    ports:
-      - "8089:8080"
+    command:
+      - --path.rootfs=/host
+      - --collector.filesystem.mount-points-exclude=^/(sys|proc|dev|host|etc)($$|/)
+      - --collector.textfile.directory=/textfile
 
     volumes:
-      - /:/rootfs:ro
-      - /var/run:/var/run:rw
-      - /sys:/sys:ro
-      - /var/lib/docker/:/var/lib/docker:ro
-      - /dev/disk/:/dev/disk:ro
+      - /:/host:ro,rslave
+      - /home/james/docker/data/monitoring/node-exporter/textfile:/textfile:ro
 
-    privileged: true
-
-    devices:
-      - /dev/kmsg
+    ports:
+      - "192.168.2.220:9100:9100"
 
     networks:
       - apps
@@ -149,8 +145,72 @@ services:
     labels:
       - "com.centurylinklabs.watchtower.enable=true"
 
+  cadvisor:
+    image: ghcr.io/google/cadvisor:0.55.1
+    container_name: cadvisor
+    restart: unless-stopped
+
+    privileged: true
+
+    ports:
+      - "8089:8080"
+
+    devices:
+      - /dev/kmsg:/dev/kmsg
+
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:rw
+      - /sys:/sys:ro
+      - /var/lib/docker:/var/lib/docker:ro
+      - /dev/disk:/dev/disk:ro
+
+    networks:
+      - apps
+
+    labels:
+      - "com.centurylinklabs.watchtower.enable=false"
+
+  blackbox-exporter:
+    image: prom/blackbox-exporter:latest
+    container_name: blackbox-exporter
+    restart: unless-stopped
+
+    ports:
+      - "9115:9115"
+
+    volumes:
+      - /home/james/docker/data/monitoring/blackbox/blackbox.yml:/etc/blackbox_exporter/config.yml:ro
+
+    command:
+      - --config.file=/etc/blackbox_exporter/config.yml
+
+    networks:
+      - apps
+
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+
+  asus-exporter:
+    build:
+      context: /home/james/docker/stacks/monitoring/asus-exporter
+    container_name: asus-exporter
+    restart: unless-stopped
+
+    ports:
+      - "192.168.2.220:9106:9106"
+
+    volumes:
+      - /home/james/.ssh/asus_router:/root/.ssh/asus_router:ro
+
+    networks:
+      - apps
+
+    labels:
+      - "com.centurylinklabs.watchtower.enable=false"
 
 networks:
   apps:
     external: true
     name: homelab_apps
+
