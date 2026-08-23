@@ -36,6 +36,27 @@ services:
       - "wud.watch=true"
       - "wud.watch.digest=true"
       - "wud.tag.include=^[0-9]{8}$"
+  birdnet-exporter:
+    build:
+      context: ./birdnet-exporter
+    container_name: birdnet-exporter
+    restart: unless-stopped
+
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+    ports:
+      - "192.168.2.220:9105:9105"
+
+    volumes:
+      - /home/james/docker/data/birdnet-go/data:/data
+
+    networks:
+      - apps
+
 networks:
   apps:
     external: true
