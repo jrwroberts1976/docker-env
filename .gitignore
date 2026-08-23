@@ -49,3 +49,19 @@ stacks/training-platform/training-platform-manager/
 
 # Training platform backup checkout
 /stacks/training-platform/training-platform-manager-v0.4-backup/
+
+# Generated operational backup and autosync artifacts
+*.bak
+*.bak-*
+*.backup
+*.backup-*
+*.pre-*
+*.autosync-*
+
+# Archived deployed portfolio trees
+/stacks/engineering-portfolio-backup-*/
+/stacks/engineering-portfolio-old-*/
+
+# Local deployment checkouts and runtime state
+/stacks/engineering-portfolio-git/
+/stacks/maintenance-page/html/change.json

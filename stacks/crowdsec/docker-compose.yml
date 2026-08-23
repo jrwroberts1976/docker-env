@@ -1,11 +1,11 @@
 services:
   crowdsec:
-    image: crowdsecurity/crowdsec:latest
+    image: crowdsecurity/crowdsec:v1.7.8
     container_name: crowdsec
     restart: unless-stopped
 
     ports:
-      - "8085:8080"
+      - "127.0.0.1:8085:8080"
       - "192.168.2.220:6060:6060"
     environment:
       COLLECTIONS: "crowdsecurity/linux crowdsecurity/nginx"

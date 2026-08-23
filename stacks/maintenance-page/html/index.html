@@ -1,79 +1,398 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>Engineering Learning Platform - Maintenance</title>
+  <title>Planned Maintenance | James Roberts</title>
 
-<style>
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f4f6f8;
-    color: #333;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
-}
+  <style>
+    :root {
+      --background: #07111f;
+      --surface: #0d1b2d;
+      --surface-soft: #10243a;
+      --border: rgba(255, 255, 255, 0.12);
+      --text: #f5f8fc;
+      --muted: #9caec4;
+      --accent: #5db8ff;
+      --amber: #f6c768;
+    }
 
-.container {
-    background: white;
-    max-width: 650px;
-    padding: 40px;
-    text-align: center;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-}
+    * {
+      box-sizing: border-box;
+    }
 
-h1 {
-    margin-bottom: 20px;
-}
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 2rem;
 
-.status {
-    color: #d97706;
-    font-size: 1.2em;
-    font-weight: bold;
-}
+      background:
+        radial-gradient(
+          circle at top left,
+          rgba(93, 184, 255, 0.14),
+          transparent 30rem
+        ),
+        var(--background);
 
-p {
-    line-height: 1.6;
-}
+      color: var(--text);
 
-.footer {
-    margin-top: 30px;
-    font-size: 0.9em;
-    color: #777;
-}
-</style>
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+    }
 
+    .page {
+      width: min(900px, 100%);
+    }
+
+    .eyebrow {
+      margin: 0 0 1rem;
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin: 0;
+
+      font-size: clamp(3rem, 8vw, 6rem);
+      line-height: 0.95;
+      letter-spacing: -0.055em;
+    }
+
+    h1 span {
+      color: var(--accent);
+    }
+
+    .intro {
+      max-width: 700px;
+      margin: 1.7rem 0 0;
+
+      color: var(--muted);
+      font-size: 1.15rem;
+      line-height: 1.7;
+    }
+
+    .change-card {
+      margin-top: 3rem;
+      overflow: hidden;
+
+      border: 1px solid var(--border);
+      border-radius: 18px;
+
+      background: var(--surface);
+    }
+
+    .change-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+
+      padding: 1.4rem 1.6rem;
+
+      border-bottom: 1px solid var(--border);
+      background: var(--surface-soft);
+    }
+
+    .change-header p {
+      margin: 0;
+    }
+
+    .change-header .eyebrow {
+      margin-bottom: 0.4rem;
+    }
+
+    .reference {
+      font-family:
+        ui-monospace,
+        SFMono-Regular,
+        Menlo,
+        Consolas,
+        monospace;
+
+      font-size: clamp(1.35rem, 4vw, 2.1rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+
+      color: var(--amber);
+
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+
+    .status::before {
+      width: 9px;
+      height: 9px;
+
+      border-radius: 50%;
+      background: currentColor;
+
+      content: "";
+
+      box-shadow: 0 0 14px currentColor;
+    }
+
+    .change-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .change-item {
+      padding: 1.5rem 1.6rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .change-item:nth-child(odd) {
+      border-right: 1px solid var(--border);
+    }
+
+    .change-item:nth-last-child(-n + 2) {
+      border-bottom: 0;
+    }
+
+    .label {
+      display: block;
+      margin-bottom: 0.45rem;
+
+      color: var(--muted);
+
+      font-size: 0.75rem;
+      font-weight: 750;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .value {
+      font-weight: 700;
+    }
+
+    .message {
+      margin-top: 1.5rem;
+      padding-left: 1rem;
+
+      border-left: 3px solid var(--accent);
+
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .footnote {
+      margin-top: 2.5rem;
+
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .footnote strong {
+      color: var(--text);
+    }
+
+    @media (max-width: 620px) {
+      body {
+        padding: 1.2rem;
+      }
+
+      .change-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .change-item,
+      .change-item:nth-child(odd),
+      .change-item:nth-last-child(-n + 2) {
+        border-right: 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .change-item:last-child {
+        border-bottom: 0;
+      }
+
+      .change-header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <main class="page">
 
-<div class="container">
+    <p class="eyebrow">
+      Engineering Portfolio
+    </p>
 
-<h1>Engineering Learning Platform</h1>
+    <h1>
+      Planned maintenance
+      <span>in progress.</span>
+    </h1>
 
-<p class="status">
-Scheduled Maintenance
-</p>
+    <p class="intro">
+      The Engineering Portfolio is temporarily unavailable while a controlled
+      change is being implemented and validated. Service will be restored once
+      post-change checks have completed successfully.
+    </p>
 
-<p>
-The platform is temporarily unavailable while updates,
-improvements, and maintenance activities are being completed.
-</p>
+    <section
+      class="change-card"
+      aria-label="Change control details"
+    >
 
-<p>
-Please check back shortly.
-</p>
+      <div class="change-header">
 
-<div class="footer">
-Cloud Infrastructure | Linux | DevOps | Kubernetes | Automation
-</div>
+        <div>
+          <p class="eyebrow">
+            Change Control
+          </p>
 
-</div>
+          <p
+            class="reference"
+            id="change-reference"
+          >
+            Loading…
+          </p>
+        </div>
+
+        <div
+          class="status"
+          id="change-status"
+        >
+          IMPLEMENTING
+        </div>
+
+      </div>
+
+      <div class="change-grid">
+
+        <div class="change-item">
+          <span class="label">
+            Change Type
+          </span>
+
+          <span
+            class="value"
+            id="change-type"
+          >
+            Planned Maintenance
+          </span>
+        </div>
+
+        <div class="change-item">
+          <span class="label">
+            Service
+          </span>
+
+          <span
+            class="value"
+            id="change-service"
+          >
+            Engineering Portfolio
+          </span>
+        </div>
+
+        <div class="change-item">
+          <span class="label">
+            Started
+          </span>
+
+          <span
+            class="value"
+            id="change-started"
+          >
+            —
+          </span>
+        </div>
+
+        <div class="change-item">
+          <span class="label">
+            Current Phase
+          </span>
+
+          <span class="value">
+            Implementation &amp; Validation
+          </span>
+        </div>
+
+      </div>
+
+    </section>
+
+    <p class="message">
+      Changes are being applied under a simulated ITIL-style change-control
+      process. Availability, health and expected functionality will be checked
+      before normal service is restored.
+    </p>
+
+    <p class="footnote">
+      <strong>
+        Good change management should manage risk — not become the work.
+      </strong>
+    </p>
+
+  </main>
+
+  <script>
+    fetch("/change.json", {
+      cache: "no-store"
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("No change record");
+        }
+
+        return response.json();
+      })
+      .then((change) => {
+        document.getElementById(
+          "change-reference"
+        ).textContent =
+          change.reference || "CHG-PENDING";
+
+        document.getElementById(
+          "change-status"
+        ).textContent =
+          change.status || "IMPLEMENTING";
+
+        document.getElementById(
+          "change-type"
+        ).textContent =
+          change.type || "Planned Maintenance";
+
+        document.getElementById(
+          "change-service"
+        ).textContent =
+          change.service || "Engineering Portfolio";
+
+        document.getElementById(
+          "change-started"
+        ).textContent =
+          change.started || "—";
+      })
+      .catch(() => {
+        document.getElementById(
+          "change-reference"
+        ).textContent = "CHG-PENDING";
+      });
+  </script>
 
 </body>
 </html>

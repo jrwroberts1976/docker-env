@@ -20,11 +20,17 @@ def run_ssh(command: str) -> str:
             "-o",
             "BatchMode=yes",
             "-o",
+            "IdentitiesOnly=yes",
+            "-o",
             "ConnectTimeout=5",
             "-o",
             "StrictHostKeyChecking=no",
             "-o",
             "UserKnownHostsFile=/dev/null",
+            "-o",
+            "LogLevel=ERROR",
+            "-o",
+            "WarnWeakCrypto=no",
             f"{ROUTER_USER}@{ROUTER_HOST}",
             command,
         ],
@@ -199,7 +205,7 @@ def collect_metrics() -> str:
                     f"{load_fields[2]}"
                 ),
 
-                "# HELP asus_router_memory_total_bytes Total memory.",
+                "# HELP asus_router_memory_total_bytes ASUS router total memory in bytes",
                 "# TYPE asus_router_memory_total_bytes gauge",
                 f"asus_router_memory_total_bytes {memory_total}",
 

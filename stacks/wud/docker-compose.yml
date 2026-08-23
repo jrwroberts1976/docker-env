@@ -1,0 +1,18 @@
+services:
+  wud:
+    image: getwud/wud:8
+    container_name: wud
+    restart: unless-stopped
+
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+    ports:
+      - "192.168.2.220:3002:3000"
+
+    environment:
+      - WUD_WATCHER_LOCAL_CRON=0 0 */6 * * *
+      - WUD_WATCHER_LOCAL_WATCHBYDEFAULT=false
+      - WUD_TRIGGER_DOCKER_LOCAL_AUTO=false
+      - WUD_TRIGGER_DOCKER_LOCAL_PRUNE=true
+      - NODE_ENV=production
