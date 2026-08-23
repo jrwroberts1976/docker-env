@@ -1,7 +1,7 @@
 services:
 
   homepage:
-    image: ghcr.io/gethomepage/homepage:latest
+    image: ghcr.io/gethomepage/homepage:v2.0.0
     container_name: homepage
 #    ports:
 #      - "3000:3000"
@@ -18,11 +18,12 @@ services:
     networks:
       - apps
     labels:
-      - "com.centurylinklabs.watchtower.enable=true"
+      - "wud.watch=true"
+      - "wud.watch.digest=true"
 
 
   dashy:
-    image: lissy93/dashy:latest
+    image: lissy93/dashy:4.5.13
     container_name: dashy
 #    ports:
 #      - "4000:8080"
@@ -32,7 +33,8 @@ services:
     networks:
       - apps
     labels:
-      - "com.centurylinklabs.watchtower.enable=true"
+      - "wud.watch=true"
+      - "wud.watch.digest=true"
 
 
 networks:

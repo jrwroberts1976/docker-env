@@ -1,11 +1,16 @@
 services:
   cloudflare-ddns:
-    image: oznu/cloudflare-ddns:latest
+    image: favonia/cloudflare-ddns:1.17.0
     container_name: cloudflare-ddns
     restart: unless-stopped
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
 
     environment:
-      API_KEY: ${CLOUDFLARE_API_TOKEN}
-      ZONE: jrwroberts.co.uk
-      SUBDOMAIN: me
+      CLOUDFLARE_API_TOKEN: ${CLOUDFLARE_API_TOKEN}
+      DOMAINS: jrwroberts.co.uk
       PROXIED: "true"
+      IP6_PROVIDER: none

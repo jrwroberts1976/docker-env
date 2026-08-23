@@ -1,6 +1,6 @@
 services:
   birdnet-go:
-    image: ghcr.io/tphakala/birdnet-go:latest
+    image: ghcr.io/tphakala/birdnet-go:20260716
     container_name: birdnet-go
     restart: unless-stopped
 
@@ -12,8 +12,6 @@ services:
 
     mem_limit: 1g
 
-    ports:
-      - "8082:8080"
 
     devices:
       - /dev/snd:/dev/snd
@@ -35,7 +33,9 @@ services:
       - apps
 
     labels:
-      - "com.centurylinklabs.watchtower.enable=true"
+      - "wud.watch=true"
+      - "wud.watch.digest=true"
+      - "wud.tag.include=^[0-9]{8}$"
 networks:
   apps:
     external: true

@@ -18,12 +18,10 @@ services:
       - UPTIME_KUMA_SMTP_FROM=jrwroberts1976@gmail.com
     networks:
       - apps
-    labels:
-      - "com.centurylinklabs.watchtower.enable=true"
 
 
   autokuma:
-    image: ghcr.io/bigboot/autokuma:latest
+    image: ghcr.io/bigboot/autokuma@sha256:8acbd3ad3ec8cb6c066aa0ee541154921283ec78159015937128541921c47974
     container_name: autokuma
     depends_on:
       uptime-kuma:
@@ -39,8 +37,6 @@ services:
     command: sh -c "sleep 30 && autokuma"
     networks:
       - apps
-    labels:
-      - "com.centurylinklabs.watchtower.enable=true"
 
 
   smokeping:
@@ -58,11 +54,12 @@ services:
     networks:
       - apps
     labels:
-      - "com.centurylinklabs.watchtower.enable=true"
+      - "wud.watch=true"
+      - "wud.watch.digest=true"
 
 
   librespeed:
-    image: ghcr.io/librespeed/speedtest:latest
+    image: ghcr.io/librespeed/speedtest:6.2.1
     container_name: librespeed
 #    ports:
 #      - "8085:8080"
@@ -76,7 +73,8 @@ services:
     networks:
       - apps
     labels:
-      - "com.centurylinklabs.watchtower.enable=true"
+      - "wud.watch=true"
+      - "wud.watch.digest=true"
 
 
 networks:

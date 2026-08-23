@@ -1,0 +1,33 @@
+services:
+  alloy:
+    image: grafana/alloy:v1.18.0
+    container_name: alloy
+    restart: unless-stopped
+
+    command:
+      - run
+      - /etc/alloy/config.alloy
+      - --storage.path=/var/lib/alloy/data
+      - --server.http.listen-addr=0.0.0.0:12345
+
+    # Allow Alloy to read root:systemd-journal journal files.
+    group_add:
+      - "999"
+
+    volumes:
+      - /home/james/docker/data/monitoring/alloy/config.alloy:/etc/alloy/config.alloy:ro
+      - /home/james/docker/data/monitoring/alloy/data:/var/lib/alloy/data
+      - /var/log:/var/log:ro
+      - /run/log/journal:/run/log/journal:ro
+      - /etc/machine-id:/etc/machine-id:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /var/lib/docker/containers:/var/lib/docker/containers:ro
+      - /var/lib/suricata:/var/lib/suricata:ro
+      - /home/james/docker/data/proxy-auth/npm/data/logs:/npm-logs:ro
+
+    ports:
+      - "192.168.2.220:12345:12345"
+
+    labels:
+      - "wud.watch=true"
+      - "wud.watch.digest=true"

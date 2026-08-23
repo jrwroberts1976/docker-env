@@ -1,0 +1,22 @@
+
+# Runtime-managed course repositories
+/docs/courses/docker/
+/docs/courses/terraform/
+/docs/courses/networking/
+
+# Local training manager checkouts and backups
+/training-platform-manager/
+/training-platform-manager.backup/
+/training-platform-manager-v0.2-backup/
+/training-platform-manager-v0.4-backup/
+
+# Runtime-managed course repositories
+/docs/courses/docker/
+/docs/courses/terraform/
+/docs/courses/networking/
+
+# Local training manager checkouts and backups
+/training-platform-manager/
+/training-platform-manager.backup/
+/training-platform-manager-v0.2-backup/
+/training-platform-manager-v0.4-backup/

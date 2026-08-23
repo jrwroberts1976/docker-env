@@ -1,26 +1,24 @@
 services:
 
   portainer:
-    image: portainer/portainer-ce:latest
+    image: portainer/portainer-ce:2.44.0
     container_name: portainer
     ports:
-      - "9000:9000"
+      - "192.168.2.220:9000:9000"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /home/james/homelab/portainer/data:/data
     restart: unless-stopped
     networks:
       - apps
-    labels:
-      - "com.centurylinklabs.watchtower.enable=true"
 
 
   portainer_agent:
-    image: portainer/agent:latest
+    image: portainer/agent:2.44.0
     container_name: portainer_agent
     restart: unless-stopped
     ports:
-      - "9001:9001"
+      - "192.168.2.220:9001:9001"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /var/lib/docker/volumes:/var/lib/docker/volumes
@@ -28,12 +26,10 @@ services:
       - CAP_HOST_MANAGEMENT=1
     networks:
       - apps
-    labels:
-      - "com.centurylinklabs.watchtower.enable=true"
 
 
   dozzle:
-    image: amir20/dozzle:latest
+    image: amir20/dozzle:v10.7.2
     container_name: dozzle
 #    ports:
 #      - "8080:8080"
@@ -43,11 +39,12 @@ services:
     networks:
       - apps
     labels:
-      - "com.centurylinklabs.watchtower.enable=true"
+      - "wud.watch=true"
+      - "wud.watch.digest=true"
 
 
   filebrowser:
-    image: filebrowser/filebrowser:latest
+    image: filebrowser/filebrowser:v2.63.23
     container_name: filebrowser
 #    ports:
 #      - "8081:80"
@@ -59,30 +56,9 @@ services:
     networks:
       - apps
     labels:
-      - "com.centurylinklabs.watchtower.enable=true"
+      - "wud.watch=true"
+      - "wud.watch.digest=true"
 
-  watchtower:
-    image: containrrr/watchtower:latest
-    container_name: watchtower
-    restart: unless-stopped
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-    command: >
-      --cleanup
-      --label-enable
-      --schedule "0 0 6 * * *"
-    environment:
-      - WATCHTOWER_NOTIFICATIONS=email
-      - WATCHTOWER_NOTIFICATION_EMAIL_FROM=jrwroberts1976@gmail.com
-      - WATCHTOWER_NOTIFICATION_EMAIL_TO=jrwroberts1976@gmail.com
-      - WATCHTOWER_NOTIFICATION_EMAIL_SERVER=smtp.gmail.com
-      - WATCHTOWER_NOTIFICATION_EMAIL_SERVER_PORT=587
-      - WATCHTOWER_NOTIFICATION_EMAIL_SERVER_USER=jrwroberts1976@gmail.com
-      - WATCHTOWER_NOTIFICATION_EMAIL_SERVER_PASSWORD=adzn pklz mqqu abfj
-    networks:
-      - apps
-    labels:
-      - "com.centurylinklabs.watchtower.enable=true"
 
 
 networks:
