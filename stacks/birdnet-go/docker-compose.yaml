@@ -39,6 +39,10 @@ services:
   birdnet-exporter:
     build:
       context: ./birdnet-exporter
+      args:
+        BUILD_REVISION: ${BUILD_REVISION:-unknown}
+        BUILD_CREATED: ${BUILD_CREATED:-unknown}
+        BUILD_SOURCE: https://github.com/jrwroberts1976/docker-env
     container_name: birdnet-exporter
     restart: unless-stopped
 
