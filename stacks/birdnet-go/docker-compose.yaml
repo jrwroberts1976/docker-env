@@ -37,6 +37,7 @@ services:
       - "wud.watch.digest=true"
       - "wud.tag.include=^[0-9]{8}$"
   birdnet-exporter:
+    image: birdnet-go-birdnet-exporter:local
     build:
       context: ./birdnet-exporter
       args:
