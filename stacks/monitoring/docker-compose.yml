@@ -1,9 +1,14 @@
 services:
 
   crowdsec-exporter:
+    image: monitoring-crowdsec-exporter:local
     container_name: crowdsec-exporter
     build:
-      context: /home/james/docker/data/monitoring/crowdsec-exporter
+      context: ./crowdsec-exporter
+      args:
+        BUILD_REVISION: ${BUILD_REVISION:-unknown}
+        BUILD_CREATED: ${BUILD_CREATED:-unknown}
+        BUILD_SOURCE: ${BUILD_SOURCE:-https://github.com/jrwroberts1976/docker-env}
     restart: unless-stopped
 
     network_mode: host
