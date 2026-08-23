@@ -137,25 +137,6 @@ services:
       - "wud.watch=true"
       - "wud.watch.digest=true"
 
-  asus-exporter:
-    build:
-      context: /home/james/docker/stacks/monitoring/asus-exporter
-    container_name: asus-exporter
-    restart: unless-stopped
-
-    ports:
-      - "192.168.2.220:9106:9106"
-
-    volumes:
-      - /home/james/.ssh/asus_router:/root/.ssh/asus_router:ro
-
-    networks:
-      - apps
-
-    labels:
-      - "wud.watch=false"
-      - "wud.watch.digest=false"
-
 networks:
   apps:
     external: true
