@@ -6,6 +6,7 @@ REPOSITORY_ROOT="$(git rev-parse --show-toplevel)"
 STACK_DIR="${REPOSITORY_ROOT}/stacks/birdnet-go"
 COMPOSE_FILE="${STACK_DIR}/docker-compose.yaml"
 SOURCE_URL="https://github.com/jrwroberts1976/docker-env"
+IMAGE_REFERENCE="birdnet-go-birdnet-exporter:local"
 
 case "$MODE" in
     --validate-only|--build)
@@ -49,19 +50,30 @@ docker compose \
     build birdnet-exporter
 
 IMAGE_ID="$(
-    docker compose \
-        --file "$COMPOSE_FILE" \
-        --project-directory "$STACK_DIR" \
-        images --quiet birdnet-exporter
+    docker image inspect "$IMAGE_REFERENCE" \
+        --format '{{.Id}}' 2>/dev/null
 )"
 
 if [[ -z "$IMAGE_ID" ]]; then
-    echo "ERROR: built BirdNET exporter image ID was not resolved." >&2
+    echo "ERROR: candidate image was not resolved from $IMAGE_REFERENCE." >&2
+    exit 1
+fi
+
+IMAGE_REVISION="$(
+    docker image inspect "$IMAGE_ID" \
+        --format '{{index .Config.Labels "org.opencontainers.image.revision"}}'
+)"
+
+if [[ "$IMAGE_REVISION" != "$BUILD_REVISION" ]]; then
+    echo "ERROR: candidate revision does not match the requested build." >&2
+    printf 'Expected: %s\nActual:   %s\n' \
+        "$BUILD_REVISION" "$IMAGE_REVISION" >&2
     exit 1
 fi
 
 docker image inspect "$IMAGE_ID" |
-jq -r '.[0] | {
+jq -r --arg reference "$IMAGE_REFERENCE" '.[0] | {
+  reference: $reference,
   image_id: .Id,
   created: .Created,
   source: .Config.Labels["org.opencontainers.image.source"],
