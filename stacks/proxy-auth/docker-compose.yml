@@ -38,8 +38,10 @@ services:
       - PGID=1000
       - TZ=Europe/London
       - SUBDOMAINS=jrwroberts
-      - TOKEN=${DUCKDNS_TOKEN}
+      - FILE__TOKEN=/run/secrets/duckdns_token
       - UPDATE_IP=ipv4
+    secrets:
+      - duckdns_token
     networks:
       - apps
     labels:
@@ -51,3 +53,7 @@ networks:
   apps:
     external: true
     name: homelab_apps
+
+secrets:
+  duckdns_token:
+    file: /home/james/docker/secrets/duckdns-token
