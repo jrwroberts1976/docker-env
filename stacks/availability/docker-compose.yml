@@ -10,12 +10,6 @@ services:
     restart: unless-stopped
     environment:
       - TZ=Europe/London
-      - UPTIME_KUMA_SMTP_HOST=smtp.gmail.com
-      - UPTIME_KUMA_SMTP_PORT=587
-      - UPTIME_KUMA_SMTP_SECURE=false
-      - UPTIME_KUMA_SMTP_USER=jrwroberts1976@gmail.com
-      - UPTIME_KUMA_SMTP_PASS=${KUMA_SMTP_PASSWORD}
-      - UPTIME_KUMA_SMTP_FROM=jrwroberts1976@gmail.com
     networks:
       - apps
 
