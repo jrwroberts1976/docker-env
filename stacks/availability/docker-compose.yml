@@ -29,12 +29,19 @@ services:
     environment:
       AUTOKUMA__KUMA__URL: "http://uptime-kuma:3001"
       AUTOKUMA__KUMA__USERNAME: "${AUTOKUMA_KUMA_USERNAME}"
-      AUTOKUMA__KUMA__PASSWORD: "${AUTOKUMA_KUMA_PASSWORD}"
+    secrets:
+      - autokuma_kuma_password
     volumes:
       - /home/james/docker/data/availability/autokuma/config:/config
       - /var/run/docker.sock:/var/run/docker.sock:ro
     restart: unless-stopped
-    command: sh -c "sleep 30 && autokuma"
+    command:
+      - sh
+      - -c
+      - |
+        export AUTOKUMA__KUMA__PASSWORD="$$(cat /run/secrets/autokuma_kuma_password)"
+        sleep 30
+        exec autokuma
     networks:
       - apps
 
@@ -85,3 +92,7 @@ networks:
 
 volumes:
   smokeping-config:
+
+secrets:
+  autokuma_kuma_password:
+    file: /home/james/docker/secrets/autokuma-kuma-password
