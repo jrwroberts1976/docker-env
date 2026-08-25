@@ -101,7 +101,7 @@ Registry images use version tags or immutable digests where practical. Approved 
 
 ## Secrets and runtime data
 
-Secrets must not be committed. Local configuration is supplied through ignored files or host-managed secret paths, including:
+Plaintext secrets and private identities must not be committed. Selected SOPS-encrypted recovery sources are tracked under `secrets/testserver/`; live configuration continues to use ignored files or protected host-managed paths, including:
 
 ```text
 .env
@@ -121,6 +121,10 @@ git diff --cached --check
 ```
 
 Review staged filenames and content carefully. Never paste secret values into issues, pull requests, logs or inventory reports.
+
+The [TestServer encrypted source register](secrets/testserver/README.md) records variables, consumers, live delivery and plaintext retirement.
+
+Follow the canonical [SOPS and age secret recovery how-to](https://github.com/jrwroberts1976/home-lab-docs/blob/main/sop/sops-age-secret-recovery-how-to.md) for creation, validation, rotation, restoration and detached-media recovery.
 
 ## Submodules
 
