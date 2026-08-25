@@ -65,3 +65,11 @@ stacks/training-platform/training-platform-manager/
 # Local deployment checkouts and runtime state
 /stacks/engineering-portfolio-git/
 /stacks/maintenance-page/html/change.json
+
+# Permit only SOPS-encrypted TestServer recovery sources.
+!secrets/
+secrets/*
+!secrets/testserver/
+secrets/testserver/*
+!secrets/testserver/*.sops.env
+!secrets/testserver/README.md
