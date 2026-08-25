@@ -14,3 +14,17 @@ These are SOPS-encrypted recovery sources. Live services continue using protecte
 
 Never commit decrypted output or an age private identity.
 A detached offline recovery-identity copy remains outstanding.
+
+## Retired plaintext declarations
+
+| Variable | Former location | Closure |
+|---|---|---|
+| `CROWDSEC_BOUNCER_API_KEY` | `stacks/crowdsec/.env` | Unused by Compose and runtime; plaintext file removed |
+| `WATCHTOWER_SMTP_PASSWORD` | `stacks/management/.env` | Watchtower retired; plaintext file removed |
+| `GRAFANA_SMTP_PASSWORD` | `stacks/monitoring/.env` | TestServer Grafana retired; plaintext file removed |
+| `SMTP_USERNAME`, `SMTP_PASSWORD`, `TURNSTILE_SECRET_KEY` | `secrets/contact.env` | No runtime consumer; encrypted recovery source retained and plaintext file removed |
+| `DUCKDNS_TOKEN` | duplicate `secrets/duckdns_token` environment file | Matched the active Compose secret; duplicate removed |
+
+The active Cloudflare DDNS, DuckDNS and AutoKuma credentials remain file-backed Compose secrets. The Nginx Proxy Manager token remains in its protected host file because deployment and maintenance scripts consume it directly.
+
+TestServer validation completed with both the host operational identity and the protected recovery identity. Five unused or duplicate plaintext files were removed without recreating or restarting any container.
