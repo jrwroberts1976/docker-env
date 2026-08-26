@@ -15,6 +15,8 @@ These are SOPS-encrypted recovery sources. Live services continue using protecte
 Never commit decrypted output or an age private identity.
 A passphrase-encrypted detached recovery-identity copy is validated. An independent TestServer rehearsal recovered all five encrypted sources using only that offline identity, after which all temporary material was removed and the USB was physically detached.
 
+On 26 August 2026, the rotated long-lived Nginx Proxy Manager token recovery source was synchronised with the protected live `npm.env`. Exact recovery passed independently with the TestServer operational identity and the protected DietPi recovery identity; no runtime service was changed.
+
 ## Retired plaintext declarations
 
 | Variable | Former location | Closure |
