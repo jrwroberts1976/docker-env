@@ -23,7 +23,7 @@ services:
 
 
   dashy:
-    image: lissy93/dashy:4.5.13
+    image: "${DASHY_IMAGE:-lissy93/dashy:4.5.13}"
     container_name: dashy
 #    ports:
 #      - "4000:8080"
