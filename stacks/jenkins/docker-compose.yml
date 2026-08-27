@@ -1,0 +1,55 @@
+services:
+
+  docker:
+    image: docker:dind
+    container_name: jenkins-docker
+    privileged: true
+    restart: unless-stopped
+    command:
+      - --insecure-registry=192.168.2.220:5000
+    environment:
+      - DOCKER_TLS_CERTDIR=/certs
+    volumes:
+      - /home/james/docker/data/jenkins-docker:/var/lib/docker
+      - /home/james/docker/data/jenkins-docker-certs:/certs/client
+    networks:
+      apps:
+        aliases:
+          - docker
+
+  jenkins:
+    image: homelab-jenkins:lts-jdk21
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: jenkins
+    restart: unless-stopped
+    ports:
+      - "8096:8080"
+    environment:
+      - DOCKER_HOST=tcp://docker:2376
+      - DOCKER_CERT_PATH=/certs/client
+      - DOCKER_TLS_VERIFY=1
+      - TZ=Europe/London
+    volumes:
+      - /home/james/docker/data/jenkins:/var/jenkins_home
+      - /home/james/docker/data/jenkins-docker-certs:/certs/client:ro
+    security_opt:
+      - no-new-privileges:true
+    networks:
+      apps:
+      jenkins_validation:
+        ipv4_address: 172.30.255.250
+
+networks:
+  apps:
+    external: true
+    name: homelab_apps
+
+  jenkins_validation:
+    name: jenkins_validation
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.30.255.248/29
+          gateway: 172.30.255.249
