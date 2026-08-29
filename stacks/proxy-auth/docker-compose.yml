@@ -16,7 +16,7 @@ services:
 
 
   authelia:
-    image: authelia/authelia:4.39.20
+    image: "${AUTHELIA_IMAGE:-authelia/authelia@sha256:1b363e9279e742397966333f364e0876ae02bf5c876de73e83af6d48c57ff51b}"
     container_name: authelia
     restart: unless-stopped
     ports:
