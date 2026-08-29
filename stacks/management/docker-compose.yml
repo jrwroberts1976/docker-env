@@ -44,7 +44,7 @@ services:
 
 
   filebrowser:
-    image: filebrowser/filebrowser:v2.63.23
+    image: ${FILEBROWSER_IMAGE:-filebrowser/filebrowser:v2.63.23}
     container_name: filebrowser
 #    ports:
 #      - "8081:80"
