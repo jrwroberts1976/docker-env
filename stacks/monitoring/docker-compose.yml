@@ -48,7 +48,7 @@ services:
 
 
   loki:
-    image: ${LOKI_IMAGE:-grafana/loki:2.9.6}
+    image: ${LOKI_IMAGE:-grafana/loki@sha256:6ca6e2cd3b6f45e0eb298da2920610fde63ecd8ab6c595d9c941c8559d1d9407}
     container_name: loki
     restart: unless-stopped
 
