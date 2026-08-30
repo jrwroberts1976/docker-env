@@ -25,7 +25,7 @@ services:
 
 
   prometheus:
-    image: ${PROMETHEUS_IMAGE:-prom/prometheus:v3.13.1}
+    image: ${PROMETHEUS_IMAGE:-prom/prometheus@sha256:508729e0e2d18e11fd742a5a5ca70e557b940a93948c3c95fd0123a6fd538b69}
     container_name: prometheus
     user: "1000:1000"
     restart: unless-stopped
