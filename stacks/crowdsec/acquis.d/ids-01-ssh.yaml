@@ -1,0 +1,5 @@
+source: loki
+url: http://loki:3100
+query: '{job="ssh",host="ids-01"}'
+labels:
+  type: sshd

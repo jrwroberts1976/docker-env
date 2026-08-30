@@ -12,6 +12,7 @@ services:
 
     volumes:
       - /home/james/docker/data/security/crowdsec/config:/etc/crowdsec
+      - ./acquis.d:/etc/crowdsec/acquis.d:ro
       - /home/james/docker/data/security/crowdsec/data:/var/lib/crowdsec/data
       - /home/james/docker/data/proxy-auth/npm/data/logs:/var/log/nginx:ro
       - /var/log/auth.log:/var/log/auth.log:ro

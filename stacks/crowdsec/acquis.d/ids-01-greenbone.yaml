@@ -1,0 +1,5 @@
+source: loki
+url: http://loki:3100
+query: '{job="docker",host="ids-01",filename=~".*/17d99965031f961e98bdf7c071826627fa6b72c252a4ddea111b4a6d03b2351f/17d99965031f961e98bdf7c071826627fa6b72c252a4ddea111b4a6d03b2351f-json.log"}'
+labels:
+  type: nginx
