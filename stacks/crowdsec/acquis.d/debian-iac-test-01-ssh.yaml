@@ -1,5 +1,5 @@
 source: loki
-url: http://loki:3100
+url: http://192.168.2.242:3100
 query: '{host="debian-iac-test-01",job="systemd-journal"}'
 labels:
   type: sshd
