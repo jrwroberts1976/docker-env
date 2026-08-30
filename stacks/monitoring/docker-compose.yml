@@ -25,7 +25,7 @@ services:
 
 
   prometheus:
-    image: ${PROMETHEUS_IMAGE:-prom/prometheus:v3.13.1}
+    image: ${PROMETHEUS_IMAGE:-prom/prometheus@sha256:508729e0e2d18e11fd742a5a5ca70e557b940a93948c3c95fd0123a6fd538b69}
     container_name: prometheus
     user: "1000:1000"
     restart: unless-stopped
@@ -48,7 +48,7 @@ services:
 
 
   loki:
-    image: ${LOKI_IMAGE:-grafana/loki:2.9.6}
+    image: ${LOKI_IMAGE:-grafana/loki@sha256:6ca6e2cd3b6f45e0eb298da2920610fde63ecd8ab6c595d9c941c8559d1d9407}
     container_name: loki
     restart: unless-stopped
 
