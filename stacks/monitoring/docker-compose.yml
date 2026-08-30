@@ -40,7 +40,7 @@ services:
 
     volumes:
       - /home/james/docker/data/monitoring/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
-      - /home/james/docker/data/monitoring/prometheus/linux-hosts.yml:/etc/prometheus/linux-hosts.yml:ro
+      - ./prometheus/linux-hosts.yml:/etc/prometheus/linux-hosts.yml:ro
       - /home/james/docker/data/monitoring/prometheus/data:/prometheus
 
     networks:

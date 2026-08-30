@@ -1,0 +1,39 @@
+- targets:
+  - "node-exporter:9100"
+  labels:
+    env: homelab
+    host: main
+    role: monitoring-docker
+    os: debian
+
+- targets:
+  - "192.168.2.195:9100"
+  labels:
+    env: homelab
+    host: k3s-node-01
+    role: k3s-node
+    os: debian
+
+- targets:
+  - "192.168.2.48:9100"
+  labels:
+    env: homelab
+    host: dietpi
+    role: linux-host
+    os: dietpi
+
+- targets:
+  - "192.168.2.242:9100"
+  labels:
+    env: homelab
+    host: ids-01
+    role: ids
+    os: debian
+
+- targets:
+  - "192.168.2.120:9100"
+  labels:
+    env: homelab
+    host: debian-iac-test-01
+    role: proxmox-vm
+    os: debian
