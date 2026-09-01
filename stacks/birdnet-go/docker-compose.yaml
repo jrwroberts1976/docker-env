@@ -1,6 +1,6 @@
 services:
   birdnet-go:
-    image: ghcr.io/tphakala/birdnet-go:20260716
+    image: "${BIRDNET_GO_IMAGE:-ghcr.io/tphakala/birdnet-go:20260716}"
     container_name: birdnet-go
     restart: unless-stopped
 
