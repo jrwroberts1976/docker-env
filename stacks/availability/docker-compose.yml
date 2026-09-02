@@ -41,7 +41,7 @@ services:
 
 
   smokeping:
-    image: linuxserver/smokeping:latest
+    image: ${SMOKEPING_IMAGE:-linuxserver/smokeping:latest}
     container_name: smokeping
     environment:
       - PUID=1000
