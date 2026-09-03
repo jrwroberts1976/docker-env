@@ -29,7 +29,7 @@ services:
 
 
   dozzle:
-    image: ${DOZZLE_IMAGE:-amir20/dozzle@sha256:243666b0593ff33ed1373901575236f0d6bed8a2d6b451cdae4345969a7b6d5c}
+    image: ${DOZZLE_IMAGE:-amir20/dozzle@sha256:7f01a2504f89788b60ad0efddd94472fd66f9a225c708356cdb815d9d8abd184}
     container_name: dozzle
 #    ports:
 #      - "8080:8080"
