@@ -66,10 +66,14 @@ stacks/training-platform/training-platform-manager/
 /stacks/engineering-portfolio-git/
 /stacks/maintenance-page/html/change.json
 
-# Permit only SOPS-encrypted TestServer recovery sources.
+# Permit only SOPS-encrypted host recovery/authority sources.
 !secrets/
 secrets/*
 !secrets/testserver/
 secrets/testserver/*
 !secrets/testserver/*.sops.env
 !secrets/testserver/README.md
+!secrets/ids-01/
+secrets/ids-01/*
+!secrets/ids-01/*.sops.env
+!secrets/ids-01/README.md

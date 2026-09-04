@@ -2,3 +2,7 @@ creation_rules:
   - path_regex: ^secrets/testserver/.*\.sops\.env$
     age: >-
       age18zplyf89v5m7k52nemmphtfyype9am0gsg2xukzwll4ym2pf23nqs59wau,age12yrcf9ekgjke2ka8glpn8erq6w6l26dccz7uyahf4lpady74yu2q6dpqzy
+
+  - path_regex: ^secrets/ids-01/.*\.sops\.env$
+    age: >-
+      age18zplyf89v5m7k52nemmphtfyype9am0gsg2xukzwll4ym2pf23nqs59wau,age12yrcf9ekgjke2ka8glpn8erq6w6l26dccz7uyahf4lpady74yu2q6dpqzy,age1mjgmkrk4yfq9lj3spn7sgg9nk3gre29u97vvgdjpxv6xst35wqkqvtdrfd

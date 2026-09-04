@@ -13,6 +13,7 @@ services:
       - "--config.file=/etc/prometheus/prometheus.yml"
       - "--storage.tsdb.path=/prometheus"
       - "--web.enable-lifecycle"
+      - "--web.enable-remote-write-receiver"
     labels:
       - "wud.watch=true"
       - "wud.watch.digest=true"
@@ -53,6 +54,7 @@ services:
       - GF_SERVER_ROOT_URL=https://grafana.jrwroberts.co.uk/
       - GF_UNIFIED_ALERTING_ENABLED=true
       - GF_SERVER_ROUTER_LOGGING=true
+      - GF_PLUGINS_PREINSTALL=alexanderzobnin-zabbix-app@6.6.0
       - GF_SMTP_ENABLED=true
       - GF_SMTP_HOST=smtp.gmail.com:587
       - GF_SMTP_USER=jrwroberts1976@gmail.com
@@ -61,6 +63,9 @@ services:
       - GF_SMTP_SKIP_VERIFY=false
     secrets:
       - grafana_smtp_password
+      - zabbix_grafana_api_token
+    entrypoint:
+      - /usr/local/bin/run-grafana-with-zabbix-secret
     ports:
       - "3001:3000"
     volumes:
@@ -68,6 +73,7 @@ services:
       - /home/james/docker/data/monitoring/grafana/dashboards:/etc/grafana/dashboards
       - /home/james/docker/data/monitoring/grafana/provisioning:/etc/grafana/provisioning
       - ./grafana/email-templates/ng_alert_notification.html:/usr/share/grafana/public/emails/ng_alert_notification.html:ro
+      - ./grafana/run-with-zabbix-secret.sh:/usr/local/bin/run-grafana-with-zabbix-secret:ro
     labels:
       - "wud.watch=true"
       - "wud.watch.digest=true"
@@ -77,7 +83,7 @@ services:
       - monitoring
 
   loki:
-    image: ${LOKI_IMAGE:-grafana/loki@sha256:d70e4659623f3e109af669cae76fe2a5dd5be54e2298fe8aed380d982fbc2500}
+    image: ${LOKI_IMAGE:-grafana/loki:3.7.6}
     container_name: loki
     restart: unless-stopped
 
@@ -149,6 +155,8 @@ services:
 secrets:
   grafana_smtp_password:
     file: /home/james/docker/secrets/grafana-smtp-password
+  zabbix_grafana_api_token:
+    file: /home/james/docker/secrets/zabbix-grafana-api-token
 
 networks:
   monitoring:
