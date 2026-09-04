@@ -74,7 +74,23 @@ canonical_filter='{
   ruleGroup,
   title,
   condition,
-  data,
+  data: [
+    .data[] | {
+      refId,
+      relativeTimeRange,
+      datasourceUid,
+      model: {
+        editorMode: .model.editorMode,
+        expr: .model.expr,
+        format: .model.format,
+        instant: .model.instant,
+        intervalMs: .model.intervalMs,
+        maxDataPoints: .model.maxDataPoints,
+        range: .model.range,
+        refId: .model.refId
+      }
+    }
+  ],
   noDataState,
   execErrState,
   for,
