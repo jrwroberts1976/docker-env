@@ -1,0 +1,106 @@
+{
+  "uid": "cfvnc96tiqha8f",
+  "orgID": 1,
+  "folderUID": "homelab-alerts",
+  "ruleGroup": "Hardware Health",
+  "title": "Hardware fault detected",
+  "condition": "C",
+  "data": [
+    {
+      "refId": "A",
+      "queryType": "range",
+      "relativeTimeRange": {
+        "from": 300,
+        "to": 0
+      },
+      "datasourceUid": "P8E80F9AEF21F6940",
+      "model": {
+        "datasource": {
+          "type": "loki",
+          "uid": "P8E80F9AEF21F6940"
+        },
+        "editorMode": "code",
+        "expr": "sum by (host) (\n  count_over_time(\n    {\n      job=~\"systemd-journal|syslog\",\n      transport=~\"kernel|\",\n      service!=\"syslog\"\n    }\n    |~ \"(?i)(buffer I/O error|blk_update_request|critical medium error|uncorrectable|bad sector|SMART.*fail|pending sector|reallocated sector|nvme.*(critical|reset|timeout|abort)|EXT4-fs error|XFS.*error|BTRFS.*error|remounting filesystem read-only|mmc.*(error|timeout)|sdhci.*(error|timeout)|under-voltage|machine check|mce:|hardware error|EDAC|memory failure|PCIe Bus Error|thermal.*critical|watchdog.*lockup|kernel panic)\"\n    !~ \"(?i)(PCIe Bus Error.*severity=Correctable|AER: Correctable error received)\"\n    [5m]\n  )\n)",
+        "instant": false,
+        "intervalMs": 1000,
+        "maxDataPoints": 43200,
+        "queryType": "range",
+        "refId": "A"
+      }
+    },
+    {
+      "refId": "B",
+      "queryType": "",
+      "relativeTimeRange": {
+        "from": 0,
+        "to": 0
+      },
+      "datasourceUid": "__expr__",
+      "model": {
+        "conditions": [],
+        "datasource": {
+          "type": "__expr__",
+          "uid": "__expr__"
+        },
+        "expression": "A",
+        "intervalMs": 1000,
+        "maxDataPoints": 43200,
+        "reducer": "last",
+        "refId": "B",
+        "type": "reduce"
+      }
+    },
+    {
+      "refId": "C",
+      "queryType": "",
+      "relativeTimeRange": {
+        "from": 0,
+        "to": 0
+      },
+      "datasourceUid": "__expr__",
+      "model": {
+        "conditions": [
+          {
+            "evaluator": {
+              "params": [0],
+              "type": "gt"
+            },
+            "operator": {
+              "type": "and"
+            },
+            "query": {
+              "params": ["C"]
+            },
+            "reducer": {
+              "params": [],
+              "type": "last"
+            },
+            "type": "query"
+          }
+        ],
+        "datasource": {
+          "type": "__expr__",
+          "uid": "__expr__"
+        },
+        "expression": "B",
+        "intervalMs": 1000,
+        "maxDataPoints": 43200,
+        "refId": "C",
+        "type": "threshold"
+      }
+    }
+  ],
+  "noDataState": "OK",
+  "execErrState": "Error",
+  "for": "1m",
+  "annotations": {
+    "description": "Loki detected {{ $values.B.Value }} critical hardware-related kernel or SMART events on {{ $labels.host }} during the last five minutes. Correctable PCIe AER events are excluded and handled by the warning rule. Review the Homelab Hardware Health dashboard and the host journal.",
+    "summary": "Critical hardware fault detected on {{ $labels.host }}"
+  },
+  "labels": {
+    "category": "hardware",
+    "service": "infrastructure",
+    "severity": "critical"
+  },
+  "isPaused": false
+}
