@@ -1,6 +1,6 @@
 # Docker Environment
 
-Version-controlled Docker Compose configuration for the services running on my TestServer homelab host.
+Version-controlled Docker Compose configuration for the managed homelab Docker estate. TestServer remains the primary deployment root; host-specific authority is also tracked for `ids-01` where required.
 
 This repository is the authoritative configuration baseline for the managed Docker estate. It records Compose definitions, tracked local-build sources, operational helpers and selected training-content submodules. Runtime data and secrets are deliberately kept outside Git.
 
@@ -9,9 +9,11 @@ This repository is the authoritative configuration baseline for the managed Dock
 ```text
 .
 ├── scripts/        Operational, validation and controlled-build helpers
-├── stacks/         Docker Compose stacks and tracked build contexts
+├── stacks/         TestServer Docker Compose stacks and tracked build contexts
+├── hosts/          Host-specific authority such as ids-01 monitoring
+├── secrets/        SOPS-encrypted recovery/authority sources only
 ├── .gitmodules     Training-content submodule definitions
-└── .gitignore      Runtime-data, secret, backup and generated-file exclusions
+└── .gitignore      Runtime-data, plaintext secret, backup and generated-file exclusions
 ```
 
 ### Managed stacks
@@ -32,6 +34,8 @@ This repository is the authoritative configuration baseline for the managed Dock
 | `wud` | Container update visibility with What's Up Docker |
 
 Some application repositories, such as the Engineering Portfolio and Projects documentation site, have their own source repositories and Compose ownership. They are intentionally not duplicated here.
+
+Host-specific stacks are kept under `hosts/<hostname>/`. In particular, `hosts/ids-01/stacks/monitoring/` is the Git authority for the live Grafana/Prometheus/Loki monitoring stack on `ids-01`; it must not be confused with the TestServer `stacks/monitoring/` definition.
 
 ## Operating model
 
@@ -101,7 +105,7 @@ Registry images use version tags or immutable digests where practical. Approved 
 
 ## Secrets and runtime data
 
-Plaintext secrets and private identities must not be committed. Selected SOPS-encrypted recovery sources are tracked under `secrets/testserver/`; live configuration continues to use ignored files or protected host-managed paths, including:
+Plaintext secrets and private identities must not be committed. Selected SOPS-encrypted recovery/authority sources are tracked under `secrets/testserver/` and `secrets/ids-01/`; live configuration continues to use ignored files or protected host-managed paths, including:
 
 ```text
 .env
@@ -122,7 +126,9 @@ git diff --cached --check
 
 Review staged filenames and content carefully. Never paste secret values into issues, pull requests, logs or inventory reports.
 
-The [TestServer encrypted source register](secrets/testserver/README.md) records variables, consumers, live delivery and plaintext retirement.
+The [TestServer encrypted source register](secrets/testserver/README.md) and [ids-01 encrypted source register](secrets/ids-01/README.md) record variables, consumers, live delivery and plaintext retirement.
+
+The validated Grafana ↔ Zabbix integration uses `secrets/ids-01/grafana-zabbix.sops.env` as encrypted token authority. The host-specific operating notes are in [`hosts/ids-01/stacks/monitoring/README.md`](hosts/ids-01/stacks/monitoring/README.md).
 
 Follow the canonical [SOPS and age secret recovery how-to](https://github.com/jrwroberts1976/home-lab-docs/blob/main/sop/sops-age-secret-recovery-how-to.md) for creation, validation, rotation, restoration and detached-media recovery.
 
