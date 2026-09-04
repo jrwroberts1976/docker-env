@@ -20,7 +20,7 @@ This allows controlled deployment from the automation/control side while also al
 
 The `ids-01` private age identity is host-local and must never be committed. The public recipient is declared in `.sops.yaml`.
 
-## Planned monitoring secrets
+## Monitoring secret register
 
 ```text
 grafana-zabbix.sops.env
@@ -35,9 +35,9 @@ Only encrypted SOPS files belong in Git.
 
 Runtime consumers should receive protected materialised files or Docker Compose secrets. Do not expose decrypted values in shell output, logs, command-line arguments, Git history or documentation.
 
-## Initial use
+## Current validated use
 
-The first use of this authority is the Grafana ↔ Zabbix integration for Proxmox infrastructure monitoring.
+The first use of this authority is now complete: the Grafana ↔ Zabbix integration on `ids-01` is working with a dedicated read-only Zabbix API identity.
 
 The intended flow is:
 
@@ -50,3 +50,15 @@ Zabbix API-token lifecycle via IaC
 ```
 
 Secret creation/rotation must be idempotent and must not regenerate a working token on every run.
+
+Validated evidence:
+
+```text
+token_api=PASS
+proxmox_group_visibility=PASS
+plaintext_staging=PASS_ABSENT
+token_generated=NO
+grafana_to_zabbix=PASS
+```
+
+The runtime file used by the Grafana container is `/home/james/docker/secrets/zabbix-grafana-api-token`. Grafana runs as UID `472`; the validated working source-file state is UID `472`, mode `0400`. Do not place the decrypted value in this README, shell logs or Git.
