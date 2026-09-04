@@ -55,12 +55,20 @@ Tracked files include:
 grafana/provisioning/plugins/zabbix-app.yaml
 grafana/provisioning/datasources/zabbix.yaml
 grafana/alerting/linux-host-down.json
+grafana/alerting/hardware-fault-critical.json
+grafana/alerting/pcie-correctable-warning.json
 grafana/run-with-zabbix-secret.sh
 deploy-zabbix-grafana.sh
 deploy-grafana-alerts.sh
 ```
 
-The `Linux Host Down` alert remains API-managed inside Grafana because the existing `Infrastructure` rule group contains other API-managed rules. Git is the source of truth for the canonical payload, and `deploy-grafana-alerts.sh` enforces that payload through Grafana's provisioning API while preserving `provenance=api`.
+Tracked Grafana alerts remain API-managed inside Grafana because their existing rule groups contain API-managed resources. Git is the source of truth for the canonical payloads, and `deploy-grafana-alerts.sh` enforces every tracked JSON rule through Grafana's provisioning API while preserving `provenance=api`.
+
+Current tracked alerts:
+
+- `Linux Host Down` — sustained five-minute Prometheus scrape failure only.
+- `Hardware fault detected` — critical hardware/kernel/SMART conditions; explicitly excludes correctable PCIe AER events.
+- `Correctable PCIe error detected` — warning severity for correctable PCIe/AER events such as `RxErr`.
 
 Existing live Prometheus/Loki datasource provisioning remains under the runtime Grafana provisioning tree and must not be overwritten casually.
 
@@ -141,13 +149,14 @@ GRAFANA_TOKEN=<Grafana API token with alert-rule provisioning rights>
 The alert helper:
 
 - validates it is running on `ids-01`;
-- validates the tracked rule UID, expression, folder and group;
-- fetches and backs up the existing API-managed rule;
-- checks Git/live functional parity;
-- applies the Git payload only when drift is detected;
+- discovers all tracked JSON alert payloads under `grafana/alerting/`;
+- validates approved UIDs, expressions, folders, groups and severity classifications;
+- fetches and backs up existing API-managed rules;
+- recreates a tracked rule if it is missing;
+- checks Git/live functional parity across datasource queries and Grafana reduce/threshold expressions;
+- applies a Git payload only when drift is detected;
 - preserves Grafana `provenance=api`;
-- verifies parity after apply;
-- reports the current number of firing targets.
+- verifies parity after every create/update/no-op run.
 
 Grafana recreation is deliberately separate:
 
